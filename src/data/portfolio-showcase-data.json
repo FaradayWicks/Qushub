@@ -1,0 +1,88 @@
+[
+    {
+      "id": 1,
+      "image": "assets/img/innerpage/ph-sw-01.png",
+      "category": "Food",
+      "slideTitle": "Chef Cooking Vegetarian",
+      "categorySlug": "food"
+    },
+    {
+      "id": 2,
+      "image": "assets/img/innerpage/ph-sw-02.png",
+      "category": "Interior",
+      "categorySlug": "interior",
+      "slideTitle": "Spicy Beef"
+    },
+    {
+      "id": 3,
+      "image": "assets/img/innerpage/ph-sw-03.png",
+      "category": "Traditions",
+      "categorySlug": "traditions",
+      "slideTitle": "Delicious Food"
+    },
+    {
+      "id": 4,
+      "image": "assets/img/innerpage/ph-sw-04.png",
+      "category": "Privateevent",
+      "categorySlug": "privateevent",
+      "slideTitle": "Restho Interior Part"
+    },
+    {
+      "id": 5,
+      "image": "assets/img/innerpage/ph-sw-05.png",
+      "category": "Eatingplace",
+      "categorySlug": "eatingplace",
+      "slideTitle": "Chef Cooking Vegetarian"
+    },
+    {
+      "id": 6,
+      "image": "assets/img/innerpage/ph-sw-06.png",
+      "category": "Interior",
+      "categorySlug": "interior",
+      "slideTitle": "Chef Cooking Vegetarian"
+    },
+  
+    {
+      "id": 7,
+      "image": "assets/img/innerpage/ph-sw-02.png",
+      "category": "Interior",
+      "categorySlug": "interior",
+      "slideTitle": "Restho Interior Part"
+    },
+    {
+      "id": 8,
+      "image": "assets/img/innerpage/ph-sw-05.png",
+      "category": "Food",
+      "slideTitle": "Chef Cooking Vegetarian",
+      "categorySlug": "food"
+    },
+    {
+      "id": 9,
+      "image": "assets/img/innerpage/ph-sw-02.png",
+      "category": "Food",
+      "slideTitle": "Restho Interior Part",
+      "categorySlug": "food"
+    },
+    {
+      "id": 10,
+      "image": "assets/img/innerpage/ph-sw-03.png",
+      "category": "Privateevent",
+      "categorySlug": "privateevent",
+      "slideTitle": "Chef Cooking Vegetarian"
+    },
+    {
+      "id": 11,
+      "image": "assets/img/innerpage/ph-sw-06.png",
+      "category": "Privateevent",
+      "categorySlug": "privateevent",
+      "slideTitle": "Chef Cooking Vegetarian"
+    },
+    {
+      "id": 12,
+      "image": "assets/img/innerpage/ph-sw-01.png",
+      "category": "Privateevent",
+      "categorySlug": "privateevent",
+      "slideTitle": "Restho Interior Part"
+    }
+  ]
+  

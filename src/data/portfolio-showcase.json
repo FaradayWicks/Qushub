@@ -1,0 +1,258 @@
+[
+  {
+    "id": 1,
+    "img": "/assets/img/innerpage/ph-sw-01.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-01.jpg",
+    "category": "Branding",
+    "tag": "UI/UX Design",
+    "title": "Digital Masterpieces",
+    "categorySlug": "branding",
+    "horizontal_title": "Corporate Brand Revitalization.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 2,
+    "img": "assets/img/innerpage/ph-sw-02.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-02.jpg",
+    "category": "UI/UX",
+    "tag": "UI/UX",
+    "title": "Digital Masterpieces",
+    "categorySlug": "uI/UX",
+    "horizontal_title": "Sculpting the Future.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 3,
+    "img": "/assets/img/innerpage/ph-sw-03.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-03.jpg",
+    "category": "Web",
+    "tag": "Web",
+    "title": "Digital Masterpieces",
+    "categorySlug": "web",
+    "horizontal_title": "Corporate Brand Revitalization.",
+    "horizontal_tag": [
+      "Logo",
+      "Palette",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 4,
+    "img": "/assets/img/innerpage/ph-sw-04.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-04.jpg",
+    "category": "Graphics",
+    "tag": "Graphics",
+    "title": "Digital Masterpieces",
+    "categorySlug": "graphics",
+    "horizontal_title": "Where Vision Meets Technology.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 5,
+    "img": "/assets/img/innerpage/ph-sw-05.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-05.jpg",
+    "category": "Branding",
+    "tag": "UI/UX Design",
+    "title": "Digital Masterpieces",
+    "categorySlug": "branding",
+    "horizontal_title": " NexGen Pioneering Digital Solutions.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 6,
+    "img": "assets/img/innerpage/ph-sw-07.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-07.jpg",
+    "category": "UI/UX",
+    "tag": "UI/UX",
+    "title": "Digital Masterpieces",
+    "categorySlug": "uI/UX",
+    "horizontal_title": "Sculpting the Future.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 7,
+    "img": "/assets/img/innerpage/ph-sw-08.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-08.jpg",
+    "category": "Web",
+    "tag": "Web",
+    "title": "Digital Masterpieces",
+    "categorySlug": "web",
+    "horizontal_title": "Corporate Brand Revitalization.igital Solutions.",
+    "horizontal_tag": [
+      "Logo",
+      "Palette",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 8,
+    "img": "/assets/img/innerpage/ph-sw-08.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-08.jpg",
+    "category": "Graphics",
+    "tag": "Graphics",
+    "title": "Digital Masterpieces",
+    "categorySlug": "graphics",
+    "horizontal_title": "Where Vision Meets Technology.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 9,
+    "img": "/assets/img/innerpage/ph-sw-08.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-08.jpg",
+    "category": "Branding",
+    "tag": "UI/UX Design",
+    "title": "Digital Masterpieces",
+    "categorySlug": "branding",
+    "horizontal_title": " NexGen Pioneering Digital Solutions.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 10,
+    "img": "assets/img/innerpage/ph-sw-07.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-07.jpg",
+    "category": "UI/UX",
+    "tag": "UI/UX",
+    "title": "Digital Masterpieces",
+    "categorySlug": "uI/UX",
+    "horizontal_title": "Sculpting the Future.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 11,
+    "img": "/assets/img/innerpage/ph-sw-03.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-03.jpg",
+    "category": "Web",
+    "tag": "Web",
+    "title": "Digital Masterpieces",
+    "categorySlug": "web",
+    "horizontal_title": "Corporate Brand Revitalization.igital Solutions.",
+    "horizontal_tag": [
+      "Logo",
+      "Palette",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 12,
+    "img": "/assets/img/innerpage/ph-sw-01.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-01.jpg",
+    "category": "Graphics",
+    "tag": "Graphics",
+    "title": "Digital Masterpieces",
+    "categorySlug": "graphics",
+    "horizontal_title": "Where Vision Meets Technology.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 13,
+    "img": "/assets/img/innerpage/ph-sw-05.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-05.jpg",
+    "category": "Branding",
+    "tag": "UI/UX Design",
+    "title": "Digital Masterpieces",
+    "categorySlug": "branding",
+    "horizontal_title": " NexGen Pioneering Digital Solutions.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 14,
+    "img": "assets/img/innerpage/ph-sw-07.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-07.jpg",
+    "category": "UI/UX",
+    "tag": "UI/UX",
+    "title": "Digital Masterpieces",
+    "categorySlug": "uI/UX",
+    "horizontal_title": "Sculpting the Future.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 15,
+    "img": "/assets/img/innerpage/ph-sw-03.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-03.jpg",
+    "category": "Web",
+    "tag": "Web",
+    "title": "Digital Masterpieces",
+    "categorySlug": "web",
+    "horizontal_title": "Corporate Brand Revitalization.igital Solutions.",
+    "horizontal_tag": [
+      "Logo",
+      "Palette",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  },
+  {
+    "id": 16,
+    "img": "/assets/img/innerpage/ph-sw-08.jpg",
+    "img_horizontal": "assets/img/innerpage/hz-sho-09.jpg",
+    "category": "Graphics",
+    "tag": "Graphics",
+    "title": "Digital Masterpieces",
+    "categorySlug": "graphics",
+    "horizontal_title": "Where Vision Meets Technology.",
+    "horizontal_tag": [
+      "Typography",
+      "Usability",
+      " Hierarchy"
+    ],
+    "horizontal_details": "Strategy that involves creating and sharing content on social a website's media platforms."
+  }
+]
