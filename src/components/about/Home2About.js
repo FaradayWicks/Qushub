@@ -24,9 +24,7 @@ const Home2About = () => {
                   </svg>
                   <div className="btn-and-paragraph">
                     <p>
-                      Digital agencies can vary in size and specialization. Some
-                      may focus on specific niches, such as healthcare or
-                      e-commerce, while others may offer a comprehensive.
+                      We architect and deliver advanced digital systems across AI, blockchain, and modern software platforms. From product strategy to deployment, we build secure, scalable solutions engineered for performance and reliability.
                     </p>
                   </div>
                 </div>
@@ -152,7 +150,7 @@ const Home2About = () => {
                       <path d="M10.0035 3.40804L1.41153 12L0 10.5885L8.59097 1.99651H1.01922V0H12V10.9808H10.0035V3.40804Z"></path>
                     </svg>
                   </span>
-                  <span className="content">About Axleo</span>
+                  <span className="content">About Quishub</span>
                   <span className="icon two">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -174,8 +172,7 @@ const Home2About = () => {
                       <img src="assets/img/home2/about-02.jpg" alt="" />
                     </div>
                     <p className="text-animation2">
-                      Some may focus on specific niches, such as healthcare or
-                      e-commerce, while others may offer a comprehensive.
+                      Every solution we deliver is designed for scalability, security, and real-world adoption.
                     </p>
                   </div>
                 </div>

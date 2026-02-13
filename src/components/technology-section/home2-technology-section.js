@@ -21,17 +21,23 @@ const Home2TechnologySection = () => {
           <div className="technology-tab-wrap">
             <ul className="nav nav-tabs" id="technologyTab" role="tablist">
               <li className="nav-item" role="presentation">
-                <button className="nav-link active" id="front-tab" data-bs-toggle="tab" data-bs-target="#front" type="button" role="tab" aria-controls="front" aria-selected="true">Front-end</button>
+                <button className="nav-link" id="ai-tab" data-bs-toggle="tab" data-bs-target="#ai" type="button" role="tab" aria-controls="ai" aria-selected="false">AI</button>
               </li>
               <li className="nav-item" role="presentation">
-                <button className="nav-link" id="back-tab" data-bs-toggle="tab" data-bs-target="#back" type="button" role="tab" aria-controls="back" aria-selected="false">Back-end</button>
+                <button className="nav-link" id="blockchain-tab" data-bs-toggle="tab" data-bs-target="#blockchain" type="button" role="tab" aria-controls="blockchain" aria-selected="false">Blockchain</button>
+              </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link active" id="web-tab" data-bs-toggle="tab" data-bs-target="#web" type="button" role="tab" aria-controls="web" aria-selected="true">Web</button>
               </li>
               <li className="nav-item" role="presentation">
                 <button className="nav-link" id="mobile-tab" data-bs-toggle="tab" data-bs-target="#mobile" type="button" role="tab" aria-controls="mobile" aria-selected="false">Mobile</button>
               </li>
+              <li className="nav-item" role="presentation">
+                <button className="nav-link" id="cloud-tab" data-bs-toggle="tab" data-bs-target="#cloud" type="button" role="tab" aria-controls="cloud" aria-selected="false">Cloud</button>
+              </li>
             </ul>
             <div className="tab-content" id="technologyTabContent">
-              <div className="tab-pane fade show active" id="front" role="tabpanel" aria-labelledby="front-tab">
+              <div className="tab-pane fade show active" id="web" role="tabpanel" aria-labelledby="web-tab">
                 <div className="row g-4 align-items-end">
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology big btn_wrapper">
@@ -89,17 +95,17 @@ const Home2TechnologySection = () => {
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology btn_wrapper">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/d3.svg" alt="" />
+                        <img src="assets/img/home2/icon/node-js.svg" alt="" />
                       </div>
-                      <span>D3 Js</span>
+                      <span>Node Js</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology btn_wrapper">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/jquery.svg" alt="" />
+                        <img src="assets/img/home2/icon/express-js.svg" alt="" />
                       </div>
-                      <span>JQuery</span>
+                      <span>Express Js</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
@@ -113,99 +119,17 @@ const Home2TechnologySection = () => {
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology btn_wrapper">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/graphql.svg" alt="" />
-                      </div>
-                      <span>GraphQL</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty btn_wrapper">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="tab-pane fade" id="back" role="tabpanel" aria-labelledby="back-tab">
-                <div className="row g-4 align-items-end">
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology big">
-                      <div className="icon">
-                        <img src="assets/img/home2/icon/node-js.svg" alt="" />
-                      </div>
-                      <span>Node Js</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology">
-                      <div className="icon">
-                        <img src="assets/img/home2/icon/ruby.svg" alt="" />
-                      </div>
-                      <span>Ruby</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology">
-                      <div className="icon">
                         <img src="assets/img/home2/icon/django.svg" alt="" />
                       </div>
                       <span>Django</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology">
-                      <div className="icon">
-                        <img src="assets/img/home2/icon/express-js.svg" alt="" />
-                      </div>
-                      <span>Express Js</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology">
-                      <div className="icon">
-                        <img src="assets/img/home2/icon/asp.svg" alt="" />
-                      </div>
-                      <span>ASP.net</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology big">
+                    <div className="single-technology btn_wrapper">
                       <div className="icon">
                         <img src="assets/img/home2/icon/laravel.svg" alt="" />
                       </div>
                       <span>Laravel</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology">
-                      <div className="icon">
-                        <img src="assets/img/home2/icon/firebase.svg " alt="" />
-                      </div>
-                      <span>Firebase</span>
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
-                    </div>
-                  </div>
-                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div className="single-technology empty">
-                      <img src="assets/img/home2/empty-technology.png" alt="" />
                     </div>
                   </div>
                 </div>
@@ -294,6 +218,306 @@ const Home2TechnologySection = () => {
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology empty">
                       <img src="assets/img/home2/empty-technology.png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="tab-pane fade" id="cloud" role="tabpanel" aria-labelledby="cloud-tab">
+                <div className="row g-4 align-items-end">
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/firebase.svg" alt="" />
+                      </div>
+                      <span>Firebase</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/node-js.svg" alt="" />
+                      </div>
+                      <span>Node Js</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/graphql.svg" alt="" />
+                      </div>
+                      <span>GraphQL</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/typescript.svg" alt="" />
+                      </div>
+                      <span>TypeScript</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/javascript.svg" alt="" />
+                      </div>
+                      <span>JavaScript</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/django.svg" alt="" />
+                      </div>
+                      <span>Django</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/express-js.svg" alt="" />
+                      </div>
+                      <span>Express Js</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/laravel.svg" alt="" />
+                      </div>
+                      <span>Laravel</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/react.svg" alt="" />
+                      </div>
+                      <span>React Js</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/angular.svg" alt="" />
+                      </div>
+                      <span>Angular Js</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/html.svg" alt="" />
+                      </div>
+                      <span>Cloud UI</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/css.svg" alt="" />
+                      </div>
+                      <span>Dashboards</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="tab-pane fade" id="ai" role="tabpanel" aria-labelledby="ai-tab">
+                <div className="row g-4 align-items-end">
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/openai-icon.svg" alt="" />
+                      </div>
+                      <span>OpenAi</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/langchain-color.svg" alt="" />
+                      </div>
+                      <span>Langchain</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/weaviate.svg" alt="" />
+                      </div>
+                      <span>Weaviate</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/Qdrant.svg" alt="" />
+                      </div>
+                      <span>Qdrant</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/vertexai-color.svg" alt="" />
+                      </div>
+                      <span>Vertex AI</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/claude-color.svg" alt="" />
+                      </div>
+                      <span>claude</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/stability-color.svg" alt="" />
+                      </div>
+                      <span>Stability AI</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/bedrock-color.svg" alt="" />
+                      </div>
+                      <span>Bedrock</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/llamaindex-color.svg" alt="" />
+                      </div>
+                      <span>LlamaIndex</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/n8n-color.svg" alt="" />
+                      </div>
+                      <span>n8n</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/zapier-color.svg" alt="" />
+                      </div>
+                      <span>Zapier AI</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/crewai-color.svg" alt="" />
+                      </div>
+                      <span>Crewai</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="tab-pane fade" id="blockchain" role="tabpanel" aria-labelledby="blockchain-tab">
+                <div className="row g-4 align-items-end">
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/Bitcoin-Logo.wine.svg" alt="" />
+                      </div>
+                      <span>Bitcoin</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/foundry-banner.svg" alt="" />
+                      </div>
+                      <span>Foundry</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/BNB-Chain.svg" alt="" />
+                      </div>
+                      <span>BSC</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/solidity-icon.svg" alt="" />
+                      </div>
+                      <span>Solidity</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/rust-programming.svg" alt="" />
+                      </div>
+                      <span>Rust</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology big">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/ethereum-eth-icon.svg" alt="" />
+                      </div>
+                      <span>Ethereum</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/Alchemy.svg" alt="" />
+                      </div>
+                      <span>Alchemy</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/MetaMask-icon-fox.svg" alt="" />
+                      </div>
+                      <span>MetaMask</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/uniswap.svg" alt="" />
+                      </div>
+                      <span>Uniswap</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/1inch-Network.svg" alt="" />
+                      </div>
+                      <span>1inch</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/cardano.svg" alt="" />
+                      </div>
+                      <span>Cardano</span>
+                    </div>
+                  </div>
+                  <div className="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div className="single-technology">
+                      <div className="icon">
+                        <img src="assets/img/home2/icon/OpenZeppelin.svg" alt="" />
+                      </div>
+                      <span>Open Zeppelin</span>
                     </div>
                   </div>
                 </div>

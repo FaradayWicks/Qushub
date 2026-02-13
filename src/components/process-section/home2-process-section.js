@@ -70,8 +70,7 @@ const Home2ProcessSection = () => {
                 <path d="M0.333333 3C0.333333 4.47276 1.52724 5.66667 3 5.66667C4.47276 5.66667 5.66667 4.47276 5.66667 3C5.66667 1.52724 4.47276 0.333333 3 0.333333C1.52724 0.333333 0.333333 1.52724 0.333333 3ZM475 3L475.255 3.42984L476.82 2.5H475V3ZM438.668 65L441.872 60.197L436.111 59.8239L438.668 65ZM3 3.5H475V2.5H3V3.5ZM474.745 2.57016C459.928 11.3742 441.341 27.8789 438.461 60.47L439.457 60.5581C442.3 28.3895 460.613 12.1303 475.255 3.42984L474.745 2.57016Z" />
               </svg>
               <div className="btn-and-paragraph">
-                <p>Digital agencies can vary in size and specialization. Some may focus on specific
-                  niches, such as healthcare or e-commerce, while others may offer a comprehensive.
+                <p>We follow a structured, engineering-driven process to transform ideas into scalable, production-ready digital solutions.
                 </p>
               </div>
             </div>
@@ -110,13 +109,13 @@ const Home2ProcessSection = () => {
                   </svg>
                 </div>
                 <div className="content">
-                  <h3>Discovery and Consultation.</h3>
-                  <p>Understand the client's goals, challenges, and requirements through initial
-                    meetings and consultations.</p>
+                  <h3>Discovery & Strategy</h3>
+                  <p>We analyze business objectives, technical requirements, and scalability goals to define a clear execution roadmap.</p>
                   <ul>
-                    <li><i className="bi bi-plus" /> Client Meeting.</li>
-                    <li><i className="bi bi-plus" /> Needs Assessment</li>
-                    <li><i className="bi bi-plus" /> Strategic Planning.</li>
+                    <li><i className="bi bi-plus" /> Stakeholder Workshops</li>
+                    <li><i className="bi bi-plus" /> Technical Feasibility Analysis</li>
+                    <li><i className="bi bi-plus" /> Requirements Mapping</li>
+                    <li><i className="bi bi-plus" /> Solution Architecture Planning</li>
                   </ul>
                 </div>
               </div>
@@ -132,13 +131,13 @@ const Home2ProcessSection = () => {
                   </svg>
                 </div>
                 <div className="content">
-                  <h3>Design and Architecture.</h3>
-                  <p>If applicable, create a user-centric design for software interfaces, websites, or
-                    applications.</p>
+                  <h3>Design and Architecture</h3>
+                  <p>We craft user-centered interfaces and design scalable system architectures built for performance and security.</p>
                   <ul>
-                    <li><i className="bi bi-plus" /> Wireframing</li>
-                    <li><i className="bi bi-plus" /> Design Mockups.</li>
-                    <li><i className="bi bi-plus" /> Implementation.</li>
+                    <li><i className="bi bi-plus" /> UX Research & Wireframing</li>
+                    <li><i className="bi bi-plus" /> UI Prototyping</li>
+                    <li><i className="bi bi-plus" /> System Architecture Design</li>
+                    <li><i className="bi bi-plus" /> API & Data Flow Planning</li>
                   </ul>
                 </div>
               </div>
@@ -152,13 +151,13 @@ const Home2ProcessSection = () => {
                   </svg>
                 </div>
                 <div className="content">
-                  <h3>Development</h3>
-                  <p>Begin the development process, following coding standards and best practices.</p>
+                  <h3>Engineering & Development</h3>
+                  <p>Our engineering team builds secure, scalable solutions using modern frameworks and industry best practices.</p>
                   <ul>
-                    <li><i className="bi bi-plus" /> Testing Plans.</li>
-                    <li><i className="bi bi-plus" /> Bug Fixing.</li>
-                    <li><i className="bi bi-plus" /> Agile Development.</li>
-                    <li><i className="bi bi-plus" /> Agile Development.</li>
+                    <li><i className="bi bi-plus" /> Agile Sprint Development</li>
+                    <li><i className="bi bi-plus" /> Clean Code Standards</li>
+                    <li><i className="bi bi-plus" /> AI / Blockchain Integration</li>
+                    <li><i className="bi bi-plus" /> Continuous Testing & QA</li>
                   </ul>
                 </div>
               </div>
@@ -173,14 +172,13 @@ const Home2ProcessSection = () => {
                   </svg>
                 </div>
                 <div className="content">
-                  <h3>Documentation &amp; Launch.</h3>
-                  <p>Create comprehensive technical documentation, including manuals, guides, and code
-                    documentation.</p>
+                  <h3>Deployment &amp; Optimization</h3>
+                  <p>We deploy, monitor, and optimize systems to ensure performance, reliability, and long-term scalability.</p>
                   <ul>
-                    <li><i className="bi bi-plus" /> Testing Plans.</li>
-                    <li><i className="bi bi-plus" /> Bug Fixing.</li>
-                    <li><i className="bi bi-plus" /> Agile Development.</li>
-                    <li><i className="bi bi-plus" /> Agile Development.</li>
+                    <li><i className="bi bi-plus" /> Cloud Deployment</li>
+                    <li><i className="bi bi-plus" /> Performance Optimization</li>
+                    <li><i className="bi bi-plus" /> Security Hardening</li>
+                    <li><i className="bi bi-plus" /> Ongoing Support & Maintenance</li>
                   </ul>
                 </div>
               </div>

@@ -24,9 +24,9 @@ import Home2TestimonialSection from "@/components/testimonial-section/home2-test
 import HomeworkSection from "@/components/work-section/Homework-section";
 
 export const metadata = {
-  title: "Axleo - Digital Agency Creative Portfolio Template",
+  title: "Quishub - Engineering That Does Not Break Under Pressure.",
   icons: {
-    icon: "/assets/img/sm-logo.svg",
+    icon: "/assets/img/quishub-mark.png",
   },
 };
 export default function Home() {
