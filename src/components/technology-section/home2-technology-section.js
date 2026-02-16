@@ -227,97 +227,97 @@ const Home2TechnologySection = () => {
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology big">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/firebase.svg" alt="" />
+                        <img src="assets/img/home2/icon/aws-color.svg" alt="" />
                       </div>
-                      <span>Firebase</span>
+                      <span>AWS</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/node-js.svg" alt="" />
+                        <img src="assets/img/home2/icon/docker-mark.svg" alt="" />
                       </div>
-                      <span>Node Js</span>
+                      <span>Docker</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/graphql.svg" alt="" />
+                        <img src="assets/img/home2/icon/kubernetes.svg" alt="" />
                       </div>
-                      <span>GraphQL</span>
+                      <span>Kubernetes</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/typescript.svg" alt="" />
+                        <img src="assets/img/home2/icon/Terraform.svg" alt="" />
                       </div>
-                      <span>TypeScript</span>
+                      <span>Terraform</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/javascript.svg" alt="" />
+                        <img src="assets/img/home2/icon/jenkins-icon.svg" alt="" />
                       </div>
-                      <span>JavaScript</span>
+                      <span>Jenkins</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology big">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/django.svg" alt="" />
+                        <img src="assets/img/home2/icon/azure-color.svg" alt="" />
                       </div>
-                      <span>Django</span>
+                      <span>Azure</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/express-js.svg" alt="" />
+                        <img src="assets/img/home2/icon/Lambda.svg" alt="" />
                       </div>
-                      <span>Express Js</span>
+                      <span>AWS Lambda</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/laravel.svg" alt="" />
+                        <img src="assets/img/home2/icon/cloudflare.svg" alt="" />
                       </div>
-                      <span>Laravel</span>
+                      <span>Cloudflare</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/react.svg" alt="" />
+                        <img src="assets/img/home2/icon/prometheus.svg" alt="" />
                       </div>
-                      <span>React Js</span>
+                      <span>Prometheus</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/angular.svg" alt="" />
+                        <img src="assets/img/home2/icon/Grafana.svg" alt="" />
                       </div>
-                      <span>Angular Js</span>
+                      <span>Grafana</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/html.svg" alt="" />
+                        <img src="assets/img/home2/icon/cloud-run.svg" alt="" />
                       </div>
-                      <span>Cloud UI</span>
+                      <span>Cloud Run</span>
                     </div>
                   </div>
                   <div className="col-lg-2 col-md-3 col-sm-4 col-6">
                     <div className="single-technology">
                       <div className="icon">
-                        <img src="assets/img/home2/icon/css.svg" alt="" />
+                        <img src="assets/img/home2/icon/auth0.svg" alt="" />
                       </div>
-                      <span>Dashboards</span>
+                      <span>Auth0</span>
                     </div>
                   </div>
                 </div>

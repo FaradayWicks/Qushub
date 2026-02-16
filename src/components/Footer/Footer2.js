@@ -228,6 +228,7 @@ const Footer2 = () => {
                           <img
                             src="assets/img/quishub-logo-transparent.png"
                             alt="Quishub logo"
+                            style={{ height: "140px", width: "auto", maxWidth: "none" }}
                           />
                         </Link>
                       </div>
