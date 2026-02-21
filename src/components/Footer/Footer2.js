@@ -55,7 +55,7 @@ const Footer2 = () => {
                       <div className="menu-container">
                         <ul>
                           <li>
-                            <Link href="/about">
+                            <Link href="#!">
                               About Us
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/our-team1">
+                            <Link href="#!">
                               Our Team
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -81,7 +81,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/portfolio-manonery">
+                            <Link href="#!">
                               Our Portfolio
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/career-list">
+                            <Link href="#!">
                               Careers <span>Hiring</span>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/contact">
+                            <Link href="#!">
                               Contact Us
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,7 @@ const Footer2 = () => {
                       <div className="menu-container">
                         <ul>
                           <li>
-                            <Link href="/service-details">
+                            <Link href="#!">
                               App Application
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +144,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/service-details">
+                            <Link href="#!">
                               Web Development
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +157,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/service-details">
+                            <Link href="#!">
                               UI/UX Design
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/service-details">
+                            <Link href="#!">
                               Cyber Security
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ const Footer2 = () => {
                             </Link>
                           </li>
                           <li>
-                            <Link href="/service-details">
+                            <Link href="#!">
                               Cloud Service
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -205,16 +205,16 @@ const Footer2 = () => {
                     <div className="solial-account">
                       <ul>
                         <li>
-                          <a href="https://dribbble.com/">Dribbble</a>
+                          <a href="#!">Dribbble</a>
                         </li>
                         <li>
-                          <a href="https://www.behance.net/">Behance</a>
+                          <a href="#!">Behance</a>
                         </li>
                         <li>
-                          <a href="https://www.pinterest.com/">Pinterest</a>
+                          <a href="#!">Pinterest</a>
                         </li>
                         <li>
-                          <a href="https://www.facebook.com/">Facebook</a>
+                          <a href="#!">Facebook</a>
                         </li>
                       </ul>
                     </div>
@@ -236,7 +236,7 @@ const Footer2 = () => {
                         <li className="single-contact">
                           <span>Phone</span>
                           <h5>
-                            <a href="tel:+991-7636844563">
+                            <a href="#!">
                               +991 - 763 684 4563{" "}
                             </a>
                           </h5>
@@ -244,7 +244,7 @@ const Footer2 = () => {
                         <li className="single-contact">
                           <span>Email Now</span>
                           <h5>
-                            <a href="mailto:info@examplegmail.com">
+                            <a href="#!">
                               info@examplegmail.com
                             </a>
                           </h5>
@@ -258,7 +258,7 @@ const Footer2 = () => {
                 <div className="copyright-area">
                   <p>
                     Copyright 2024 <a href="#">Quishub</a> | Design By{" "}
-                    <a href="https://www.egenslab.com/">EGENSLAB </a>
+                    <a href="https://www.quishub.com/">Quishub</a>
                   </p>
                 </div>
                 <div className="terms-condition">

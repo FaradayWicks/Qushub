@@ -20,9 +20,8 @@ const Header2 = () => {
     <>
       <Sidebar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <header
-        className={`header-area style-2 ${
-          isAboutPage ? "header-backdrop" : ""
-        }`}
+        className={`header-area style-2 ${isAboutPage ? "header-backdrop" : ""
+          }`}
         style={{
           background:
             isAboutPage || isContactPage || isPortfolioPage
@@ -36,7 +35,13 @@ const Header2 = () => {
               <img
                 alt="Quishub logo"
                 className="img-fluid"
-                src="assets/img/quishub-logo-transparent.png"
+                src="assets/img/quishub-logo-transparent.png" style={{
+                  height: "150px",
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block",
+                  margin: "-70px 0"
+                }}
               />
             </Link>
           </div>
@@ -57,13 +62,13 @@ const Header2 = () => {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/service4">Services</Link>
+                <Link href="#!">Services</Link>
               </li>
               <li>
-                <Link href="/about">About us</Link>
+                <Link href="#!">About us</Link>
               </li>
               <li>
-                <Link href="/portfolio-manonery">Portfolio</Link>
+                <Link href="#!">Portfolio</Link>
               </li>
               {/* <li className="menu-item-has-children ">
                 <a href="#" className="drop-down">Home</a><i className="bi bi-plus dropdown-icon" />
@@ -342,7 +347,7 @@ const Header2 = () => {
                 </ul>
               </li> */}
               <li>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="#!">Contact Us</Link>
               </li>
             </ul>
           </div>
@@ -394,11 +399,11 @@ const Header2 = () => {
             <div className="content">
               <span>To More Inquiry</span>
               <h6>
-                <a href="tel:+990737621432">+990-737 621 432</a>
+                <a href="#!">+990-737 621 432</a>
               </h6>
             </div>
           </div>
-          <Link href="/contact" className="header-btn btn-hover">
+          <Link href="#!" className="header-btn btn-hover">
             Get in Touch
             <span style={{ top: "50.5px", left: "83.75px" }} />
           </Link>

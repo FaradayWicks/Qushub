@@ -14,7 +14,7 @@ const Home2PortfolioSection = () => {
               <div className="dash-and-paragraph three">
                 <div className="dash" />
                 <div className="btn-and-paragraph">
-                  <Link href="/portfolio-manonery">
+                  <Link href="#!">
                     Explore More
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -40,18 +40,18 @@ const Home2PortfolioSection = () => {
               <div className="image-and-tag">
                 <ul className="tag">
                   <li>
-                    <Link href="/portfolio-manonery">Logo</Link>
+                    <Link href="#!">Logo</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Color</Link>
+                    <Link href="#!">Color</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Typography</Link>
+                    <Link href="#!">Typography</Link>
                   </li>
                 </ul>
                 <div className="portfolio-img">
-                  <img src="assets/img/home2/portfolio-01.jpg" alt="" />
-                  <Link className="details-btn" href="/portfolio-details">
+                  <img src="assets/img/home2/article7.jpeg" alt="" />
+                  <Link className="details-btn" href="#!">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={12}
@@ -65,7 +65,7 @@ const Home2PortfolioSection = () => {
               </div>
               <div className="portfolio-content">
                 <h4>
-                  <Link href="/portfolio-details">
+                  <Link href="#!">
                     Smart Design, Smarter Solutions.
                   </Link>
                 </h4>
@@ -77,18 +77,18 @@ const Home2PortfolioSection = () => {
               <div className="image-and-tag">
                 <ul className="tag">
                   <li>
-                    <Link href="/portfolio-manonery">Logo</Link>
+                    <Link href="#!">Logo</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Color</Link>
+                    <Link href="#!">Color</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Typography</Link>
+                    <Link href="#!">Typography</Link>
                   </li>
                 </ul>
                 <div className="portfolio-img">
-                  <img src="assets/img/home2/portfolio-02.jpg" alt="" />
-                  <Link className="details-btn" href="/portfolio-details">
+                  <img src="assets/img/home2/work3.jpeg" alt="" />
+                  <Link className="details-btn" href="#!">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={12}
@@ -102,7 +102,7 @@ const Home2PortfolioSection = () => {
               </div>
               <div className="portfolio-content">
                 <h4>
-                  <Link href="/portfolio-details">
+                  <Link href="#!">
                     Where Vision Meets Technology.
                   </Link>
                 </h4>
@@ -114,18 +114,18 @@ const Home2PortfolioSection = () => {
               <div className="image-and-tag">
                 <ul className="tag">
                   <li>
-                    <Link href="/portfolio-manonery">Logo</Link>
+                    <Link href="#!">Logo</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Color</Link>
+                    <Link href="#!">Color</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Typography</Link>
+                    <Link href="#!">Typography</Link>
                   </li>
                 </ul>
                 <div className="portfolio-img">
-                  <img src="assets/img/home2/portfolio-03.jpg" alt="" />
-                  <Link className="details-btn" href="/portfolio-details">
+                  <img src="assets/img/home2/article6.jpeg" alt="" />
+                  <Link className="details-btn" href="#!">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={12}
@@ -151,18 +151,18 @@ const Home2PortfolioSection = () => {
               <div className="image-and-tag">
                 <ul className="tag">
                   <li>
-                    <Link href="/portfolio-manonery">Logo</Link>
+                    <Link href="#!">Logo</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Color</Link>
+                    <Link href="#!">Color</Link>
                   </li>
                   <li>
-                    <Link href="/portfolio-manonery">Typography</Link>
+                    <Link href="#!">Typography</Link>
                   </li>
                 </ul>
                 <div className="portfolio-img">
-                  <img src="assets/img/home2/portfolio-04.jpg" alt="" />
-                  <Link className="details-btn" href="/portfolio-details">
+                  <img src="assets/img/home2/work1.jpeg" alt="" />
+                  <Link className="details-btn" href="#!">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={12}
@@ -176,7 +176,7 @@ const Home2PortfolioSection = () => {
               </div>
               <div className="portfolio-content">
                 <h4>
-                  <Link href="/portfolio-details">
+                  <Link href="#!">
                     NexGen Pioneering Digital Solutions.
                   </Link>
                 </h4>

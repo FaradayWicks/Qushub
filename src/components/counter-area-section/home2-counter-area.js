@@ -52,14 +52,16 @@ const Home2CounterArea = () => {
         </div>
       </div>
       <div
-        className="home2-inner-banner"
+        className="home2-inner-banner img-fluid"
         style={{
           backgroundImage:
-            "linear-gradient(90deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.00) 100%), url(assets/img/home2/inner-baner-bg.jpg)",
+            "linear-gradient(90deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.00) 100%), url(assets/img/home2/innovations1.png",
         }}
       >
         <div className="clutch-logo btn_wrapper">
-          <img src="assets/img/home2/clitch-big.png" alt="" />
+          <img src="assets/img/home2/about19.jpg" alt=""
+            style={{ maxWidth: '300px', height: 'auto', borderRadius: '10px' }}
+          />
         </div>
         <div className="container-lg container-fluid">
           <div className="row">

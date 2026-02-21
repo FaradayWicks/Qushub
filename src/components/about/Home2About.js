@@ -139,7 +139,7 @@ const Home2About = () => {
                     </div>
                   </li>
                 </ul>
-                <Link href="/about">
+                <Link href="#!">
                   <span className="icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -169,16 +169,16 @@ const Home2About = () => {
                 <div className="col-sm-5">
                   <div className="about-left">
                     <div className="about-img animet-images magnetic-item">
-                      <img src="assets/img/home2/about-02.jpg" alt="" />
+                      <img src="assets/img/home2/work4.jpg" alt="" className="img-fluid" />
                     </div>
                     <p className="text-animation2">
                       Every solution we deliver is designed for scalability, security, and real-world adoption.
                     </p>
                   </div>
                 </div>
-                <div className="col-sm-7 d-sm-flex  d-none">
-                  <div className="about-right-img animet-images magnetic-item">
-                    <img src="assets/img/home2/about-01.jpg" alt="" />
+                <div className="col-sm-7 d-sm-flex  d-flex justify-content-center align-items-center">
+                  <div className="about-right-img animet-images magnetic-item ">
+                    <img src="assets/img/home2/about11.jpg" alt="" className="img-fluid" />
                   </div>
                 </div>
               </div>
