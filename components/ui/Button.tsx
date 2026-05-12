@@ -1,13 +1,15 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
-import { ButtonHTMLAttributes, forwardRef, useState } from "react";
+import { motion, AnimatePresence, HTMLMotionProps } from "framer-motion";
+import { forwardRef, useState, ReactNode } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "default" | "sm";
+  children?: ReactNode;
 }
+
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "default", children, ...props }, ref) => {

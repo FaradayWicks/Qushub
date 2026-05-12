@@ -1,7 +1,7 @@
 "use client";
 
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { ReactNode } from "react";
+import { motion, useScroll, useTransform, HTMLMotionProps } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface OctacsThemeProps {
@@ -10,9 +10,11 @@ interface OctacsThemeProps {
   contentClassName?: string;
 }
 
-interface GlowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface GlowButtonProps extends HTMLMotionProps<"button"> {
   className?: string;
+  children?: ReactNode;
 }
+
 
 export function GlowButton({ className, children, ...props }: GlowButtonProps) {
   return (
