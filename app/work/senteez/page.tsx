@@ -97,52 +97,44 @@ const features = [
 
 export default function SenteezPage() {
   return (
-    <>
+    <div className="bg-white min-h-screen text-[#002147]">
       <SideGradients />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="relative z-10 container-content max-w-[900px] mx-auto">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-          >
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
+          <div>
+            <div>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 mb-8"
-                style={{ background: "linear-gradient(90deg, #7c3aed 0%, #2563eb 100%)", boxShadow: "0 4px 14px -4px rgba(124,58,237,0.4)" }}
+                style={{ background: "linear-gradient(90deg, #002147 0%, #0ea5e9 100%)", boxShadow: "0 4px 14px -4px rgba(14,165,233,0.4)" }}
               >
                 <ArrowLeft size={16} />
                 Back to Work
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
-              <SectionLabel variant="dark" className="text-quishub-black border-quishub-black/20">
+            <div>
+              <SectionLabel>
                 Hospitality &amp; Retail Intelligence &middot; Dubai / US
               </SectionLabel>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-display font-semibold tracking-heading text-quishub-black mt-4"
+            <h1
+              className="font-display font-semibold tracking-heading text-[#002147] mt-4"
               style={{ fontSize: "clamp(32px, 4.4vw, 56px)", lineHeight: 1.1 }}
             >
               System Architecture & Platform Overview:{" "}
-              <span className="gradient-text">Senteez</span>
-            </motion.h1>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#002147] to-[#0ea5e9]">Senteez</span>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-4 text-lg text-quishub-muted font-medium"
+            <p
+              className="mt-4 text-lg text-slate-600 font-medium"
             >
               Beyond the Star Rating: Intelligence for Hospitality &amp; Retail
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -159,22 +151,20 @@ export default function SenteezPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted"
+              className="text-base leading-body text-slate-600"
             >
-              In the high-stakes markets of Dubai and the US, a 4.2-star rating is a vanity metric
-              that hides the truth. It doesn&apos;t tell an operator if the air conditioning in Room
-              302 is failing or if the service speed at a specific coffee branch has dropped since
-              last month.
+              The primary bottleneck in modern hospitality is no longer just service
+              speed&mdash;it is intelligence. Operators in Dubai and the US often rely on vanity metrics
+              that hide the truth. A 4.2-star rating doesn&apos;t tell you why specific rooms or dishes are failing.
             </motion.p>
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted"
+              className="text-base leading-body text-slate-600"
             >
-              <strong className="text-quishub-black">Senteez</strong> is a feedback intelligence
-              platform that moves beyond averages. By ingesting thousands of reviews across multiple
-              global platforms, Senteez uses fine-tuned NLP models to extract the &ldquo;why&rdquo;
-              behind the rating, giving teams a decision engine they can actually act on.
+              <strong className="text-[#002147]">Senteez</strong> is an AI-driven feedback
+              intelligence platform designed to move beyond averages. By ingesting thousands of reviews across multiple
+              global platforms, Senteez uses fine-tuned NLP models to extract actionable insights.
             </motion.p>
           </motion.div>
         </div>
@@ -192,7 +182,7 @@ export default function SenteezPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#002147] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               How It Works: The Intelligence Pipeline
@@ -236,22 +226,22 @@ export default function SenteezPage() {
             variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
-            {steps.map((step, i) => (
-              <motion.div
-                key={step.title}
-                variants={fadeUp}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
-              >
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white text-sm font-semibold mb-3">
-                  {i + 1}
-                </span>
-                <h3 className="text-base font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-body text-quishub-muted">{step.description}</p>
-              </motion.div>
-            ))}
+              {steps.map((step, i) => (
+                <motion.div
+                  key={step.title}
+                  variants={fadeUp}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="group bg-slate-50 border border-slate-200 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0ea5e9]/30"
+                >
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#002147] to-[#0ea5e9] text-white text-sm font-semibold mb-3">
+                    {i + 1}
+                  </span>
+                  <h3 className="text-base font-semibold text-[#002147] mb-2 transition-all duration-300 group-hover:text-[#0ea5e9]">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm leading-body text-slate-600">{step.description}</p>
+                </motion.div>
+              ))}
           </motion.div>
         </div>
       </section>
@@ -280,12 +270,12 @@ export default function SenteezPage() {
                   key={layer.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-slate-50 border border-slate-200 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0ea5e9]/30"
                 >
-                  <h3 className="text-sm font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                  <h3 className="text-sm font-semibold text-[#002147] mb-2 transition-all duration-300 group-hover:text-[#0ea5e9]">
                     {layer.title}
                   </h3>
-                  <p className="text-sm leading-body text-quishub-muted">{layer.description}</p>
+                  <p className="text-sm leading-body text-slate-600">{layer.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -318,18 +308,18 @@ export default function SenteezPage() {
             >
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-quishub-border">
-                    <th className="py-3 pr-4 text-sm font-semibold text-quishub-black">Sector</th>
-                    <th className="py-3 px-4 text-sm font-semibold text-quishub-black">Coverage</th>
-                    <th className="py-3 pl-4 text-sm font-semibold text-quishub-black">Review Volume</th>
+                  <tr className="border-b border-slate-200">
+                    <th className="py-3 pr-4 text-sm font-semibold text-[#002147]">Sector</th>
+                    <th className="py-3 px-4 text-sm font-semibold text-[#002147]">Coverage</th>
+                    <th className="py-3 pl-4 text-sm font-semibold text-[#002147]">Review Volume</th>
                   </tr>
                 </thead>
                 <tbody>
                   {impactData.map((row) => (
-                    <tr key={row.sector} className="border-b border-quishub-border/50">
-                      <td className="py-3 pr-4 text-sm font-medium text-quishub-black">{row.sector}</td>
-                      <td className="py-3 px-4 text-sm text-quishub-muted">{row.coverage}</td>
-                      <td className="py-3 pl-4 text-sm font-semibold gradient-text">{row.volume}</td>
+                    <tr key={row.sector} className="border-b border-slate-100">
+                      <td className="py-3 pr-4 text-sm font-medium text-[#002147]">{row.sector}</td>
+                      <td className="py-3 px-4 text-sm text-slate-600">{row.coverage}</td>
+                      <td className="py-3 pl-4 text-sm font-semibold text-[#0ea5e9]">{row.volume}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -363,12 +353,12 @@ export default function SenteezPage() {
                   key={feat.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-slate-50 border border-slate-200 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0ea5e9]/30"
                 >
-                  <h3 className="text-sm font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                  <h3 className="text-sm font-semibold text-[#002147] mb-2 transition-all duration-300 group-hover:text-[#0ea5e9]">
                     {feat.title}
                   </h3>
-                  <p className="text-sm leading-body text-quishub-muted">{feat.description}</p>
+                  <p className="text-sm leading-body text-slate-600">{feat.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -397,16 +387,16 @@ export default function SenteezPage() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group surface-card rounded-card p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+              className="group bg-slate-50 border border-slate-200 rounded-card p-5 transition-all duration-300 hover:shadow-lg hover:border-[#0ea5e9]/30"
             >
-              <h4 className="text-sm font-semibold text-quishub-black mb-1">Live Application</h4>
-              <p className="text-sm text-quishub-muted">senteez.com</p>
+              <h4 className="text-sm font-semibold text-[#002147] mb-1">Live Application</h4>
+              <p className="text-sm text-slate-600">senteez.com</p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }

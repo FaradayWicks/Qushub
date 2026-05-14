@@ -77,78 +77,62 @@ const metrics = [
 
 export default function FictionPubPage() {
   return (
-    <>
+    <div className="bg-[#050a14] min-h-screen text-white">
       <SideGradients />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="relative z-10 container-content max-w-[900px] mx-auto">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-          >
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
+          <div>
+            <div>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 mb-8"
-                style={{ background: "linear-gradient(90deg, #7c3aed 0%, #2563eb 100%)", boxShadow: "0 4px 14px -4px rgba(124,58,237,0.4)" }}
+                style={{ background: "linear-gradient(90deg, #22d3ee 0%, #a3e635 100%)", color: "#050a14", boxShadow: "0 4px 14px -4px rgba(163,230,53,0.4)" }}
               >
                 <ArrowLeft size={16} />
                 Back to Work
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
-              <SectionLabel variant="dark" className="text-quishub-black border-quishub-black/20">
+            <div>
+              <SectionLabel>
                 Creative Tech &middot; United States
               </SectionLabel>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-display font-semibold tracking-heading text-quishub-black mt-4"
+            <h1
+              className="font-display font-semibold tracking-heading text-white mt-4"
               style={{ fontSize: "clamp(32px, 4.4vw, 56px)", lineHeight: 1.1 }}
             >
               System Architecture & Platform Overview:{" "}
-              <span className="gradient-text">FictionPub.ai</span>
-            </motion.h1>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#22d3ee] to-[#a3e635]">FictionPub.ai</span>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-4 text-lg text-quishub-muted font-medium"
+            <p
+              className="mt-4 text-lg text-slate-400 font-medium"
             >
               Solving the &ldquo;Blank Page&rdquo; Problem at Scale
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Overview */}
       <section className="pb-16 md:pb-20">
         <div className="container-content max-w-[900px] mx-auto">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-            className="space-y-6"
-          >
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted"
+          <div className="space-y-6">
+            <p
+              className="text-base leading-body text-slate-400"
             >
               Writing a novel is an endurance sport that traditionally takes months or years. While
               most AI tools offer short-form assistance&mdash;a paragraph here, a scene
-              there&mdash;<strong className="text-quishub-black">FictionPub.ai</strong> is the first
+              there&mdash;<strong className="text-[#a3e635]">FictionPub.ai</strong> is the first
               enterprise-grade platform built to solve the full manuscript. From students to
               professional authors, our 20,000+ users move from a single concept to a 100,000-word
               draft in under 30 minutes.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -164,7 +148,7 @@ export default function FictionPubPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-white mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               The Creative Pipeline: From Concept to Manuscript
@@ -197,7 +181,7 @@ export default function FictionPubPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-white mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               The Multi-Stage Generative Pipeline
@@ -209,15 +193,15 @@ export default function FictionPubPage() {
                   key={step.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-[#0f172a] border border-slate-800 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(34,211,238,0.1)] hover:border-[#22d3ee]/30"
                 >
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white text-sm font-semibold mb-3">
+                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#22d3ee] to-[#a3e635] text-[#050a14] text-sm font-semibold mb-3">
                     {i + 1}
                   </span>
-                  <h3 className="text-base font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                  <h3 className="text-base font-semibold text-white mb-2 transition-all duration-300 group-hover:text-[#a3e635]">
                     {step.title}
                   </h3>
-                  <p className="text-sm leading-body text-quishub-muted">{step.description}</p>
+                  <p className="text-sm leading-body text-slate-400">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -237,7 +221,7 @@ export default function FictionPubPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-4"
+              className="font-semibold tracking-heading text-white mb-4"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               The Engineering Behind the Narrative
@@ -245,7 +229,7 @@ export default function FictionPubPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted mb-8"
+              className="text-base leading-body text-slate-400 mb-8"
             >
               To handle the immense computational load of generating 100,000-word manuscripts for
               thousands of users simultaneously, our backend utilizes a &ldquo;Resilient Creative
@@ -258,12 +242,12 @@ export default function FictionPubPage() {
                   key={item.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-[#0f172a] border border-slate-800 rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(34,211,238,0.1)] hover:border-[#22d3ee]/30"
                 >
-                  <h3 className="text-sm font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                  <h3 className="text-sm font-semibold text-white mb-2 transition-all duration-300 group-hover:text-[#a3e635]">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-body text-quishub-muted">{item.description}</p>
+                  <p className="text-sm leading-body text-slate-400">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -283,7 +267,7 @@ export default function FictionPubPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-4"
+              className="font-semibold tracking-heading text-white mb-4"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Performance &amp; Reach
@@ -291,7 +275,7 @@ export default function FictionPubPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted mb-8"
+              className="text-base leading-body text-slate-400 mb-8"
             >
               FictionPub.ai is currently the leading full-length manuscript generator in the US
               market.
@@ -304,16 +288,16 @@ export default function FictionPubPage() {
             >
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-quishub-border">
-                    <th className="py-3 pr-4 text-sm font-semibold text-quishub-black">Metric</th>
-                    <th className="py-3 pl-4 text-sm font-semibold text-quishub-black">Achievement</th>
+                  <tr className="border-b border-slate-800">
+                    <th className="py-3 pr-4 text-sm font-semibold text-white">Metric</th>
+                    <th className="py-3 pl-4 text-sm font-semibold text-white">Achievement</th>
                   </tr>
                 </thead>
                 <tbody>
                   {metrics.map((m) => (
-                    <tr key={m.label} className="border-b border-quishub-border/50">
-                      <td className="py-3 pr-4 text-sm font-medium text-quishub-black">{m.label}</td>
-                      <td className="py-3 pl-4 text-sm font-semibold gradient-text">{m.value}</td>
+                    <tr key={m.label} className="border-b border-slate-800/50">
+                      <td className="py-3 pr-4 text-sm font-medium text-white/80">{m.label}</td>
+                      <td className="py-3 pl-4 text-sm font-semibold text-[#a3e635]">{m.value}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -335,7 +319,7 @@ export default function FictionPubPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-white mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Experience the Platform
@@ -344,16 +328,16 @@ export default function FictionPubPage() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="group surface-card rounded-card p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+              className="group bg-[#0f172a] border border-slate-800 rounded-card p-5 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(34,211,238,0.1)] hover:border-[#22d3ee]/30"
             >
-              <h4 className="text-sm font-semibold text-quishub-black mb-1">Live Application</h4>
-              <p className="text-sm text-quishub-muted">app.fictionpub.ai</p>
+              <h4 className="text-sm font-semibold text-white mb-1">Live Application</h4>
+              <p className="text-sm text-slate-400">app.fictionpub.ai</p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }

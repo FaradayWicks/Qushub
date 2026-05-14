@@ -39,7 +39,12 @@ export default function MouseTracker() {
 
     const onMove = (event: MouseEvent) => {
       targetPos.current = { x: event.clientX, y: event.clientY };
-      if (!visible) setVisible(true);
+      const target = event.target as Element | null;
+      if (target?.closest(".chatbot-widget")) {
+        if (visible) setVisible(false);
+      } else {
+        if (!visible) setVisible(true);
+      }
     };
 
     const onOver = (event: MouseEvent) => {

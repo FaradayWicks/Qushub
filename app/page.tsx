@@ -6,12 +6,12 @@ import Logo from "@/components/brand/Logo";
 import SideGradients from "@/components/ui/SideGradients";
 
 export default function NewHome() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     // Sync with existing global theme
-    const currentTheme = document.documentElement.dataset.theme || "light";
+    const currentTheme = document.documentElement.dataset.theme || "dark";
     setTheme(currentTheme);
     // Ensure density and accent are set correctly for the new design
     document.documentElement.setAttribute("data-accent", "warm");

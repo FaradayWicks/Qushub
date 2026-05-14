@@ -8,6 +8,7 @@ import Footer from "@/components/layout/Footer";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import MouseTracker from "@/components/ui/MouseTracker";
 import OctacsTheme from "@/components/OctacsTheme";
+import ChatbotWidget from "@/components/ui/ChatbotWidget";
 
 
 const texar = localFont({
@@ -59,10 +60,10 @@ const themeScript = `
   (function() {
     try {
       var stored = localStorage.getItem("quishub-theme");
-      var theme = stored === "dark" || stored === "light" ? stored : "light";
+      var theme = stored === "dark" || stored === "light" ? stored : "dark";
       document.documentElement.dataset.theme = theme;
     } catch (e) {
-      document.documentElement.dataset.theme = "light";
+      document.documentElement.dataset.theme = "dark";
     }
   })();
 `;
@@ -132,6 +133,7 @@ export default function RootLayout({
           <Footer />
         </OctacsTheme>
         <ThemeToggle />
+        <ChatbotWidget />
 
       </body>
     </html>

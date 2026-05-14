@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import MouseTracker from "@/components/ui/MouseTracker";
 import OctacsTheme from "@/components/OctacsTheme";
+import ChatWidget from "@/components/ui/ChatWidget";
 
 
 const texar = localFont({
@@ -115,6 +116,7 @@ export default function RootLayout({
           <Footer />
         </OctacsTheme>
         <ThemeToggle />
+        <ChatWidget />
 
       </body>
     </html>

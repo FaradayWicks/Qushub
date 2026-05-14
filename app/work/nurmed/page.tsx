@@ -90,52 +90,44 @@ const deployments = [
 
 export default function NurMedPage() {
   return (
-    <>
+    <div className="bg-[#f8fafc] min-h-screen text-[#0f172a]">
       <SideGradients />
 
       {/* Hero */}
       <section className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="relative z-10 container-content max-w-[900px] mx-auto">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-          >
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
+          <div>
+            <div>
               <Link
                 href="/work"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 mb-8"
-                style={{ background: "linear-gradient(90deg, #7c3aed 0%, #2563eb 100%)", boxShadow: "0 4px 14px -4px rgba(124,58,237,0.4)" }}
+                style={{ background: "linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%)", boxShadow: "0 4px 14px -4px rgba(59,130,246,0.4)" }}
               >
                 <ArrowLeft size={16} />
                 Back to Work
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div variants={fadeUp} transition={{ duration: 0.5, ease: "easeOut" }}>
-              <SectionLabel variant="dark" className="text-quishub-black border-quishub-black/20">
+            <div>
+              <SectionLabel>
                 Healthcare &middot; US / UAE
               </SectionLabel>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-display font-semibold tracking-heading text-quishub-black mt-4"
+            <h1
+              className="font-display font-semibold tracking-heading text-[#0f172a] mt-4"
               style={{ fontSize: "clamp(32px, 4.4vw, 56px)", lineHeight: 1.1 }}
             >
               System Architecture & Platform Overview:{" "}
-              <span className="gradient-text">NurMed</span>
-            </motion.h1>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#8b5cf6] to-[#3b82f6]">NurMed</span>
+            </h1>
 
-            <motion.p
-              variants={fadeUp}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-4 text-lg text-quishub-muted font-medium"
+            <p
+              className="mt-4 text-lg text-[#475569] font-medium"
             >
               Restoring the Patient-Doctor Connection
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -162,9 +154,9 @@ export default function NurMedPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted"
+              className="text-base leading-body text-[#475569]"
             >
-              <strong className="text-quishub-black">NurMed</strong> is an AI-driven clinical
+              <strong className="text-[#0f172a]">NurMed</strong> is an AI-driven clinical
               documentation platform designed to handle the heavy lifting of medical charting. By
               automating the transcription and structuring of clinical notes, NurMed allows doctors
               to focus on the person in front of them, not the keyboard.
@@ -206,10 +198,10 @@ export default function NurMedPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-8 text-base leading-body text-quishub-muted"
+              className="mt-8 text-base leading-body text-[#475569]"
             >
               NurMed utilizes a specialized{" "}
-              <strong className="text-quishub-black">Clinical AI Orchestration Engine</strong> to
+              <strong className="text-[#0f172a]">Clinical AI Orchestration Engine</strong> to
               ensure that documentation is not just fast, but medically accurate and properly
               structured. The process follows a secure, five-stage pipeline:
             </motion.p>
@@ -232,15 +224,15 @@ export default function NurMedPage() {
                 key={step.title}
                 variants={fadeUp}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                className="group bg-white rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200"
               >
-                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white text-sm font-semibold mb-3">
+                <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-[#8b5cf6] to-[#3b82f6] text-white text-sm font-semibold mb-3">
                   {i + 1}
                 </span>
-                <h3 className="text-base font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                <h3 className="text-base font-semibold text-[#0f172a] mb-2 transition-all duration-300 group-hover:text-[#3b82f6]">
                   {step.title}
                 </h3>
-                <p className="text-sm leading-body text-quishub-muted">{step.description}</p>
+                <p className="text-sm leading-body text-[#475569]">{step.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -272,20 +264,20 @@ export default function NurMedPage() {
             >
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-quishub-border">
-                    <th className="py-3 pr-4 text-sm font-semibold text-quishub-black">Metric</th>
-                    <th className="py-3 px-4 text-sm font-semibold text-quishub-black">Before NurMed</th>
-                    <th className="py-3 px-4 text-sm font-semibold text-quishub-black">With NurMed</th>
-                    <th className="py-3 pl-4 text-sm font-semibold text-quishub-black">Improvement</th>
+                  <tr className="border-b border-slate-200">
+                    <th className="py-3 pr-4 text-sm font-semibold text-[#0f172a]">Metric</th>
+                    <th className="py-3 px-4 text-sm font-semibold text-[#0f172a]">Before NurMed</th>
+                    <th className="py-3 px-4 text-sm font-semibold text-[#0f172a]">With NurMed</th>
+                    <th className="py-3 pl-4 text-sm font-semibold text-[#0f172a]">Improvement</th>
                   </tr>
                 </thead>
                 <tbody>
                   {metrics.map((m) => (
-                    <tr key={m.label} className="border-b border-quishub-border/50">
-                      <td className="py-3 pr-4 text-sm font-medium text-quishub-black">{m.label}</td>
-                      <td className="py-3 px-4 text-sm text-quishub-muted">{m.before}</td>
-                      <td className="py-3 px-4 text-sm text-quishub-muted">{m.after}</td>
-                      <td className="py-3 pl-4 text-sm font-semibold gradient-text">{m.improvement}</td>
+                    <tr key={m.label} className="border-b border-slate-100">
+                      <td className="py-3 pr-4 text-sm font-medium text-[#0f172a]">{m.label}</td>
+                      <td className="py-3 px-4 text-sm text-[#475569]">{m.before}</td>
+                      <td className="py-3 px-4 text-sm text-[#475569]">{m.after}</td>
+                      <td className="py-3 pl-4 text-sm font-semibold text-[#3b82f6]">{m.improvement}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -296,14 +288,14 @@ export default function NurMedPage() {
             <motion.blockquote
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-10 surface-card rounded-card p-8 border-l-4 border-[#7c3aed]"
+              className="mt-10 bg-white rounded-card p-8 border-l-4 border-[#3b82f6] shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
             >
-              <p className="text-base leading-body text-quishub-muted italic">
+              <p className="text-base leading-body text-[#475569] italic">
                 &ldquo;Doctors are enjoying the convenience of typing much less&mdash;if at all.
                 Patients feel they&apos;ve been served more quickly, and our team feels much less
                 fatigued by the documentation workload.&rdquo;
               </p>
-              <footer className="mt-4 text-sm font-semibold text-quishub-black">
+              <footer className="mt-4 text-sm font-semibold text-[#0f172a]">
                 &mdash; Clinical Team, Avenue Broadwalk General Practice
               </footer>
             </motion.blockquote>
@@ -342,12 +334,12 @@ export default function NurMedPage() {
                   key={item.title}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-white rounded-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200"
                 >
-                  <h3 className="text-sm font-semibold text-quishub-black mb-2 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
+                  <h3 className="text-sm font-semibold text-[#0f172a] mb-2 transition-all duration-300 group-hover:text-[#3b82f6]">
                     {item.title}
                   </h3>
-                  <p className="text-sm leading-body text-quishub-muted">{item.description}</p>
+                  <p className="text-sm leading-body text-[#475569]">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -379,10 +371,10 @@ export default function NurMedPage() {
                   key={dep.label}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group surface-card rounded-card p-5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
+                  className="group bg-white rounded-card p-5 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200"
                 >
-                  <h4 className="text-sm font-semibold text-quishub-black mb-1">{dep.label}</h4>
-                  <p className="text-sm text-quishub-muted">{dep.value}</p>
+                  <h4 className="text-sm font-semibold text-[#0f172a] mb-1">{dep.label}</h4>
+                  <p className="text-sm text-[#475569]">{dep.value}</p>
                 </motion.div>
               ))}
             </div>
@@ -391,6 +383,6 @@ export default function NurMedPage() {
       </section>
 
       <CTA />
-    </>
+    </div>
   );
 }

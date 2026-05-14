@@ -159,14 +159,14 @@ function CaseStudyDetails({ study }: { study: any }) {
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="space-y-6 overflow-hidden"
+                className="space-y-6 overflow-hidden bg-[#092415] p-6 rounded-xl mt-4 border border-[#166432]"
               >
                 {study.technical && (
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-label-wide text-quishub-black">
+                    <h3 className="text-sm font-semibold uppercase tracking-label-wide text-[#C59D55]">
                       Technical depth
                     </h3>
-                    <p className="mt-2 text-sm leading-body text-quishub-muted">
+                    <p className="mt-2 text-sm leading-body text-white">
                       {study.technical}
                     </p>
                   </div>
@@ -174,14 +174,14 @@ function CaseStudyDetails({ study }: { study: any }) {
 
                 {study.technicalList && (
                   <div>
-                    <h3 className="text-sm font-semibold uppercase tracking-label-wide text-quishub-black">
+                    <h3 className="text-sm font-semibold uppercase tracking-label-wide text-[#C59D55]">
                       The engineering behind it
                     </h3>
                     <ul className="mt-3 space-y-2">
                       {study.technicalList.map((item: string) => (
                         <li
                           key={item}
-                          className="surface-subtle rounded-[8px] px-4 py-3 text-sm text-quishub-muted"
+                          className="bg-[#166432] rounded-[8px] px-4 py-3 text-sm text-white border border-[#C59D55]/20"
                         >
                           {item}
                         </li>
@@ -191,15 +191,22 @@ function CaseStudyDetails({ study }: { study: any }) {
                 )}
 
                 {study.quote && (
-                  <blockquote className="surface-subtle rounded-[8px] p-5">
-                    <p className="text-sm leading-body text-quishub-muted">
+                  <blockquote className="bg-[#166432] rounded-[8px] p-5 border-l-4 border-[#B17030]">
+                    <p className="text-sm leading-body text-white">
                       &ldquo;{study.quote}&rdquo;
                     </p>
-                    <footer className="mt-3 text-xs text-quishub-black">
+                    <footer className="mt-3 text-xs text-[#C59D55]">
                       {study.attribution}
                     </footer>
                   </blockquote>
                 )}
+                
+                {/* Dummy button to show button accent color */}
+                <div className="pt-2">
+                  <button className="bg-[#B17030] hover:bg-[#C59D55] text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-colors w-full sm:w-auto text-center">
+                    View Architecture Diagram
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

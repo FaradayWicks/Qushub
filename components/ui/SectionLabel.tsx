@@ -11,23 +11,12 @@ export default function SectionLabel({
   variant = "dark",
   className,
 }: SectionLabelProps) {
-  if (variant === "light") {
-    return (
-      <span
-        className={cn(
-          "font-ui inline-block text-[11px] uppercase font-medium tracking-label-wide text-quishub-muted mb-4",
-          className
-        )}
-      >
-        {children}
-      </span>
-    );
-  }
-
   return (
     <span
       className={cn(
-        "font-ui inline-flex items-center border border-quishub-border bg-quishub-surfaceAlt text-quishub-muted text-[11px] uppercase font-medium tracking-label-wide px-3.5 py-1 rounded-full mb-4",
+        "font-ui inline-flex items-center text-[11px] uppercase font-bold tracking-label-wide px-3.5 py-1.5 rounded-full mb-4 shadow-sm transition-colors duration-200",
+        "bg-slate-100 text-slate-800 border border-slate-200",
+        "dark:bg-slate-800 dark:text-slate-200 dark:border-slate-700",
         className
       )}
     >

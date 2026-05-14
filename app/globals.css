@@ -209,6 +209,23 @@ html {
     cursor: none !important;
   }
 
+  body.mouse-tracker-on .chatbot-widget,
+  body.mouse-tracker-on .chatbot-widget * {
+    cursor: auto !important;
+  }
+
+  body.mouse-tracker-on .chatbot-widget button,
+  body.mouse-tracker-on .chatbot-widget a,
+  body.mouse-tracker-on .chatbot-widget input[type="button"],
+  body.mouse-tracker-on .chatbot-widget input[type="submit"] {
+    cursor: pointer !important;
+  }
+
+  body.mouse-tracker-on .chatbot-widget input[type="text"],
+  body.mouse-tracker-on .chatbot-widget textarea {
+    cursor: text !important;
+  }
+
   h1, h2 {
     @apply font-semibold tracking-heading;
     font-family: var(--font-texar), var(--font-tt-lakes), system-ui, sans-serif;
@@ -291,8 +308,6 @@ html {
 
   .nav-surface-scrolled {
     background-color: var(--nav-bg-scrolled);
-    border-color: rgb(var(--quishub-border-rgb));
-    box-shadow: var(--nav-shadow);
   }
 
   .theme-icon-box {

@@ -23,16 +23,34 @@ function QuishubLogo() {
   );
 }
 
-export default function Navbar() {
+interface NavbarProps {
+  isDetailsPage?: boolean;
+}
+
+export default function Navbar({ isDetailsPage: isDetailsPageProp }: NavbarProps) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Detect if we are on a project detail page (fallback to prop if provided)
+  const isDetailsPage = isDetailsPageProp ?? (pathname.startsWith("/work/") && pathname !== "/work");
+
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      // For detail pages, we stay in "scrolled" state (solid background)
+      if (isDetailsPage) {
+        setScrolled(true);
+        return;
+      }
+      setScrolled(window.scrollY > 450);
+    };
+    
+    // Initial check
+    handleScroll();
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isDetailsPage]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -50,73 +68,114 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  // Determine navbar appearance based on scroll and page type
+  const showSolidNav = scrolled || isDetailsPage;
+
   return (
-    <nav
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled
-          ? "nav-surface-scrolled border-b backdrop-blur-[18px]"
-          : "nav-surface-rest border-b border-quishub-border/60"
-      )}
-    >
-      <div className="container-content flex h-16 items-center justify-between md:h-[72px]">
-        <QuishubLogo />
-
-        <div className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "font-ui text-sm transition-colors duration-200 cursor-pointer",
-                pathname === link.href
-                  ? "text-quishub-black"
-                  : "text-quishub-muted hover:text-quishub-black"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden md:block">
-          <Link href="/contact">
-            <Button size="sm">Book a Call</Button>
-          </Link>
-        </div>
-
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="rounded p-2 text-quishub-black transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] md:hidden"
-          aria-label="Toggle menu"
+    <>
+      <header
+        className={cn(
+          "fixed inset-x-0 top-0 z-50 flex justify-center transition-all duration-700 ease-in-out pointer-events-none",
+          showSolidNav ? "pt-4 px-4" : "pt-0 px-0"
+        )}
+      >
+        <div className={cn(
+          "absolute inset-0 bg-gradient-to-b from-black/5 to-transparent dark:from-black/40 transition-opacity duration-700 ease-in-out",
+          showSolidNav ? "opacity-0" : "opacity-100"
+        )} />
+        
+        <nav
+          className={cn(
+            "pointer-events-auto flex items-center justify-between transition-all duration-700 ease-in-out w-full relative",
+            showSolidNav
+              ? "max-w-5xl h-16 px-6 md:px-8 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(124,58,237,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              : "container-content h-20 md:h-24 px-6 md:px-12 bg-transparent border-transparent"
+          )}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
+          <div className="text-slate-900 dark:text-white transition-colors duration-500">
+            <QuishubLogo />
+          </div>
+
+          <div className={cn(
+            "hidden md:flex items-center gap-1 p-1 rounded-full transition-all duration-700 ease-in-out",
+            showSolidNav ? "bg-white/50 dark:bg-white/5 border border-slate-200 dark:border-white/5 backdrop-blur-md" : ""
+          )}>
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "font-ui text-sm px-5 py-2 rounded-full transition-all duration-500 cursor-pointer relative group",
+                    isActive
+                      ? "text-slate-900 dark:text-white font-bold"
+                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  )}
+                >
+                  {isActive && (
+                    <span className="absolute inset-0 rounded-full bg-white/80 dark:bg-white/10 shadow-sm -z-10" />
+                  )}
+                  {!isActive && (
+                    <span className="absolute inset-0 rounded-full bg-white/0 dark:bg-white/0 group-hover:bg-white/40 dark:group-hover:bg-white/5 transition-colors duration-300 -z-10" />
+                  )}
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="hidden md:block">
+            <Link 
+              href="/contact" 
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full font-semibold transition-all duration-300 hover:scale-105 shadow-[0_4px_14px_rgba(124,58,237,0.3)]"
+            >
+              <span className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#2563eb] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+              <span className="relative flex items-center gap-2 px-6 py-2.5 text-sm text-white font-ui">
+                Book a Call <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          </div>
+
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="rounded-full p-2 text-slate-900 dark:text-white transition-colors duration-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2563eb] md:hidden"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </nav>
+      </header>
 
       {mobileOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-16 z-40 border-t border-quishub-border bg-quishub-light md:hidden">
-          <div className="flex flex-col gap-6 p-6">
+        <div className="fixed inset-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl md:hidden pt-24 px-6 pb-6 flex flex-col justify-between">
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "font-ui text-lg transition-colors duration-200",
+                  "font-ui text-2xl transition-all duration-300 py-4 border-b border-slate-200 dark:border-white/5",
                   pathname === link.href
-                    ? "text-quishub-black"
-                    : "text-quishub-muted hover:text-quishub-black"
+                    ? "text-slate-900 dark:text-white font-semibold"
+                    : "text-slate-600 dark:text-slate-400 hover:text-[#2563eb]"
                 )}
               >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="mt-4">
-              <Button className="w-full">Book a Call</Button>
-            </Link>
           </div>
+          <Link 
+            href="/contact" 
+            className="group relative flex items-center justify-center overflow-hidden rounded-full font-semibold transition-all duration-300 shadow-[0_4px_14px_rgba(124,58,237,0.3)] w-full mb-8"
+          >
+            <span className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#2563eb]" />
+            <span className="relative flex items-center gap-2 px-6 py-4 text-lg text-white font-ui">
+              Book a Discovery Call <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
         </div>
       )}
-    </nav>
+    </>
   );
 }

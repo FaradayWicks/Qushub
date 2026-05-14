@@ -17,7 +17,7 @@ const caseStudies = [
     slug: "paklawassist",
     tag: "Legal Tech - Pakistan",
     title: "AI legal readiness for Pakistan's startup and SME ecosystem.",
-    image: "/images/project_law.png",
+    image: "/images/paklawassist.jpg",
     problem:
       "Startups and businesses in Pakistan had no reliable way to get legally grounded guidance. Generic LLMs gave generic answers with US/UK-style assumptions that didn't apply locally. Legal consultants were expensive and slow.",
     built:
@@ -35,7 +35,7 @@ const caseStudies = [
     slug: "nurmed",
     tag: "Healthcare - US/UAE",
     title: "AI clinical documentation that gave doctors their time back.",
-    image: "/images/project_health.png",
+    image: "/images/nurmed-ai.jpg",
     problem:
       "Doctors were spending a disproportionate amount of every consultation on documentation - typing while patients waited. It wasn't just an efficiency problem. It was a fatigue problem. And a patient experience problem.",
     built:
@@ -54,7 +54,7 @@ const caseStudies = [
     slug: "senteez",
     tag: "Hospitality & Retail Intelligence - Dubai / US",
     title: "Turning 23,000 customer reviews into decisions teams can act on.",
-    image: "/images/project_hospitality.png",
+    image: "/images/senteez.jpg",
     problem:
       "Star ratings are blunt. A 4.2 doesn't tell you what guests loved, what's breaking the experience, or what changed last month. Hotel and restaurant operators were making decisions based on averages - and missing everything specific and actionable underneath them.",
     built:
@@ -70,7 +70,7 @@ const caseStudies = [
     slug: "fictionpub",
     tag: "Creative Tech - United States",
     title: "Full-length AI novels. 20,000 users. 20-30 minutes.",
-    image: "/images/project_novel.png",
+    image: "/images/fictionpub-ai.jpg",
     problem:
       "Writers - from students to professional authors - were spending weeks or months getting to a first draft. The blank page problem is real. Most AI writing tools give you a paragraph, maybe a scene. Nobody had solved the full manuscript.",
     built:
@@ -196,16 +196,12 @@ function CaseStudyDetails({ study }: { study: any }) {
 
 export default function WorkPage() {
   const router = useRouter();
-  const [transitioning, setTransitioning] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleCardClick = useCallback(
-    (slug: string | null, index: number) => {
+    (slug: string | null) => {
       if (!slug) return;
-      setTransitioning(index);
-      setTimeout(() => {
-        router.push(`/work/${slug}`);
-      }, 400);
+      router.push(`/work/${slug}`);
     },
     [router]
   );
@@ -213,19 +209,7 @@ export default function WorkPage() {
   return (
     <>
       {/* Full-screen curtain transition */}
-      <AnimatePresence>
-        {transitioning !== null && (
-          <motion.div
-            initial={{ scaleY: 0 }}
-            animate={{ scaleY: 1 }}
-            transition={{ duration: 0.35, ease: [0.76, 0, 0.24, 1] }}
-            className="fixed inset-0 z-[100] origin-bottom"
-            style={{
-              background: "linear-gradient(135deg, #7c3aed 0%, #5b3fef 30%, #3b5fe8 60%, #2563eb 100%)",
-            }}
-          />
-        )}
-      </AnimatePresence>
+
 
       <SideGradients />
       <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-24">
@@ -273,14 +257,7 @@ export default function WorkPage() {
                 viewport={{ once: true }}
                 variants={fadeUp}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                animate={
-                  transitioning === index
-                    ? { scale: 1.02, y: -10, opacity: 0.7 }
-                    : transitioning !== null
-                    ? { opacity: 0, y: 20 }
-                    : {}
-                }
-                onClick={() => handleCardClick(study.slug, index)}
+                onClick={() => handleCardClick(study.slug)}
                 className={`group relative surface-card rounded-card p-8 md:p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)] ${
                   study.slug ? "cursor-pointer" : ""
                 }`}
