@@ -191,14 +191,11 @@ export default function SenteezPage() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="rounded-2xl overflow-hidden shadow-2xl border border-quishub-border/20 w-full max-w-none bg-black"
+              className="rounded-2xl overflow-hidden shadow-2xl border border-quishub-border/20 w-full max-w-none bg-white"
             >
-              <video
-                src="/videos/subtle-camera-push-in-and-gentle-glow-pulse-on-the.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
+              <img
+                src="/images/Senteez ai.jpeg"
+                alt="Senteez AI Architecture Diagram"
                 className="w-full max-h-[70vh] object-contain"
               />
             </motion.div>
