@@ -757,6 +757,7 @@
   font-size: 13.5px;
 }
 @media (max-width: 800px) { .new-home-wrapper .case__stats { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .new-home-wrapper .case__stats { grid-template-columns: 1fr; } }
 
 .new-home-wrapper .case__body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: stretch; }
 @media (max-width: 1000px) { .new-home-wrapper .case__body { grid-template-columns: 1fr; } }
@@ -767,11 +768,23 @@
   grid-template-columns: 210px 1fr;
   min-height: 460px;
 }
+@media (max-width: 720px) {
+  .new-home-wrapper .panel--app .app {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
 .new-home-wrapper .app__side {
   background: var(--surface-2);
   border-right: 1px solid var(--line);
   padding: 18px 14px;
   display: flex; flex-direction: column; gap: 18px;
+}
+@media (max-width: 720px) {
+  .new-home-wrapper .app__side {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
 }
 .new-home-wrapper .app__brand {
   display: inline-flex; align-items: center; gap: 8px;
@@ -808,6 +821,12 @@
 }
 
 .new-home-wrapper .app__main { padding: 20px 22px; display: flex; flex-direction: column; gap: 16px; }
+@media (max-width: 600px) {
+  .new-home-wrapper .app__main {
+    padding: 16px;
+    gap: 12px;
+  }
+}
 .new-home-wrapper .app__row { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
 .new-home-wrapper .app__small { font-size: 12px; color: var(--mute-2); font-family: var(--font-sora), monospace; letter-spacing: .04em; text-transform: uppercase; }
 .new-home-wrapper .app__title { font-family: var(--font-sora), system-ui, sans-serif; font-size: 18px; font-weight: 600; margin-top: 2px; }
@@ -824,6 +843,11 @@
 
 .new-home-wrapper .app__cards {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+}
+@media (max-width: 600px) {
+  .new-home-wrapper .app__cards {
+    grid-template-columns: 1fr;
+  }
 }
 .new-home-wrapper .appcard {
   padding: 12px 14px;
@@ -869,6 +893,11 @@
   font-family: var(--font-sora), system-ui, sans-serif;
   letter-spacing: -.01em;
   text-wrap: pretty;
+}
+@media (max-width: 600px) {
+  .new-home-wrapper .case__quote blockquote {
+    font-size: 17px;
+  }
 }
 .new-home-wrapper .case__by { display: flex; align-items: center; gap: 12px; }
 .new-home-wrapper .avatar {
