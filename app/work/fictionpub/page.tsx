@@ -160,7 +160,7 @@ export default function FictionPubPage() {
               className="rounded-2xl overflow-hidden shadow-2xl border border-quishub-border/20 bg-white"
             >
               <img
-                src="/images/futurepub.jpeg"
+                src="/images/fictionpub-ai.jpg"
                 alt="FictionPub.ai Architecture Diagram"
                 className="w-full max-h-[70vh] object-contain"
               />

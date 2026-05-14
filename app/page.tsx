@@ -461,7 +461,7 @@ export default function NewHome() {
               <p className="pcard__p">AI-assisted novel writing with chapter-level memory, style locks and token-efficient RAG. 20,000+ writers onboarded, 2.4M chapters generated.</p>
               <div className="pcard__metric"><strong>20,000+</strong> writers</div>
               <div className="pcard__img" data-label="Product shot · FictionPub editor">
-                <div className="mockimg mockimg--stripes"></div>
+                <img src="/images/fictionpub-ai.jpg" alt="FictionPub.ai editor" className="w-full h-full object-cover" />
               </div>
             </a>
 
@@ -470,6 +470,9 @@ export default function NewHome() {
               <h3 className="pcard__h">PakLawAssist</h3>
               <p className="pcard__p">Grounded legal research for Pakistan&apos;s case law corpus.</p>
               <div className="pcard__metric"><strong>1.2M</strong> judgments indexed</div>
+              <div className="pcard__img" data-label="Platform preview">
+                <img src="/images/paklawassist.jpg" alt="PakLawAssist" className="w-full h-full object-cover" />
+              </div>
             </a>
 
             <a className="pcard reveal" href="https://senteez.com" target="_blank" rel="noopener noreferrer" style={{ "--d": ".15s" } as React.CSSProperties}>
@@ -477,6 +480,9 @@ export default function NewHome() {
               <h3 className="pcard__h">Senteez</h3>
               <p className="pcard__p">Turns qualitative user feedback into shippable decisions.</p>
               <div className="pcard__metric"><strong>92%</strong> theme accuracy</div>
+              <div className="pcard__img" data-label="Analytics dashboard">
+                <img src="/images/senteez.jpg" alt="Senteez" className="w-full h-full object-cover" />
+              </div>
             </a>
 
             <a className="pcard reveal" href="https://nurmed.ai" target="_blank" rel="noopener noreferrer" style={{ "--d": ".2s" } as React.CSSProperties}>
@@ -484,6 +490,9 @@ export default function NewHome() {
               <h3 className="pcard__h">NurMed</h3>
               <p className="pcard__p">Clinical documentation that cuts consult time by a third.</p>
               <div className="pcard__metric"><strong>34%</strong> faster consults</div>
+              <div className="pcard__img" data-label="Clinical interface">
+                <img src="/images/nurmed-ai.jpg" alt="NurMed" className="w-full h-full object-cover" />
+              </div>
             </a>
 
             <a className="pcard reveal" href="https://nuworo.com" target="_blank" rel="noopener noreferrer" style={{ "--d": ".25s" } as React.CSSProperties}>
@@ -491,6 +500,9 @@ export default function NewHome() {
               <h3 className="pcard__h">Nuworo</h3>
               <p className="pcard__p">Cross-jurisdiction contract analysis for in-house counsel.</p>
               <div className="pcard__metric"><strong>14</strong> jurisdictions</div>
+              <div className="pcard__img" data-label="Global contract audit">
+                <img src="/images/Nuworo.jpg" alt="Nuworo" className="w-full h-full object-cover" />
+              </div>
             </a>
           </div>
         </div>

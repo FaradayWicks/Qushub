@@ -18,7 +18,7 @@ const navLinks = [
 function QuishubLogo() {
   return (
     <Link href="/" className="flex items-center gap-2 group">
-      <Logo width={136} priority className="block h-9 w-auto" />
+      <Logo width={110} priority className="block h-7 md:h-9 w-auto" />
     </Link>
   );
 }
@@ -76,7 +76,7 @@ export default function Navbar({ isDetailsPage: isDetailsPageProp }: NavbarProps
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 flex justify-center transition-all duration-700 ease-in-out pointer-events-none",
-          showSolidNav ? "pt-4 px-4" : "pt-0 px-0"
+          showSolidNav ? "pt-4 px-3 md:px-4" : "pt-0 px-0"
         )}
       >
         <div className={cn(
@@ -88,7 +88,7 @@ export default function Navbar({ isDetailsPage: isDetailsPageProp }: NavbarProps
           className={cn(
             "pointer-events-auto flex items-center justify-between transition-all duration-700 ease-in-out w-full relative",
             showSolidNav
-              ? "max-w-5xl h-16 px-6 md:px-8 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(124,58,237,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]"
+              ? "max-w-5xl h-14 md:h-16 px-4 md:px-8 rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
               : "container-content h-20 md:h-24 px-6 md:px-12 bg-transparent border-transparent"
           )}
         >
