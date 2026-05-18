@@ -11,7 +11,9 @@ STRICT RULES:
 5. If the user provides an email or phone, acknowledge it professionally.
 6. IMPORTANT: Output final answer ONLY. Do not include your internal thoughts or [SILENT THOUGHT] tags.`;
 
-export async function POST(req) {
+import { NextRequest } from 'next/server'; // Agar yeh import ooper nahi hai to add kar lein
+
+export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
     const apiKey = process.env.GEMINI_API_KEY;
@@ -46,11 +48,10 @@ export async function POST(req) {
     }
 
     // --- GEMINI API CALL ---
-    const contents = messages.map(m => ({
+    const contents = messages.map((m: { role: string; content: string }) => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.content || "" }]
     }));
-
     if (contents.length > 0 && contents[0].role === "user") {
       contents[0].parts[0].text = `SYSTEM: ${QUISHUB_SYSTEM_PROMPT}\n\nUSER: ${contents[0].parts[0].text}`;
     }
@@ -63,7 +64,7 @@ export async function POST(req) {
 
     const encoder = new TextEncoder();
     const decoder = new TextDecoder();
-    
+
     const transformStream = new TransformStream({
       transform(chunk, controller) {
         const text = decoder.decode(chunk);
@@ -85,7 +86,7 @@ export async function POST(req) {
 
               // 2. Filter empty chunks to fix frontend bubble
               if (!textChunk || textChunk === "") {
-                continue; 
+                continue;
               }
 
               data.candidates[0].content.parts[0].text = textChunk;
@@ -95,6 +96,10 @@ export async function POST(req) {
         }
       }
     });
+
+    if (!response.body) {
+      return new Response("No response body from API", { status: 500 });
+    }
 
     return new Response(response.body.pipeThrough(transformStream), {
       headers: { "Content-Type": "text/event-stream", "Cache-Control": "no-cache", "Connection": "keep-alive" },
