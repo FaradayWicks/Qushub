@@ -1034,7 +1034,17 @@
 .new-home-wrapper .cmp__us {
   color: var(--ink);
   background: linear-gradient(180deg, color-mix(in oklab, var(--g1) 8%, transparent), transparent);
-  display: inline-flex; align-items: center; gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.new-home-wrapper .cmp__logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
 }
 .new-home-wrapper .cmp__mark {
   width: 14px; height: 14px; border-radius: 4px;

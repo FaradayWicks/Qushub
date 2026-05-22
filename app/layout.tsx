@@ -4,7 +4,6 @@ import { Sora } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 import MouseTracker from "@/components/ui/MouseTracker";
 import OctacsTheme from "@/components/OctacsTheme";
@@ -130,7 +129,6 @@ export default function RootLayout({
         <OctacsTheme>
           <Navbar />
           <main>{children}</main>
-          <Footer />
         </OctacsTheme>
         <ThemeToggle />
         <ChatbotWidget />

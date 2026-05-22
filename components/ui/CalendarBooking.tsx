@@ -50,6 +50,10 @@ export default function CalendarBooking() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [confirmed, setConfirmed] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const year = viewDate.getFullYear();
   const month = viewDate.getMonth();
@@ -73,16 +77,29 @@ export default function CalendarBooking() {
     setConfirmed(false);
   };
 
-  const handleConfirm = () => {
-    if (!selectedDate || !selectedTime) return;
-    const subject = encodeURIComponent(
-      `Discovery Call Request – ${formatDate(selectedDate)} at ${selectedTime}`
-    );
-    const body = encodeURIComponent(
-      `Hi Quishub team,\n\nI'd like to book a discovery call on ${formatDate(selectedDate)} at ${selectedTime} (PKT/your timezone).\n\nPlease confirm the meeting link.\n\nThanks`
-    );
-    window.open(`mailto:hello@quishub.com?subject=${subject}&body=${body}`, "_blank");
-    setConfirmed(true);
+  const handleConfirm = async () => {
+    if (!selectedDate || !selectedTime || !clientName.trim() || !clientEmail.trim()) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: clientName.trim(),
+          email: clientEmail.trim(),
+          date: formatDate(selectedDate),
+          time: selectedTime,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Booking failed");
+      setConfirmed(true);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Build calendar grid cells
@@ -321,22 +338,51 @@ export default function CalendarBooking() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
+                      className="flex flex-col gap-3"
                     >
+                      <input
+                        type="text"
+                        placeholder="Your name"
+                        value={clientName}
+                        onChange={(e) => setClientName(e.target.value)}
+                        className="w-full px-4 py-2.5 rounded-lg text-sm border transition-colors duration-200 outline-none focus:ring-2 focus:ring-purple-500/30"
+                        style={{
+                          background: "var(--surface-subtle-bg)",
+                          borderColor: "var(--surface-subtle-border)",
+                          color: "rgb(var(--quishub-black-rgb))",
+                        }}
+                      />
+                      <input
+                        type="email"
+                        placeholder="Your email"
+                        value={clientEmail}
+                        onChange={(e) => setClientEmail(e.target.value)}
+                        className="w-full px-4 py-2.5 rounded-lg text-sm border transition-colors duration-200 outline-none focus:ring-2 focus:ring-purple-500/30"
+                        style={{
+                          background: "var(--surface-subtle-bg)",
+                          borderColor: "var(--surface-subtle-border)",
+                          color: "rgb(var(--quishub-black-rgb))",
+                        }}
+                      />
+                      {error && (
+                        <p className="text-xs text-red-400 text-center">{error}</p>
+                      )}
                       <motion.button
                         onClick={handleConfirm}
+                        disabled={loading || !clientName.trim() || !clientEmail.trim()}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer"
+                        className="w-full py-3 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                         style={{
                           background: "var(--quishub-black)",
                           color: "var(--quishub-light)",
                           boxShadow: "var(--surface-card-shadow)",
                         }}
                       >
-                        Confirm — {selectedTime}
+                        {loading ? "Booking..." : `Confirm — ${selectedTime}`}
                       </motion.button>
-                      <p className="mt-2.5 text-xs text-quishub-muted text-center">
-                        Opens your email to confirm the booking
+                      <p className="text-xs text-quishub-muted text-center">
+                        We&apos;ll send a confirmation to your email
                       </p>
                     </motion.div>
                   )}

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTA from "@/components/sections/CTA";
 import SideGradients from "@/components/ui/SideGradients";
+import Footer from "@/components/layout/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -294,6 +295,7 @@ export default function WorkPage() {
       </section>
 
       <CTA />
+      <Footer />
     </>
   );
 }

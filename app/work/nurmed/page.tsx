@@ -144,7 +144,7 @@ export default function NurMedPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted"
+              className="text-base leading-body text-[#475569]"
             >
               The primary bottleneck in modern healthcare is no longer just medical
               complexity&mdash;it is documentation. Doctors in Pakistan and abroad spend a
@@ -177,7 +177,7 @@ export default function NurMedPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#0f172a] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               How It Works: The Clinical Workflow
@@ -251,7 +251,7 @@ export default function NurMedPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#0f172a] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Proven Impact on Efficiency
@@ -315,7 +315,7 @@ export default function NurMedPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-4"
+              className="font-semibold tracking-heading text-[#0f172a] mb-4"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Security & Institutional Governance
@@ -323,7 +323,7 @@ export default function NurMedPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="text-base leading-body text-quishub-muted mb-8"
+              className="text-base leading-body text-[#475569] mb-8"
             >
               Built for the sensitive nature of medical data, the NurMed architecture includes:
             </motion.p>
@@ -359,7 +359,7 @@ export default function NurMedPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#0f172a] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Live Deployments

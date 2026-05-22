@@ -19,8 +19,9 @@ const BRAND = {
 const QUICK_ACTIONS = [
   { label: "Book Discovery Call", icon: "calendar", action: "calendly" },
   { label: "Contact Support", icon: "headset", action: "support" },
-  { label: "Learn More", icon: "arrow", action: "learn" },
 ];
+
+const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 
 /* ─── ICONS (inline SVG) ─── */
 const Icons: Record<string, React.ReactNode> = {
@@ -117,6 +118,7 @@ export default function ChatbotWidget() {
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [awaitingSupportEmail, setAwaitingSupportEmail] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -165,27 +167,72 @@ export default function ChatbotWidget() {
     [sound]
   );
 
-  const handleSend = () => {
-    const trimmed = input.trim();
-    if (!trimmed) return;
-    setMessages((prev) => [...prev, { from: "user", text: trimmed, time: ts() }]);
-    setInput("");
-    botReply(BRAND.botReply);
-  };
+  const handleSend = async () => {
+  const trimmed = input.trim();
+  if (!trimmed) return;
 
+  const newUserMessage: Message = { from: "user", text: trimmed, time: ts() };
+  const nextMessages = [...messages, newUserMessage];
+  setMessages(nextMessages);
+  setInput("");
+  setTyping(true);
+
+  try {
+    if (awaitingSupportEmail && !emailRegex.test(trimmed)) {
+      setMessages((prev) => [...prev, { from: "bot", text: "Please share a valid email address so our team can contact you.", time: ts() }]);
+      setTyping(false);
+      return;
+    }
+
+    const payloadMessages = nextMessages
+      .filter((message) => message.text.trim())
+      .slice(-12)
+      .map((message) => ({
+        role: message.from === "user" ? "user" : "model",
+        content: message.text,
+      }));
+
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({ messages: payloadMessages, supportRequest: awaitingSupportEmail && emailRegex.test(trimmed) }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok || data.error) {
+      throw new Error(data.error || "Backend failed");
+    }
+
+    setMessages((prev) => [...prev, { from: "bot", text: data.text, time: ts() }]);
+    if (awaitingSupportEmail && emailRegex.test(trimmed)) {
+      setAwaitingSupportEmail(false);
+    }
+
+  } catch (error) {
+    console.error("Frontend Connection Error:", error);
+    setMessages((prev) => [...prev, { from: "bot", text: "Connecting with Qushub AI and live support...", time: ts() }]);
+  } finally {
+    setTyping(false);
+  }
+};
   const handleQuickAction = (action: string) => {
     if (action === "calendly") {
       setOpen(false);
       router.push("/contact");
       return;
     }
-    const map: Record<string, string> = {
-      support: "I'd like to contact support.",
-      learn: "I'd like to learn more about your services.",
-    };
-    const text = map[action] || "Hello!";
-    setMessages((prev) => [...prev, { from: "user", text, time: ts() }]);
-    botReply(BRAND.botReply);
+    if (action === "support") {
+      setAwaitingSupportEmail(true);
+      setMessages((prev) => [
+        ...prev,
+        { from: "user", text: "I'd like to contact support.", time: ts() },
+        { from: "bot", text: "Sure — please share your email address and I'll send it directly to our support team.", time: ts() },
+      ]);
+    }
   };
 
   /* ─── THEME TOKENS ─── */

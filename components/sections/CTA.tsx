@@ -8,7 +8,12 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export default function CTA() {
+type CTAProps = {
+  variant?: "light" | "dark";
+};
+
+export default function CTA({ variant }: CTAProps) {
+  const isDark = variant === "dark";
   return (
     <section className="relative overflow-hidden py-32" id="contact">
       <div className="container-content relative z-10">
@@ -22,7 +27,7 @@ export default function CTA() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="font-display font-semibold tracking-heading text-quishub-black mx-auto"
+            className={`font-display font-semibold tracking-heading mx-auto ${variant ? (isDark ? "text-white" : "text-[#0f172a]") : "text-quishub-black"}`}
             style={{ fontSize: "clamp(36px, 4.4vw, 68px)", lineHeight: 1.05, textWrap: 'balance' }}
           >
             Ready to build something that <span className="gradient-text">actually works</span>?
@@ -31,7 +36,7 @@ export default function CTA() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="mt-6 text-[18px] text-quishub-muted max-w-[620px] mx-auto"
+            className={`mt-6 text-[18px] max-w-[620px] mx-auto ${variant ? (isDark ? "text-slate-400" : "text-[#64748b]") : "text-quishub-muted"}`}
             style={{ textWrap: 'pretty' }}
           >
             Book a free 30-minute call. We&apos;ll look at your use case, tell
@@ -59,7 +64,7 @@ export default function CTA() {
             </Link>
             <a 
               href="mailto:hello@quishub.com"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] font-medium text-[15px] text-quishub-black bg-transparent border border-line-2 transition-all duration-200 hover:bg-surface-2 hover:-translate-y-0.5"
+              className={`inline-flex items-center gap-2 px-7 py-3.5 rounded-[10px] font-medium text-[15px] bg-transparent border transition-all duration-200 hover:-translate-y-0.5 ${variant ? (isDark ? "text-white border-white/20 hover:bg-white/10" : "text-[#0f172a] border-line-2 hover:bg-surface-2") : "text-quishub-black border-line-2 hover:bg-surface-2"}`}
             >
               hello@quishub.com
             </a>
@@ -68,7 +73,7 @@ export default function CTA() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="mt-8 text-[13.5px] text-quishub-muted opacity-80"
+            className={`mt-8 text-[13.5px] opacity-80 ${variant ? (isDark ? "text-slate-400" : "text-quishub-muted") : "text-quishub-muted"}`}
           >
             No sales pitch. No commitment. Just honest engineering advice.
           </motion.p>

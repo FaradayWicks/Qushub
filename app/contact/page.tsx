@@ -7,6 +7,7 @@ import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CalendarBooking from "@/components/ui/CalendarBooking";
 import SideGradients from "@/components/ui/SideGradients";
+import Footer from "@/components/layout/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -435,6 +436,7 @@ export default function ContactPage() {
           )}
         </div>
       </section>
+      <Footer />
     </>
   );
 }

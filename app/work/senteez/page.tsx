@@ -194,7 +194,7 @@ export default function SenteezPage() {
               className="rounded-2xl overflow-hidden shadow-2xl border border-quishub-border/20 w-full max-w-none bg-white"
             >
               <img
-                src="/images/Senteez ai.jpeg"
+                src="/images/Senteez%20Detail%20page.jpg"
                 alt="Senteez AI Architecture Diagram"
                 className="w-full max-h-[70vh] object-contain"
               />
@@ -203,7 +203,7 @@ export default function SenteezPage() {
             <motion.p
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="mt-8 text-base leading-body text-quishub-muted"
+              className="mt-8 text-base leading-body text-slate-600"
             >
               The Senteez architecture is built to handle massive data throughput, converting
               unstructured text into structured, multi-dimensional insights through a four-stage
@@ -255,7 +255,7 @@ export default function SenteezPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#002147] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               NLP Analysis Layers
@@ -292,7 +292,7 @@ export default function SenteezPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#002147] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Live Global Impact
@@ -338,7 +338,7 @@ export default function SenteezPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#002147] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Enterprise-Grade Features
@@ -375,7 +375,7 @@ export default function SenteezPage() {
             <motion.h2
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="font-semibold tracking-heading text-quishub-black mb-8"
+              className="font-semibold tracking-heading text-[#002147] mb-8"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
               Access the Platform

@@ -15,6 +15,7 @@ import {
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTA from "@/components/sections/CTA";
 import SideGradients from "@/components/ui/SideGradients";
+import Footer from "@/components/layout/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -23,6 +24,7 @@ const fadeUp = {
 
 const services = [
   {
+    id: "ai-llm-integration",
     icon: Brain,
     title: "AI & LLM Integration",
     description:
@@ -38,6 +40,7 @@ const services = [
       "PakLawAssist needed contract drafting and review grounded in Pakistan's legal framework - not generic LLM output. We built a RAG-first pipeline that retrieves local legal context before generating anything. The system now handles contract drafting, risk spotting, and compliance guidance. It's live with two Pakistan government departments: SMEDA and PSIC.",
   },
   {
+    id: "saas-mvp-development",
     icon: Layers,
     title: "SaaS MVP Development",
     description:
@@ -53,6 +56,7 @@ const services = [
       "Senteez needed a full feedback intelligence platform - not just a dashboard. We built the entire pipeline: multi-source review ingestion, NLP analysis with fine-tuned models, topic modeling, entity extraction, and structured insight reports. It processes thousands of reviews at a time and the outputs are used for real business decisions.",
   },
   {
+    id: "scalable-backend-systems",
     icon: Server,
     title: "Scalable Backend Systems",
     description:
@@ -68,6 +72,7 @@ const services = [
       "A logistics company's monolithic backend was crashing under peak load. We redesigned it as an event-driven microservice architecture that handles 10x the original traffic with 99.9% uptime.",
   },
   {
+    id: "ai-automation-platforms",
     icon: Zap,
     title: "AI Automation Platforms",
     description:
@@ -83,6 +88,7 @@ const services = [
       "Doctors at partner clinics were spending a significant portion of every consultation on documentation - typing notes, typing summaries, typing when they should be treating. We built NurMed's AI documentation system to handle that. In the first week after deployment at Avenue Broadwalk General Practice, average consultation time dropped from 44 to 29 minutes.",
   },
   {
+    id: "data-driven-systems",
     icon: Database,
     title: "Data-Driven Systems",
     description:
@@ -98,6 +104,7 @@ const services = [
       "Senteez aggregates reviews from Google Business, Facebook, TripAdvisor, BestBuy, and more - normalizing them into a single structured format for NLP analysis. The pipeline processes thousands of reviews per report, runs topic modeling and entity extraction, and outputs structured intelligence.",
   },
   {
+    id: "architecture-consulting",
     icon: Shield,
     title: "Architecture Consulting",
     description:
@@ -183,6 +190,7 @@ export default function ServicesPage() {
         return (
           <section
             key={service.title}
+            id={service.id}
             className={`${i % 2 === 0 ? "section-light" : "section-white"} section-padding`}
           >
             <div className="container-content">
@@ -326,6 +334,7 @@ export default function ServicesPage() {
       </section>
 
       <CTA />
+      <Footer />
     </>
   );
 }

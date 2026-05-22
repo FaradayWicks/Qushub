@@ -362,17 +362,17 @@ html {
   }
 
   .theme-toggle-shell {
-    background-color: var(--toggle-shell-bg);
-    border-color: var(--toggle-shell-border);
-    box-shadow: var(--nav-shadow);
+    background-color: rgba(15, 23, 42, 0.92);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.22);
   }
 
   .theme-toggle-thumb {
-    background: var(--toggle-thumb-bg);
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
   }
 
   .theme-toggle-icon {
-    color: var(--toggle-icon-muted);
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .logo-dark {

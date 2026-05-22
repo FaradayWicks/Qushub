@@ -10,58 +10,43 @@ function QuishubLogoSmall() {
 }
 
 const serviceLinks = [
-  { href: "/services", label: "AI Integration" },
-  { href: "/services", label: "SaaS Development" },
-  { href: "/services", label: "Backend Systems" },
-  { href: "/services", label: "Automation" },
-  { href: "/services", label: "Consulting" },
+  { href: "/services#ai-llm-integration", label: "AI & LLM Integration" },
+  { href: "/services#saas-mvp-development", label: "SaaS MVPs" },
+  { href: "/services#scalable-backend-systems", label: "Backend Systems" },
+  { href: "/services#ai-automation-platforms", label: "AI Automation" },
+  { href: "/services#architecture-consulting", label: "Architecture Consulting" },
 ];
 
 const companyLinks = [
   { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/work", label: "Work" },
-  { href: "/contact", label: "Contact" },
+  { href: "/work", label: "Case studies" },
+  { href: "/work", label: "Portfolio" },
   { href: "/contact", label: "Careers" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-quishub-border bg-quishub-light">
-      <div className="container-content pb-8 pt-12">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.8fr_1fr_1fr_1fr] lg:gap-x-16 lg:gap-y-10">
-          <div>
+    <footer className="border-t border-line bg-surface px-6 py-16 md:px-8">
+      <div className="mx-auto max-w-[1200px]">
+        <div className="grid grid-cols-1 gap-10 border-b border-line pb-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div className="max-w-[340px]">
             <QuishubLogoSmall />
-            <p className="mt-4 text-sm leading-body text-quishub-muted">
-              AI product studio building production-ready systems for founders
-              and product teams. We&apos;ve shipped across healthcare, legal,
-              logistics, and hospitality - and we operate our own products too.
+            <p className="mt-4 text-[14.5px] leading-relaxed text-mute">
+              Production-first AI &amp; backend systems. Built with precision. Deployed with purpose.
             </p>
-            <div className="mt-5 flex gap-3">
-              <a
-                href="https://www.linkedin.com/company/quishub/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-quishub-muted transition-colors duration-200 cursor-pointer hover:text-quishub-black"
-                aria-label="LinkedIn"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-            </div>
           </div>
 
-          <div>
-            <h4 className="mb-4 font-ui text-sm font-semibold text-quishub-black">Services</h4>
+          <div className="flex flex-col gap-2.5">
+            <h4 className="mb-1 font-mono text-[11.5px] uppercase tracking-[0.16em] text-mute-2">Services</h4>
             <ul className="space-y-2.5">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-ui text-sm text-quishub-muted transition-colors duration-200 hover:text-quishub-black"
+                    className="text-[14.5px] text-ink-2 transition-colors duration-200 hover:text-brand-g1"
                   >
                     {link.label}
                   </Link>
@@ -70,14 +55,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-4 font-ui text-sm font-semibold text-quishub-black">Company</h4>
+          <div className="flex flex-col gap-2.5">
+            <h4 className="mb-1 font-mono text-[11.5px] uppercase tracking-[0.16em] text-mute-2">Company</h4>
             <ul className="space-y-2.5">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-ui text-sm text-quishub-muted transition-colors duration-200 hover:text-quishub-black"
+                    className="text-[14.5px] text-ink-2 transition-colors duration-200 hover:text-brand-g1"
                   >
                     {link.label}
                   </Link>
@@ -86,13 +71,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-4 font-ui text-sm font-semibold text-quishub-black">Contact</h4>
+          <div className="flex flex-col gap-2.5">
+            <h4 className="mb-1 font-mono text-[11.5px] uppercase tracking-[0.16em] text-mute-2">Contact</h4>
             <ul className="space-y-2.5">
               <li>
                 <a
                   href="mailto:hello@quishub.com"
-                  className="font-ui text-sm text-quishub-muted transition-colors duration-200 hover:text-quishub-black"
+                  className="text-[14.5px] text-ink-2 transition-colors duration-200 hover:text-brand-g1"
                 >
                   hello@quishub.com
                 </a>
@@ -100,20 +85,24 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="font-ui text-sm text-quishub-muted transition-colors duration-200 hover:text-quishub-black"
+                  className="mt-1 inline-flex items-center justify-center rounded-[10px] px-4 py-2 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
+                  style={{
+                    background: "linear-gradient(90deg, #7c3aed 0%, #2563eb 100%)",
+                    boxShadow: "0 10px 24px -14px rgba(124, 58, 237, 0.75)",
+                  }}
                 >
-                  Book a Call
+                  <span className="relative z-10 flex items-center gap-2 text-white">Book a call <span className="text-white">→</span></span>
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-2 border-t border-quishub-border pt-6 sm:flex-row">
-          <p className="text-xs text-quishub-faint">
+        <div className="flex flex-col justify-between gap-3 pt-6 text-[13px] text-mute-2 sm:flex-row">
+          <p>
             &copy; {currentYear} Quishub. All rights reserved.
           </p>
-          <p className="text-xs text-quishub-faint">
+          <p className="font-mono">
             Built with precision. Deployed with purpose.
           </p>
         </div>

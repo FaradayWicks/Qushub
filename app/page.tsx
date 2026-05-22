@@ -229,43 +229,67 @@ export default function NewHome() {
             <p className="lede">Six disciplines, one bar: it works, it scales, and it doesn&apos;t wake you up at 3am.</p>
           </header>
 
-          <div className="grid grid--3">
-            <article className="card card--svc reveal">
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <h3 className="card__h">AI &amp; LLM Integration</h3>
-              <p className="card__p">RAG, tool-use, agents, fine-tuning. Eval harnesses before you ship, not after.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
-            <article className="card card--svc reveal" style={{ "--d": ".1s" } as React.CSSProperties}>
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></div>
-              <h3 className="card__h">SaaS MVP Development</h3>
-              <p className="card__p">Brief to billable in weeks — auth, billing, multi-tenant, observability from day one.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
-            <article className="card card--svc reveal" style={{ "--d": ".2s" } as React.CSSProperties}>
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 6a8 4 0 1 0 16 0A8 4 0 1 0 4 6v12a8 4 0 0 0 16 0V6"/><path d="M4 12a8 4 0 0 0 16 0"/></svg></div>
-              <h3 className="card__h">Scalable Backend Systems</h3>
-              <p className="card__p">Postgres, queues, workers, caches. Architected for the load you&apos;ll have in 18 months.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
-            <article className="card card--svc reveal" style={{ "--d": ".05s" } as React.CSSProperties}>
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 3v18M3 12h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
-              <h3 className="card__h">AI Automation Platforms</h3>
-              <p className="card__p">Workflow engines, agentic pipelines, human-in-the-loop gates. Reliable orchestration.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
-            <article className="card card--svc reveal" style={{ "--d": ".15s" } as React.CSSProperties}>
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 20V10M9 20V4M15 20v-8M21 20V6"/></svg></div>
-              <h3 className="card__h">Data-Driven Systems</h3>
-              <p className="card__p">Pipelines, warehousing, vector stores. Instrumented so every decision has a number behind it.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
-            <article className="card card--svc reveal" style={{ "--d": ".25s" } as React.CSSProperties}>
-              <div className="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div>
-              <h3 className="card__h">Architecture Consulting</h3>
-              <p className="card__p">Second-opinion reviews, scale audits, cost teardowns. Senior engineers, no gatekeepers.</p>
-              <a className="card__link" href="#">Learn more <span>→</span></a>
-            </article>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">AI &amp; LLM Integration</h3>
+                <p className="mb-4 text-sm text-slate-400">RAG, tool-use, agents, fine-tuning. Eval harnesses before you ship, not after.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#ai-llm-integration">Learn more <span>→</span></a>
+              </div>
+            </div>
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">SaaS MVP Development</h3>
+                <p className="mb-4 text-sm text-slate-400">Brief to billable in weeks — auth, billing, multi-tenant, observability from day one.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#saas-mvp-development">Learn more <span>→</span></a>
+              </div>
+            </div>
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 6a8 4 0 1 0 16 0A8 4 0 1 0 4 6v12a8 4 0 0 0 16 0V6"/><path d="M4 12a8 4 0 0 0 16 0"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Scalable Backend Systems</h3>
+                <p className="mb-4 text-sm text-slate-400">Postgres, queues, workers, caches. Architected for the load you&apos;ll have in 18 months.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#scalable-backend-systems">Learn more <span>→</span></a>
+              </div>
+            </div>
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 3v18M3 12h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">AI Automation Platforms</h3>
+                <p className="mb-4 text-sm text-slate-400">Workflow engines, agentic pipelines, human-in-the-loop gates. Reliable orchestration.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#ai-automation-platforms">Learn more <span>→</span></a>
+              </div>
+            </div>
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 20V10M9 20V4M15 20v-8M21 20V6"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Data-Driven Systems</h3>
+                <p className="mb-4 text-sm text-slate-400">Pipelines, warehousing, vector stores. Instrumented so every decision has a number behind it.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#data-driven-systems">Learn more <span>→</span></a>
+              </div>
+            </div>
+            <div className="group rounded-2xl p-[1px] bg-surface shadow-none transition-all duration-300 hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]" style={{ background: "var(--surface-card-bg)", border: "1px solid var(--surface-card-border)" }}>
+              <div className="h-full rounded-2xl p-6 bg-surface group-hover:bg-gradient-to-r group-hover:from-[#7c3aed]/10 group-hover:to-[#2563eb]/10 transition-all duration-300" style={{ background: "var(--surface-card-bg)" }}>
+                <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+                </div>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Architecture Consulting</h3>
+                <p className="mb-4 text-sm text-slate-400">Second-opinion reviews, scale audits, cost teardowns. Senior engineers, no gatekeepers.</p>
+                <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#architecture-consulting">Learn more <span>→</span></a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -375,7 +399,7 @@ export default function NewHome() {
                   </div>
                   <div className="app">
                     <aside className="app__side">
-                      <div className="app__brand"><span className="mark"></span> NurMed</div>
+                      <div className="app__brand flex items-center gap-2"><img src="/images/nurmed.png" alt="NurMed" className="w-6 h-6 object-contain" /> NurMed</div>
                       <nav className="app__nav">
                         <a className="app__item app__item--active">◐ Consultations</a>
                         <a className="app__item">◇ Patients</a>
@@ -432,7 +456,7 @@ export default function NewHome() {
                   behaved like an internal team, not a vendor.
                 </blockquote>
                 <div className="case__by">
-                  <div className="avatar" aria-hidden="true">AB</div>
+                  <img src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" />
                   <div>
                     <div className="case__name">Head of Product</div>
                     <div className="case__org">Avenue Broadwalk · NurMed</div>
@@ -520,7 +544,14 @@ export default function NewHome() {
           <div className="cmp reveal">
             <div className="cmp__head">
               <div></div>
-              <div className="cmp__us"><span className="cmp__mark"></span> Quishub</div>
+              <div className="cmp__us">
+                <img
+                  src="/images/Qushub%20Logo.png"
+                  alt="Quishub"
+                  className="cmp__logo"
+                />
+                <span>Quishub</span>
+              </div>
               <div className="cmp__them">Typical agency</div>
             </div>
 
@@ -570,7 +601,7 @@ export default function NewHome() {
             <figure className="tcard reveal">
               <blockquote>Shipped a HIPAA-aware clinical assistant in under a month. Our consult times dropped 34% in week one.</blockquote>
               <figcaption className="tcard__by">
-                <div className="avatar" aria-hidden="true">AB</div>
+                <img src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" />
                 <div>
                   <div className="tcard__name">Head of Product</div>
                   <div className="tcard__org">Avenue Broadwalk · <em>NurMed</em></div>
@@ -580,7 +611,7 @@ export default function NewHome() {
             <figure className="tcard reveal" style={{ "--d": ".1s" } as React.CSSProperties}>
               <blockquote>They rebuilt our PWA in two sprints and found $14k/mo of cloud we didn&apos;t know we were burning.</blockquote>
               <figcaption className="tcard__by">
-                <div className="avatar avatar--2" aria-hidden="true">UW</div>
+                <img src="/images/Founder.jpg" alt="Founder" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" />
                 <div>
                   <div className="tcard__name">Founder</div>
                   <div className="tcard__org">Upwork · Full-stack PWA</div>
@@ -590,8 +621,7 @@ export default function NewHome() {
             <figure className="tcard reveal" style={{ "--d": ".2s" } as React.CSSProperties}>
               <blockquote>Senior engineers who actually read the whitepaper. Delivered the on-chain workflow we&apos;d been stuck on for months.</blockquote>
               <figcaption className="tcard__by">
-                <div className="avatar avatar--3" aria-hidden="true">BC</div>
-                <div>
+<img src="/images/CTO.jpg" alt="CTO - Upwork Blockchain" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" />                <div>
                   <div className="tcard__name">CTO</div>
                   <div className="tcard__org">Upwork · Blockchain</div>
                 </div>
@@ -675,19 +705,19 @@ export default function NewHome() {
           </div>
           <div className="foot__col">
             <div className="foot__h">Services</div>
-            <a href="#">AI &amp; LLM Integration</a>
-            <a href="#">SaaS MVPs</a>
-            <a href="#">Backend Systems</a>
-            <a href="#">AI Automation</a>
-            <a href="#">Architecture Consulting</a>
+            <Link href="/services#ai-llm-integration">AI &amp; LLM Integration</Link>
+            <Link href="/services#saas-mvp-development">SaaS MVPs</Link>
+            <Link href="/services#scalable-backend-systems">Backend Systems</Link>
+            <Link href="/services#ai-automation-platforms">AI Automation</Link>
+            <Link href="/services#architecture-consulting">Architecture Consulting</Link>
           </div>
           <div className="foot__col">
             <div className="foot__h">Company</div>
-            <a href="#">About</a>
-            <a href="#">Case studies</a>
-            <a href="/work">Portfolio</a>
-            <a href="#">Careers</a>
-            <a href="#">Contact</a>
+            <Link href="/about">About</Link>
+            <Link href="/work">Case studies</Link>
+            <Link href="/work">Portfolio</Link>
+            <Link href="/contact">Careers</Link>
+            <Link href="/contact">Contact</Link>
           </div>
           <div className="foot__col">
             <div className="foot__h">Contact</div>
@@ -705,3 +735,6 @@ export default function NewHome() {
     </div>
   );
 }
+
+
+

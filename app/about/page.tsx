@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTA from "@/components/sections/CTA";
 import SideGradients from "@/components/ui/SideGradients";
+import Footer from "@/components/layout/Footer";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -47,19 +48,22 @@ const values = [
 ];
 
 const teamMembers = [
-  {
-    name: "Mujtaba Rehman",
-    role: "Founder & CEO",
-    initials: "MR",
-    bio: "Leads product strategy, client relationships, and overall vision. Has overseen the delivery of production AI systems across healthcare, legal, logistics, and creative tech — including two government-deployed platforms.",
-    linkedin: "https://www.linkedin.com/company/quishub/",
-  },
+  
+    {
+  name: "Mujtaba Rehman",
+  role: "Founder & CEO",
+  initials: "MR",
+  image: "/images/Mujtaba%20Rehman.png",
+  bio: "Leads product strategy, client relationships, and overall vision. Has overseen the delivery of production AI systems across healthcare, legal, logistics, and creative tech — including two government-deployed platforms.",
+  linkedin: "https://www.linkedin.com/in/muhammad-mujtaba-rehman/",
+},
   {
     name: "Uzair Hussan Pasha",
     role: "Co-Founder & CTO",
     initials: "UP",
+    image: "/images/Uzair%20Hussan%20Pasha.png",
     bio: "Drives engineering architecture and technical execution. Specializes in scalable AI pipelines, agentic systems, and distributed backend infrastructure. Ensures every system we ship is production-grade from day one.",
-    linkedin: "https://www.linkedin.com/company/quishub/",
+    linkedin: "https://www.linkedin.com/in/uzair-hussan-pasha-4481481a2/",
   },
 ];
 
@@ -376,12 +380,20 @@ export default function AboutPage() {
                   {/* Avatar + name row */}
                   <div className="flex items-center gap-5">
                     {/* Avatar placeholder — replace with next/image once photos are ready */}
-                    <div
-                      className="w-[72px] h-[72px] rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none"
-                      style={{ background: "var(--button-primary-bg)" }}
-                    >
-                      {member.initials}
-                    </div>
+                                      {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-[72px] h-[72px] rounded-full flex-shrink-0 object-cover border border-[#1e293b]"
+                      />
+                    ) : (
+                      <div
+                        className="w-[72px] h-[72px] rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none"
+                        style={{ background: "var(--button-primary-bg)" }}
+                      >
+                        {member.initials}
+                      </div>
+                    )}
                     <div>
                       <h3 className="text-lg font-semibold text-quishub-black leading-tight">
                         {member.name}
@@ -488,6 +500,7 @@ export default function AboutPage() {
       </section>
 
       <CTA />
+      <Footer />
     </>
   );
 }
