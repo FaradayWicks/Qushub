@@ -13,7 +13,6 @@ credentials/
 **/credentials/
 *service-account*.json
 paklawassistapp*.json
-Qushub-main/
 
 npm-debug.log*
 yarn-debug.log*
