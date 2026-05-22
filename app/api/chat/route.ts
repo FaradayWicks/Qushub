@@ -23,6 +23,11 @@ type GoogleServiceAccount = {
   project_id?: string;
 };
 
+type VertexContent = {
+  role: "user" | "model";
+  parts: { text: string }[];
+};
+
 function getServiceAccountCredentials(): GoogleServiceAccount {
   const rawCredentials = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
 
@@ -79,13 +84,35 @@ async function generateVertexReply(messages: ChatMessage[]) {
     },
   });
 
-  const contents = messages
+  const normalizedContents = messages
     .filter((message) => message.content?.trim())
     .slice(-12)
     .map((message) => ({
       role: message.role === "model" || message.role === "assistant" ? "model" : "user",
       parts: [{ text: message.content || "" }],
-    }));
+    })) as VertexContent[];
+
+  const contents = normalizedContents.reduce<VertexContent[]>((acc, content) => {
+    if (!acc.length && content.role !== "user") {
+      return acc;
+    }
+
+    const previous = acc[acc.length - 1];
+    if (previous?.role === content.role) {
+      previous.parts[0].text = `${previous.parts[0].text}\n${content.parts[0].text}`;
+      return acc;
+    }
+
+    acc.push(content);
+    return acc;
+  }, []);
+
+  if (!contents.length) {
+    contents.push({
+      role: "user",
+      parts: [{ text: "Hello, I want to learn about Quishub." }],
+    });
+  }
 
   const responseResult = await generativeModel.generateContent({ contents });
 
