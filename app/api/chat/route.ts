@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { VertexAI } from '@google-cloud/vertexai';
 
 const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 const phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/;
@@ -8,12 +9,38 @@ Core services include AI and LLM integration, SaaS MVP development, scalable bac
 Tone: professional, premium, warm, concise, and confident.
 Respond in plain text only. Keep answers short and helpful.
 If asked about pricing or timelines, recommend booking a discovery call at /contact.
-If the user wants to connect with a human, ask for their email or suggest booking a call.`;
+If the user wants to connect with a human, ask for their email or suggest booking a call.
+If the user shares an email or asks for live support, acknowledge it and tell them the team will follow up.`;
 
 type ChatMessage = {
   role?: string;
   content?: string;
 };
+
+type GoogleServiceAccount = {
+  client_email: string;
+  private_key: string;
+  project_id?: string;
+};
+
+function getServiceAccountCredentials(): GoogleServiceAccount {
+  const rawCredentials = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
+
+  if (!rawCredentials) {
+    throw new Error("GOOGLE_SERVICE_ACCOUNT_JSON is not configured");
+  }
+
+  const credentials = JSON.parse(rawCredentials) as GoogleServiceAccount;
+
+  if (!credentials.client_email || !credentials.private_key) {
+    throw new Error("GOOGLE_SERVICE_ACCOUNT_JSON is missing client_email or private_key");
+  }
+
+  return {
+    ...credentials,
+    private_key: credentials.private_key.replace(/\\n/g, "\n"),
+  };
+}
 
 async function notifyMattermost(text: string) {
   const webhookUrl = process.env.MATTERMOST_WEBHOOK_URL;
@@ -26,47 +53,43 @@ async function notifyMattermost(text: string) {
   }).catch(() => {});
 }
 
-async function generateGeminiReply(messages: ChatMessage[]) {
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not configured");
-  }
+async function generateVertexReply(messages: ChatMessage[]) {
+  const credentials = getServiceAccountCredentials();
+  const project = process.env.GOOGLE_CLOUD_PROJECT || credentials.project_id || "paklawassistapp";
+  const location = process.env.GOOGLE_CLOUD_LOCATION || "us-central1";
+  const model = process.env.GEMINI_VERTEX_MODEL || `projects/${project}/locations/${location}/publishers/google/models/gemini-2.5-flash`;
 
-  const recentMessages = messages
+  const vertexAI = new VertexAI({
+    project,
+    location,
+    googleAuthOptions: {
+      credentials,
+    },
+  });
+
+  const generativeModel = vertexAI.getGenerativeModel({
+    model,
+    generationConfig: {
+      temperature: 0.7,
+      maxOutputTokens: 512,
+    },
+    systemInstruction: {
+      role: "system",
+      parts: [{ text: QUISHUB_SYSTEM_PROMPT }],
+    },
+  });
+
+  const contents = messages
     .filter((message) => message.content?.trim())
-    .slice(-12);
+    .slice(-12)
+    .map((message) => ({
+      role: message.role === "model" || message.role === "assistant" ? "model" : "user",
+      parts: [{ text: message.content || "" }],
+    }));
 
-  const contents = recentMessages.map((message, index) => ({
-    role: message.role === "model" || message.role === "assistant" ? "model" : "user",
-    parts: [{
-      text: index === 0
-        ? `${QUISHUB_SYSTEM_PROMPT}\n\nUser: ${message.content || ""}`
-        : message.content || "",
-    }],
-  }));
+  const responseResult = await generativeModel.generateContent({ contents });
 
-  const response = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents,
-        generationConfig: {
-          temperature: 0.7,
-          maxOutputTokens: 512,
-        },
-      }),
-    }
-  );
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.error?.message || "Failed to generate chatbot response");
-  }
-
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+  return responseResult.response.candidates?.[0]?.content?.parts?.[0]?.text || "";
 }
 
 export async function POST(req: NextRequest) {
@@ -82,7 +105,7 @@ export async function POST(req: NextRequest) {
 
     if (supportRequest && supportEmail) {
       await notifyMattermost(
-        `### ?? New Chatbot Support Request\n| Field | Details |\n|---|---|\n| **Email** | ${supportEmail} |\n| **Message** | Contact Support requested via website chatbot |\n\n_Please follow up with this visitor._`
+        `### New Chatbot Support Request\n| Field | Details |\n|---|---|\n| **Email** | ${supportEmail} |\n| **Message** | Contact Support requested via website chatbot |\n\n_Please follow up with this visitor._`
       );
 
       return NextResponse.json({
@@ -92,11 +115,11 @@ export async function POST(req: NextRequest) {
 
     if (detectedEmail || detectedPhone) {
       await notifyMattermost(
-        `### ?? New Chatbot Lead Captured\n| Field | Details |\n|---|---|\n| **Email** | ${detectedEmail || "Not provided"} |\n| **Phone** | ${detectedPhone || "Not provided"} |\n| **Message** | ${lastUserMessage} |`
+        `### New Chatbot Lead Captured\n| Field | Details |\n|---|---|\n| **Email** | ${detectedEmail || "Not provided"} |\n| **Phone** | ${detectedPhone || "Not provided"} |\n| **Message** | ${lastUserMessage} |`
       );
     }
 
-    const replyText = await generateGeminiReply(messages);
+    const replyText = await generateVertexReply(messages);
 
     return NextResponse.json({
       text: replyText || "Thanks for reaching out! Tell me a bit about what you're building, or book a discovery call on our contact page.",
