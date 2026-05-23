@@ -384,11 +384,11 @@ export default function AboutPage() {
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-[72px] h-[72px] rounded-full flex-shrink-0 object-cover border border-[#1e293b]"
+                        className="w-[96px] h-[96px] rounded-full flex-shrink-0 object-cover border border-[#1e293b]"
                       />
                     ) : (
                       <div
-                        className="w-[72px] h-[72px] rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none"
+                        className="w-[96px] h-[96px] rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none"
                         style={{ background: "var(--button-primary-bg)" }}
                       >
                         {member.initials}

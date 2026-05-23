@@ -19,10 +19,11 @@ const serviceLinks = [
 
 const companyLinks = [
   { href: "/about", label: "About" },
-  { href: "/work", label: "Case studies" },
-  { href: "/work", label: "Portfolio" },
-  { href: "/contact", label: "Careers" },
-  { href: "/contact", label: "Contact" },
+  { href: "/work", label: "Work" },
+    { href: "/services", label: "Services" },
+      { href: "/contact", label: "Contact" },
+
+
 ];
 
 export default function Footer() {

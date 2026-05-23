@@ -533,7 +533,7 @@ export default function NewHome() {
       </section>
 
       {/* ================= WHY US / COMPARISON ================= */}
-      <section className="section" id="why">
+      {/* <section className="section" id="why">
         <div className="container">
           <header className="section__head reveal">
             <span className="kicker">Why us</span>
@@ -587,7 +587,7 @@ export default function NewHome() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ================= TESTIMONIALS ================= */}
       <section className="section section--alt" id="stories">
@@ -714,9 +714,8 @@ export default function NewHome() {
           <div className="foot__col">
             <div className="foot__h">Company</div>
             <Link href="/about">About</Link>
-            <Link href="/work">Case studies</Link>
-            <Link href="/work">Portfolio</Link>
-            <Link href="/contact">Careers</Link>
+            <Link href="/work">Work</Link>
+            <Link href="/services">Services</Link>
             <Link href="/contact">Contact</Link>
           </div>
           <div className="foot__col">
