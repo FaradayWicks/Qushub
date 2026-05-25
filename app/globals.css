@@ -407,3 +407,15 @@ html {
     background: radial-gradient(circle, rgba(124, 58, 237, 0.34) 0%, rgba(124, 58, 237, 0.14) 40%, rgba(124, 58, 237, 0) 72%);
   }
 }
+
+/* Healthcare standalone isolation — hides root chrome */
+html[data-standalone="healthcare"] header,
+html[data-standalone="healthcare"] .chatbot-widget,
+html[data-standalone="healthcare"] [aria-label="Toggle menu"],
+html[data-standalone="healthcare"] [data-theme-toggle],
+html[data-standalone="healthcare"] footer {
+  display: none !important;
+}
+html[data-standalone="healthcare"] main {
+  padding-top: 0 !important;
+}

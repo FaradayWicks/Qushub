@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Sora } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
+import { headers } from "next/headers";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import ThemeToggle from "@/components/theme/ThemeToggle";
@@ -119,6 +120,41 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const host = headers().get("host") || "";
+  const isHealthcareSubdomain = host.startsWith("healthcare.");
+
+  if (isHealthcareSubdomain) {
+    return (
+      <html
+        lang="en"
+        data-theme="light"
+        suppressHydrationWarning
+        className={`${texar.variable} ${ttLakesNeue.variable} ${sora.variable} ${GeistMono.variable}`}
+      >
+        <body className="font-body bg-[#e5e5e4] text-[#0f172a] min-h-screen">
+          {/* Fixed clinical header strip */}
+          <header className="fixed top-0 inset-x-0 z-50 bg-[#e5e5e4] border-b border-slate-300/60">
+            <div className="mx-auto max-w-[1200px] px-6 md:px-10 h-16 flex items-center">
+              <span className="font-bold text-[#0f172a] tracking-tight text-base md:text-lg">
+                Quishub Healthcare Architecture
+              </span>
+            </div>
+          </header>
+
+          {/* Body offset to clear the fixed header */}
+          <main className="pt-20 min-h-screen bg-[#e5e5e4]">{children}</main>
+
+          {/* Minimal clinical footer */}
+          <footer className="border-t border-slate-300/60 bg-[#e5e5e4]">
+            <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-6 text-center text-xs text-[#0f172a]/60">
+              © {new Date().getFullYear()} Quishub™ &middot; Managed by Muhammad Mujtaba Rehman.
+            </div>
+          </footer>
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" suppressHydrationWarning className={`${texar.variable} ${ttLakesNeue.variable} ${sora.variable} ${GeistMono.variable}`}>
       <body className="font-body">
