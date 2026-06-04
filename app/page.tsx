@@ -107,15 +107,12 @@ export default function NewHome() {
           <div className="hero__copy">
             <div className="eyebrow reveal">
               <span className="dot dot--live"></span>
-              <span>AI product studio · Ships to production</span>
+              <span>Enterprise Software Solutions · Results That Matter</span>
             </div>
             <h1 className="hero__h1">
-              <span className="reveal-word">Your</span>{" "}
-              <span className="reveal-word">clients</span>{" "}
-              <span className="reveal-word">don&apos;t</span>{" "}
-              <span className="reveal-word">need</span>{" "}
-              <span className="reveal-word">more</span>{" "}
-              <span className="reveal-word">demos.</span>{" "}
+              <span className="reveal-word">Skip</span>{" "}
+              <span className="reveal-word">the</span>{" "}
+              <span className="reveal-word">experiments.</span>{" "}
               <span
                 className="reveal-word"
                 style={{
@@ -126,12 +123,11 @@ export default function NewHome() {
                   color: "transparent",
                 }}
               >
-                They need AI that ships.
+                Get real results.
               </span>
             </h1>
             <p className="hero__sub reveal" style={{ "--d": ".6s" } as React.CSSProperties}>
-              Production-first AI &amp; backend systems for founders and product teams.
-              No prototypes. No babysitting. Just working products from brief to production.
+             We turn business goals into reliable digital platforms that cut manual work and boost profit from Day One.
             </p>
             <div className="hero__ctas reveal" style={{ "--d": ".75s" } as React.CSSProperties}>
               <Link className="btn btn--primary btn--lg" href="/contact"><span className="relative z-10 flex items-center gap-2" style={{ color: "white" }}>Book a discovery call <span className="btn__arrow text-white">→</span></span></Link>
@@ -159,25 +155,25 @@ export default function NewHome() {
                 <span className="panel__live"><span className="live-dot"></span>live</span>
               </div>
               <div className="term">
-                <div className="term__line"><span className="c-mute">$</span> <span className="c-fg">quishub deploy --service nurmed-rag --env prod</span></div>
+                <div className="term__line"><span className="c-mute">$</span> <span className="c-fg">$ quishub deploy --service custom-workflow --env production</span></div>
                 <div className="term__line"><span className="c-mute">[00:00]</span> building container <span className="c-ok">✓</span></div>
-                <div className="term__line"><span className="c-mute">[00:02]</span> evals: hallucination 0.4% · grounded 98.6% <span className="c-ok">✓</span></div>
+                <div className="term__line"><span className="c-mute">[00:02]</span> verification: system accuracy 99.6% · error rate 0.4% <span className="c-ok">✓</span></div>
                 <div className="term__line"><span className="c-mute">[00:03]</span> token cost optimiser <span className="c-grad">-76%</span></div>
-                <div className="term__line"><span className="c-mute">[00:04]</span> pushing to prod … <span className="c-ok">✓</span></div>
+                <div className="term__line"><span className="c-mute">[00:04]</span> launching to secure production environment ... <span className="c-ok">✓</span></div>
                 <div className="term__line"><span className="c-mute">[00:05]</span> <span className="c-grad">live @ api.nurmed.ai/v2</span></div>
                 <div className="term__line term__line--caret"><span className="c-mute">$</span> <span className="caret"></span></div>
               </div>
               <div className="panel__meta">
                 <div className="meta-cell">
-                  <span className="meta-cell__k">p50 latency</span>
+                  <span className="meta-cell__k">RESPONSE SPEED</span>
                   <span className="meta-cell__v">142<span className="unit">ms</span></span>
                 </div>
                 <div className="meta-cell">
-                  <span className="meta-cell__k">uptime 30d</span>
+                  <span className="meta-cell__k">SYSTEM RELIABILITY</span>
                   <span className="meta-cell__v">99.98<span className="unit">%</span></span>
                 </div>
                 <div className="meta-cell">
-                  <span className="meta-cell__k">token savings</span>
+                  <span className="meta-cell__k">OPERATIONAL SAVINGS</span>
                   <span className="meta-cell__v">76<span className="unit">%</span></span>
                 </div>
               </div>
@@ -196,26 +192,26 @@ export default function NewHome() {
 
         <div className="marquee" aria-hidden="true">
           <div className="marquee__track">
-            <span>LLM integration</span><span className="bullet">◆</span>
-            <span>RAG systems</span><span className="bullet">◆</span>
+            <span>AI Integration</span><span className="bullet">◆</span>
+            <span>Intelligent Automation</span><span className="bullet">◆</span>
             <span>SaaS MVPs</span><span className="bullet">◆</span>
-            <span>Scalable backends</span><span className="bullet">◆</span>
-            <span>Eval harnesses</span><span className="bullet">◆</span>
-            <span>Agentic workflows</span><span className="bullet">◆</span>
-            <span>Token cost optimisation</span><span className="bullet">◆</span>
-            <span>Observability</span><span className="bullet">◆</span>
-            <span>Data pipelines</span><span className="bullet">◆</span>
-            <span>Architecture consulting</span><span className="bullet">◆</span>
-            <span>LLM integration</span><span className="bullet">◆</span>
-            <span>RAG systems</span><span className="bullet">◆</span>
+            <span>Enterprise Platforms</span><span className="bullet">◆</span>
+            <span>Quality Assurance</span><span className="bullet">◆</span>
+            <span>Workflow Optimization</span><span className="bullet">◆</span>
+            <span>Cost Efficiency</span><span className="bullet">◆</span>
+            <span>Performance Monitoring</span><span className="bullet">◆</span>
+            <span>Business Intelligence</span><span className="bullet">◆</span>
+            <span>Strategic Advisory</span><span className="bullet">◆</span>
+            <span>AI Integration</span><span className="bullet">◆</span>
+            <span>Intelligent Automation</span><span className="bullet">◆</span>
             <span>SaaS MVPs</span><span className="bullet">◆</span>
-            <span>Scalable backends</span><span className="bullet">◆</span>
-            <span>Eval harnesses</span><span className="bullet">◆</span>
-            <span>Agentic workflows</span><span className="bullet">◆</span>
-            <span>Token cost optimisation</span><span className="bullet">◆</span>
-            <span>Observability</span><span className="bullet">◆</span>
-            <span>Data pipelines</span><span className="bullet">◆</span>
-            <span>Architecture consulting</span><span className="bullet">◆</span>
+            <span>Enterprise Platforms</span><span className="bullet">◆</span>
+            <span>Quality Assurance</span><span className="bullet">◆</span>
+            <span>Workflow Optimization</span><span className="bullet">◆</span>
+            <span>Cost Efficiency</span><span className="bullet">◆</span>
+            <span>Performance Monitoring</span><span className="bullet">◆</span>
+            <span>Business Intelligence</span><span className="bullet">◆</span>
+            <span>Strategic Advisory</span><span className="bullet">◆</span>
           </div>
         </div>
       </section>
@@ -225,8 +221,8 @@ export default function NewHome() {
         <div className="container">
           <header className="section__head reveal">
             <span className="kicker">What we build</span>
-            <h2 className="h2">Every system we build runs in production.</h2>
-            <p className="lede">Six disciplines, one bar: it works, it scales, and it doesn&apos;t wake you up at 3am.</p>
+            <h2 className="h2">Enterprise systems that drive real business results.</h2>
+            <p className="lede">Six proven capabilities. One promise: reliable, scalable solutions that grow with your business.</p>
           </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -235,8 +231,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">AI &amp; LLM Integration</h3>
-                <p className="mb-4 text-sm text-slate-400">RAG, tool-use, agents, fine-tuning. Eval harnesses before you ship, not after.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Intelligent Automation</h3>
+                <p className="mb-4 text-sm text-slate-400">Deploy smart AI solutions that streamline operations, reduce costs, and deliver measurable ROI from day one.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#ai-llm-integration">Learn more <span>→</span></a>
               </div>
             </div>
@@ -245,8 +241,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">SaaS MVP Development</h3>
-                <p className="mb-4 text-sm text-slate-400">Brief to billable in weeks — auth, billing, multi-tenant, observability from day one.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Digital Product Launch</h3>
+                <p className="mb-4 text-sm text-slate-400">From concept to revenue in weeks. Complete platforms with user management, billing, and analytics built-in.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#saas-mvp-development">Learn more <span>→</span></a>
               </div>
             </div>
@@ -255,8 +251,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 6a8 4 0 1 0 16 0A8 4 0 1 0 4 6v12a8 4 0 0 0 16 0V6"/><path d="M4 12a8 4 0 0 0 16 0"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Scalable Backend Systems</h3>
-                <p className="mb-4 text-sm text-slate-400">Postgres, queues, workers, caches. Architected for the load you&apos;ll have in 18 months.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Enterprise Infrastructure</h3>
+                <p className="mb-4 text-sm text-slate-400">Lightning-fast, ultra-secure systems designed to handle millions of users without breaking a sweat.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#scalable-backend-systems">Learn more <span>→</span></a>
               </div>
             </div>
@@ -265,8 +261,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 3v18M3 12h18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">AI Automation Platforms</h3>
-                <p className="mb-4 text-sm text-slate-400">Workflow engines, agentic pipelines, human-in-the-loop gates. Reliable orchestration.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Smart Workflow Solutions</h3>
+                <p className="mb-4 text-sm text-slate-400">End-to-end workflow solutions that eliminate repetitive tasks, reduce errors, and free your team to focus on growth.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#ai-automation-platforms">Learn more <span>→</span></a>
               </div>
             </div>
@@ -275,8 +271,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 20V10M9 20V4M15 20v-8M21 20V6"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Data-Driven Systems</h3>
-                <p className="mb-4 text-sm text-slate-400">Pipelines, warehousing, vector stores. Instrumented so every decision has a number behind it.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Business Intelligence</h3>
+                <p className="mb-4 text-sm text-slate-400">Transform raw data into actionable insights. Make confident decisions with real-time dashboards and predictive analytics.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#data-driven-systems">Learn more <span>→</span></a>
               </div>
             </div>
@@ -285,8 +281,8 @@ export default function NewHome() {
                 <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center p-3 text-ink bg-surface-2 border border-line-2 shadow-none group-hover:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:shadow-[0_0_20px_4px_rgba(124,58,237,0.5)] transition-all duration-300">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
                 </div>
-                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Architecture Consulting</h3>
-                <p className="mb-4 text-sm text-slate-400">Second-opinion reviews, scale audits, cost teardowns. Senior engineers, no gatekeepers.</p>
+                <h3 className="mb-2 text-lg font-semibold tracking-tight text-quishub-black dark:text-white group-hover:bg-gradient-to-r group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">Strategic Technology Advisory</h3>
+                <p className="mb-4 text-sm text-slate-400">Expert guidance on technology investments, system optimization, and digital transformation—without the technical jargon.</p>
                 <a className="inline-flex items-center gap-1 text-sm text-white hover:underline" href="/services#architecture-consulting">Learn more <span>→</span></a>
               </div>
             </div>
@@ -324,37 +320,37 @@ export default function NewHome() {
         <div className="container">
           <header className="section__head reveal">
             <span className="kicker">The process</span>
-            <h2 className="h2">Brief to production. No guesswork in between.</h2>
+            <h2 className="h2">From vision to value. Transparent every step of the way.</h2>
           </header>
 
           <ol className="steps">
             <li className="step reveal">
               <div className="step__num">01</div>
               <div className="step__body">
-                <h3 className="step__h">Discovery Workshop</h3>
-                <p className="step__p">A 90-minute working session. We map use cases, data shape, eval criteria and the one metric that defines success. You leave with a written scope — not a sales deck.</p>
+                <h3 className="step__h">Strategy &amp; Planning</h3>
+                <p className="step__p">A focused working session to understand your business goals, challenges, and success metrics. You receive a clear roadmap with deliverables, timelines, and investment—no surprises.</p>
                 <ul className="step__list">
-                  <li>Use-case mapping</li><li>Model &amp; stack decisions</li><li>Eval criteria</li><li>Written scope</li>
+                  <li>Business goal alignment</li><li>Solution architecture</li><li>Success metrics defined</li><li>Detailed project scope</li>
                 </ul>
               </div>
             </li>
             <li className="step reveal" style={{ "--d": ".1s" } as React.CSSProperties}>
               <div className="step__num">02</div>
               <div className="step__body">
-                <h3 className="step__h">Architecture &amp; Design</h3>
-                <p className="step__p">Systems diagrams, data flow, prompt design, cost modelling. We de-risk the hard parts on paper so build is execution, not exploration.</p>
+                <h3 className="step__h">Design &amp; Architecture</h3>
+                <p className="step__p">We blueprint your complete solution before building—minimizing risk and ensuring the final product aligns perfectly with your business needs and budget.</p>
                 <ul className="step__list">
-                  <li>Systems diagrams</li><li>Prompt &amp; eval design</li><li>Cost model</li><li>SLO targets</li>
+                  <li>Technical blueprinting</li><li>User experience design</li><li>Investment planning</li><li>Performance targets</li>
                 </ul>
               </div>
             </li>
             <li className="step reveal" style={{ "--d": ".2s" } as React.CSSProperties}>
               <div className="step__num">03</div>
               <div className="step__body">
-                <h3 className="step__h">Build, Deploy &amp; Measure</h3>
-                <p className="step__p">Weekly shipping cadence. Observability, evals and token-cost optimisation are built in — not bolted on. You see the graph going up before we invoice.</p>
+                <h3 className="step__h">Build, Launch &amp; Optimize</h3>
+                <p className="step__p">Rapid development with weekly progress updates. Quality assurance and cost management are built in from day one—so you see results before you invest further.</p>
                 <ul className="step__list">
-                  <li>Weekly cadence</li><li>Evals in CI</li><li>Observability &amp; alerts</li><li>Token cost optimisation</li>
+                  <li>Weekly progress updates</li><li>Quality assurance</li><li>Performance monitoring</li><li>Cost optimization</li>
                 </ul>
               </div>
             </li>
@@ -581,7 +577,7 @@ export default function NewHome() {
               <div className="cmp__v cmp__v--no">Status decks</div>
             </div>
             <div className="cmp__row">
-              <div className="cmp__k">Token cost optimisation</div>
+              <div className="cmp__k">Cost Efficiency</div>
               <div className="cmp__v cmp__v--yes"><span className="grad">75%+ savings</span></div>
               <div className="cmp__v cmp__v--no">Not considered</div>
             </div>
@@ -659,7 +655,7 @@ export default function NewHome() {
             </details>
             <details className="faq__item reveal">
               <summary><span>What makes you different?</span><span className="faq__plus"></span></summary>
-              <div className="faq__body">We ship. Evals are in CI. Token cost is measured. Observability is day one. And we&apos;ll say no to work we can&apos;t deliver on — in writing.</div>
+              <div className="faq__body">We ship. Evals are in CI. Token cost is measured. Performance Monitoring is day one. And we&apos;ll say no to work we can&apos;t deliver on — in writing.</div>
             </details>
             <details className="faq__item reveal">
               <summary><span>Minimum project size?</span><span className="faq__plus"></span></summary>
@@ -701,7 +697,7 @@ export default function NewHome() {
             <a className="nav__brand" href="#top">
               <Logo width={112} className="block h-7 w-auto" />
             </a>
-            <p className="foot__blurb">Production-first AI &amp; backend systems. Built with precision. Deployed with purpose.</p>
+            <p className="foot__blurb">Enterprise AI solutions that deliver measurable business results. Built for growth. Designed for impact.</p>
           </div>
           <div className="foot__col">
             <div className="foot__h">Services</div>
@@ -727,8 +723,15 @@ export default function NewHome() {
           </div>
         </div>
         <div className="container foot__bottom">
-          <span>© 2026 Quishub. All rights reserved.</span>
-          <span className="foot__tag">Built with precision. Deployed with purpose.</span>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <span>© 2026 Quishub. All rights reserved.</span>
+            <div className="flex items-center gap-4 text-xs text-slate-400 font-medium">
+              <Link href="/privacy" className="hover:text-[#2152c4] hover:underline transition-colors">Privacy Policy</Link>
+              <span className="text-slate-300">|</span>
+              <Link href="/terms" className="hover:text-[#2152c4] hover:underline transition-colors">Terms & Conditions</Link>
+            </div>
+          </div>
+          <span className="foot__tag">Transforming ideas into enterprise success stories.</span>
         </div>
       </footer>
     </div>

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import HealthcareBookingSystem from "@/components/healthcare/HealthcareBookingSystem";
 import { Inter_Tight } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -67,11 +68,51 @@ const IconOutcome = () => (
 /* ------------------------------------------------------------------ */
 
 const SOLUTIONS = [
-  { n: "01", title: "Insurance Verification",   bottleneck: "Manual morning eligibility calls",  build: "Overnight bulk coverage audits",         outcome: "Denials drop near zero" },
-  { n: "02", title: "Multilingual Reminders",   bottleneck: "15%+ no-show rate",                 build: "Multi-language text + voice automation", outcome: "Saved hours, full waiting room" },
-  { n: "03", title: "Prior Auth Tracker",       bottleneck: "Auths stuck in insurer queues",     build: "Pipeline tracing dashboard",             outcome: "Faster treatment approvals" },
-  { n: "04", title: "Pre-Visit Patient Summary",bottleneck: "Exam minutes lost digging EHRs",    build: "1-page consolidated chart",              outcome: "Every visit runs on time" },
-  { n: "05", title: "Cross-Location Sync",      bottleneck: "Fragmented site charts",            build: "Real-time consistency layer",            outcome: "Continuous patient care" },
+  {
+    n: "01",
+    title: "Insurance Verification Automation",
+    bottleneck: "Front desk spends hours every morning on manual eligibility calls, leading to coverage surprise errors after patients are seen.",
+    build: "An automated system that runs bulk eligibility audits overnight before patients arrive, flagging discrepancies automatically.",
+    timeline: "4 to 6 Weeks Deployment",
+    outcome: "Claims denials drop near zero, eligibility surprises vanish, and front desk staff reclaims hours of productive operational time daily.",
+    bestFor: "Practices where manual insurance tracking consumes meaningful front-desk velocity every single day."
+  },
+  {
+    n: "02",
+    title: "Smart Multilingual Patient Reminders",
+    bottleneck: "Manual reminder workflows eat staff hours while rigid English-only notifications fail when patient bases speak multiple languages.",
+    build: "Automated omni-channel text and voice automation contacting patients globally in their exact native language layout preferences.",
+    timeline: "4 to 6 Weeks Deployment",
+    outcome: "No-show rates plummet below target caps, manual calling drops to zero, and the daily waiting room calendar remains optimally filled.",
+    bestFor: "Practices serving multi-ethnic communities or struggling with persistent no-show rates above 15%."
+  },
+  {
+    n: "03",
+    title: "Prior Authorization Tracking System",
+    bottleneck: "Prior auth tokens get stuck in insurer queues for weeks with zero pipeline visibility, causing procedure delays.",
+    build: "An intelligent centralized tracking dashboard monitoring auth streams from submission to final signature with automated follow-ups.",
+    timeline: "4 to 6 Weeks Deployment",
+    outcome: "Drastically accelerated treatment approvals, full pipeline transparency, and seamless patient communications on insurance status.",
+    bestFor: "Pain management, behavioral health, addiction medicine, specialty surgery, or high-volume authorization clinics."
+  },
+  {
+    n: "04",
+    title: "Pre-Visit Patient Summary Tool",
+    bottleneck: "Providers lose critical consultation minutes digging through rigid EHRs, fragmented labs, and past allergy text files mid-visit.",
+    build: "An automated compilation engine generating a single-page consolidated clinical summary chart pulled securely before patient arrival.",
+    timeline: "4 to 6 Weeks Deployment",
+    outcome: "Every clinical visit runs strictly on time, documentation accuracy scales, and patients feel truly heard by fully prepared doctors.",
+    bestFor: "Solo physicians and small group practices where the provider represents the core operational center of the facility."
+  },
+  {
+    n: "05",
+    title: "Cross-Location Patient Records Sync",
+    bottleneck: "Multi-site medical practices suffer from highly fragmented charts, forcing staff into constant cross-location phone calls.",
+    build: "A high-performance real-time data synchronization layer maintaining chart and medical ledger consistency across separate endpoints.",
+    timeline: "4 to 6 Weeks Deployment",
+    outcome: "Continuous, unified patient care journeys across any clinic branch, zero redundant inner calling, and instant chart updates.",
+    bestFor: "Practices managing two or more active healthcare facilities where patient cohorts rotate between locations."
+  },
 ];
 
 const PROCESS = [
@@ -149,182 +190,202 @@ const PrimaryCTA = ({ children, href }: { children: React.ReactNode; href: strin
 );
 
 /* ------------------------------------------------------------------ */
-/*  Inline diagnostic booking form                                     */
+/*  Healthcare Calendar Picker                                         */
 /* ------------------------------------------------------------------ */
 
-type BookingState =
-  | { status: "idle" }
-  | { status: "loading" }
-  | { status: "success"; meetingLink: string }
-  | { status: "error"; message: string };
+const TIME_SLOTS = [
+  "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM",
+  "11:00 AM", "11:30 AM", "01:00 PM", "01:30 PM",
+  "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM",
+  "04:00 PM", "04:30 PM",
+];
 
-function DiagnosticBookingForm() {
-  const [form, setForm] = useState({
-    name: "",
-    practice: "",
-    email: "",
-    schedule: "",
-    bottleneck: "",
+const DAYS = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+
+function isAvailableDay(date: Date): boolean {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const minDate = new Date(today);
+  minDate.setDate(today.getDate() + 1);
+  if (date < minDate) return false;
+  const dow = date.getDay();
+  return dow >= 1 && dow <= 5;
+}
+
+function sameDay(a: Date, b: Date): boolean {
+  return (
+    a.getFullYear() === b.getFullYear() &&
+    a.getMonth() === b.getMonth() &&
+    a.getDate() === b.getDate()
+  );
+}
+
+function formatDateTime(date: Date, time: string): string {
+  const dateStr = date.toLocaleDateString("en-US", {
+    weekday: "short", month: "short", day: "numeric",
   });
-  const [state, setState] = useState<BookingState>({ status: "idle" });
+  return `${dateStr} at ${time}`;
+}
 
-  const update = (k: keyof typeof form) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => setForm((f) => ({ ...f, [k]: e.target.value }));
+function HealthcareCalendarPicker({ 
+  onSelect, 
+  onClose 
+}: { 
+  onSelect: (dateTime: string) => void;
+  onClose: () => void;
+}) {
+  const today = new Date();
+  const [viewDate, setViewDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (state.status === "loading") return;
-    setState({ status: "loading" });
-    try {
-      const res = await fetch("/api/healthcare-book", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        setState({ status: "error", message: data?.error || "Submission failed." });
-        return;
-      }
-      setState({ status: "success", meetingLink: data.meetingLink });
-    } catch {
-      setState({ status: "error", message: "Network error. Please try again." });
+  const year = viewDate.getFullYear();
+  const month = viewDate.getMonth();
+  const firstDow = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  const prevMonth = () => setViewDate(new Date(year, month - 1, 1));
+  const nextMonth = () => setViewDate(new Date(year, month + 1, 1));
+
+  const canGoPrev =
+    year > today.getFullYear() ||
+    (year === today.getFullYear() && month > today.getMonth());
+
+  const handleDateClick = (day: number) => {
+    const d = new Date(year, month, day);
+    if (!isAvailableDay(d)) return;
+    setSelectedDate(d);
+    setSelectedTime(null);
+  };
+
+  const handleTimeSelect = (time: string) => {
+    setSelectedTime(time);
+  };
+
+  const handleConfirm = () => {
+    if (selectedDate && selectedTime) {
+      onSelect(formatDateTime(selectedDate, selectedTime));
     }
   };
 
-  if (state.status === "success") {
-    return (
-      <div className="rounded-2xl border border-[#0f172a]/10 bg-white p-8 md:p-12 text-center">
-        <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
-            <path d="m5 12 5 5L20 7" />
-          </svg>
-        </div>
-        <h3 className="font-semibold tracking-[-0.02em] text-2xl md:text-3xl text-[#0f172a]">
-          You&rsquo;re booked.
-        </h3>
-        <p className="mt-3 text-[#475569] max-w-md mx-auto leading-relaxed">
-          A confirmation email is on its way to <span className="font-semibold text-[#0f172a]">{form.email}</span> with your meeting link and the slot you chose.
-        </p>
-        <a
-          href={state.meetingLink}
-          target="_blank"
-          rel="noreferrer"
-          className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#0f172a] px-6 py-3 text-sm font-semibold text-white hover:bg-gradient-to-r hover:from-[#7c3aed] hover:to-[#2563eb] transition-all"
-        >
-          Join the diagnostic call
-          <IconArrow className="h-3.5 w-3.5" />
-        </a>
-      </div>
-    );
-  }
-
-  const inputCls =
-    "w-full rounded-xl border border-[#0f172a]/12 bg-[#f8fafc] text-[#0f172a] placeholder:text-[#94a3b8] px-4 py-3 text-[0.95rem] outline-none transition-all focus:border-[#2563eb] focus:bg-white focus:ring-4 focus:ring-[#2563eb]/10";
-  const labelCls =
-    "block text-[0.7rem] font-semibold tracking-[0.18em] uppercase text-[#0f172a]/55 mb-2";
-
   return (
-    <form
-      onSubmit={onSubmit}
-      className="rounded-2xl border border-[#0f172a]/10 bg-white p-8 md:p-10"
-    >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <label className={labelCls} htmlFor="hb-name">Full name</label>
-          <input
-            id="hb-name"
-            required
-            value={form.name}
-            onChange={update("name")}
-            placeholder="Dr. Jane Doe"
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label className={labelCls} htmlFor="hb-practice">Practice / Hospital</label>
-          <input
-            id="hb-practice"
-            required
-            value={form.practice}
-            onChange={update("practice")}
-            placeholder="Acme Family Medicine"
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label className={labelCls} htmlFor="hb-email">Professional email</label>
-          <input
-            id="hb-email"
-            type="email"
-            required
-            value={form.email}
-            onChange={update("email")}
-            placeholder="jane@acmemed.com"
-            className={inputCls}
-          />
-        </div>
-        <div>
-          <label className={labelCls} htmlFor="hb-schedule">Preferred date &amp; time</label>
-          <input
-            id="hb-schedule"
-            type="datetime-local"
-            required
-            value={form.schedule}
-            onChange={update("schedule")}
-            className={inputCls}
-          />
-        </div>
-        <div className="md:col-span-2">
-          <label className={labelCls} htmlFor="hb-bottleneck">Operational bottleneck</label>
-          <textarea
-            id="hb-bottleneck"
-            required
-            value={form.bottleneck}
-            onChange={update("bottleneck")}
-            rows={4}
-            placeholder="Where is your practice losing the most hours? (e.g. eligibility checks, no-shows, prior auth tracking)"
-            className={`${inputCls} resize-none`}
-          />
-        </div>
+    <div className="absolute z-50 mt-2 rounded-2xl border border-[#0f172a]/10 bg-white shadow-2xl p-4 w-[320px] md:w-[360px]">
+      <div className="flex items-center justify-between mb-4">
+        <button
+          type="button"
+          onClick={prevMonth}
+          disabled={!canGoPrev}
+          className="p-2 rounded-lg hover:bg-[#f8fafc] disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+            <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <span className="text-sm font-semibold text-[#0f172a]">
+          {MONTHS[month]} {year}
+        </span>
+        <button
+          type="button"
+          onClick={nextMonth}
+          className="p-2 rounded-lg hover:bg-[#f8fafc] transition-colors"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+            <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
       </div>
 
-      {state.status === "error" && (
-        <div className="mt-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {state.message}
+      <div className="grid grid-cols-7 gap-1 mb-2">
+        {DAYS.map((d) => (
+          <div key={d} className="text-center text-[0.65rem] font-semibold text-[#94a3b8] py-1">
+            {d}
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-7 gap-1">
+        {Array.from({ length: firstDow }).map((_, i) => (
+          <div key={`pad-${i}`} />
+        ))}
+        {Array.from({ length: daysInMonth }).map((_, i) => {
+          const day = i + 1;
+          const date = new Date(year, month, day);
+          const available = isAvailableDay(date);
+          const isSelected = selectedDate && sameDay(date, selectedDate);
+
+          return (
+            <button
+              key={day}
+              type="button"
+              onClick={() => handleDateClick(day)}
+              disabled={!available}
+              className={`h-8 w-8 rounded-lg text-sm font-medium transition-all ${
+                isSelected
+                  ? "bg-gradient-to-r from-[#7c3aed] to-[#2563eb] text-white"
+                  : available
+                  ? "hover:bg-[#f8fafc] text-[#0f172a]"
+                  : "text-[#cbd5e1] cursor-not-allowed"
+              }`}
+            >
+              {day}
+            </button>
+          );
+        })}
+      </div>
+
+      {selectedDate && (
+        <div className="mt-4 pt-4 border-t border-[#0f172a]/10">
+          <p className="text-xs font-semibold text-[#0f172a]/60 mb-3 uppercase tracking-wider">
+            Select time slot
+          </p>
+          <div className="grid grid-cols-3 gap-2 max-h-[120px] overflow-y-auto">
+            {TIME_SLOTS.map((time) => (
+              <button
+                key={time}
+                type="button"
+                onClick={() => handleTimeSelect(time)}
+                className={`px-2 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  selectedTime === time
+                    ? "bg-gradient-to-r from-[#7c3aed] to-[#2563eb] text-white"
+                    : "bg-[#f8fafc] hover:bg-[#e2e8f0] text-[#0f172a]"
+                }`}
+              >
+                {time}
+              </button>
+            ))}
+          </div>
         </div>
       )}
 
-      <div className="mt-7 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <p className="text-xs text-[#64748b] max-w-md">
-          We respond within 48 hours with a written diagnostic. No pitch, no follow-up sequence.
-        </p>
+      <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#0f172a]/10">
         <button
-          type="submit"
-          disabled={state.status === "loading"}
-          className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#0f172a] px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_18px_36px_-10px_rgba(37,99,235,0.45)] disabled:opacity-70 disabled:cursor-not-allowed"
+          type="button"
+          onClick={onClose}
+          className="text-xs font-medium text-[#64748b] hover:text-[#0f172a] transition-colors"
         >
-          <span className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#2563eb] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
-          {state.status === "loading" ? (
-            <>
-              <svg viewBox="0 0 24 24" className="relative h-4 w-4 animate-spin" fill="none">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" />
-                <path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-              </svg>
-              <span className="relative">Booking your call…</span>
-            </>
-          ) : (
-            <>
-              <span className="relative">Book diagnostic call</span>
-              <IconArrow className="relative h-3.5 w-3.5" />
-            </>
-          )}
+          Cancel
+        </button>
+        <button
+          type="button"
+          onClick={handleConfirm}
+          disabled={!selectedDate || !selectedTime}
+          className="px-4 py-2 rounded-lg bg-gradient-to-r from-[#7c3aed] to-[#2563eb] text-white text-xs font-semibold disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+        >
+          Confirm
         </button>
       </div>
-    </form>
+    </div>
   );
 }
+
+/* ------------------------------------------------------------------ */
+/*  Healthcare Booking System Component                                */
+/* ------------------------------------------------------------------ */
+/* Component imported from @/components/healthcare/HealthcareBookingSystem */
 
 /* ------------------------------------------------------------------ */
 /*  Page                                                               */
@@ -333,7 +394,7 @@ function DiagnosticBookingForm() {
 export default function HealthcarePage() {
   return (
     <div
-      className={`${interTight.variable} ${ttLakes.variable} min-h-screen bg-[#e5e5e4] text-[#0f172a] selection:bg-[#7c3aed]/20`}
+      className={`${interTight.variable} ${ttLakes.variable} min-h-screen bg-[#EBF3FC] text-[#0f172a] selection:bg-[#7c3aed]/20`}
       style={{ fontFamily: "var(--font-display), ui-sans-serif, system-ui" }}
     >
       {/* Atmospheric layer */}
@@ -392,7 +453,7 @@ export default function HealthcarePage() {
       {/*  CREDENTIAL TICKER                                            */}
       {/* ============================================================ */}
       <section className="relative">
-        <div className="border-y border-[#0f172a]/10 bg-[#ececeb]/60 backdrop-blur-sm overflow-hidden">
+        <div className="border-y border-[#0f172a]/10 bg-[#EBF3FC]/60 backdrop-blur-sm overflow-hidden">
           <div className="relative flex">
             <div className="flex shrink-0 animate-[ticker_40s_linear_infinite] items-center gap-12 py-5 pr-12 whitespace-nowrap">
               {Array.from({ length: 2 }).map((_, dupIdx) => (
@@ -454,7 +515,7 @@ export default function HealthcarePage() {
           {/* Asymmetric gallery — large hero + 3 stacked */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
             {/* Hero image */}
-            <figure className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#ececeb] md:col-span-7 md:row-span-2 aspect-[4/3] md:aspect-auto md:min-h-[480px]">
+            <figure className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#EBF3FC] md:col-span-7 md:row-span-2 aspect-[4/3] md:aspect-auto md:min-h-[480px]">
               <Image
                 src={WORK_GALLERY[0].src}
                 alt={WORK_GALLERY[0].caption}
@@ -479,7 +540,7 @@ export default function HealthcarePage() {
             {WORK_GALLERY.slice(1).map((img) => (
               <figure
                 key={img.src}
-                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#ececeb] md:col-span-5 aspect-[16/10]"
+                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#EBF3FC] md:col-span-5 aspect-[16/10]"
               >
                 <Image
                   src={img.src}
@@ -507,104 +568,245 @@ export default function HealthcarePage() {
       </section>
 
       {/* ============================================================ */}
-      {/*  SOLUTIONS                                                    */}
+      {/*  SOLUTIONS — Premium Masterclass Layout                       */}
       {/* ============================================================ */}
-      <section id="solutions" className="relative scroll-mt-24">
+      <section id="solutions" className="relative scroll-mt-24 bg-[#EBF3FC]">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10 py-24 md:py-32">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20 md:mb-28">
-            <div className="max-w-2xl">
-              <Eyebrow>Chapter I — What We Build</Eyebrow>
-              <h2 className="mt-6 font-semibold tracking-[-0.025em] text-[2.5rem] md:text-[4rem] leading-[0.98] text-[#0f172a]">
-                Five focused fixes.
-                <br />
-                <span
-                  className="bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent font-bold"
-                  style={{ fontFamily: "var(--font-accent), sans-serif" }}                >
-                  Five real wins.
-                </span>
-              </h2>
-            </div>
-            <p className="text-sm md:text-base text-[#475569] max-w-xs md:text-right font-medium">
-              Each is a standalone project.
+          {/* Header with Stats Bar */}
+          <div className="text-center mb-16 md:mb-20">
+            <Eyebrow>Chapter I — What We Build</Eyebrow>
+            <h2 className="mt-6 font-semibold tracking-[-0.025em] text-[2.5rem] md:text-[4rem] leading-[0.98] text-[#0f172a]">
+              Five focused fixes.
               <br />
-              Pick the one bleeding the most hours.
-            </p>
+              <span
+                className="bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent font-bold"
+                style={{ fontFamily: "var(--font-accent), sans-serif" }}
+              >
+                Five real wins.
+              </span>
+            </h2>
+
+            {/* Premium Stats Bar */}
+            <div className="mt-10 inline-flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-0 rounded-2xl bg-white/60 backdrop-blur-sm border border-[#0f172a]/8 p-2 shadow-sm">
+              <div className="flex items-center gap-3 px-6 py-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white font-bold text-lg">
+                  5+
+                </div>
+                <div className="text-left">
+                  <div className="text-[0.65rem] tracking-[0.2em] uppercase text-[#0f172a]/50 font-bold">Standalone</div>
+                  <div className="text-sm font-semibold text-[#0f172a]">Fixes</div>
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-10 bg-[#0f172a]/10" />
+              <div className="flex items-center gap-3 px-6 py-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#2563eb] to-[#7c3aed] text-white">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <div className="text-[0.65rem] tracking-[0.2em] uppercase text-[#0f172a]/50 font-bold">Deployment</div>
+                  <div className="text-sm font-semibold text-[#0f172a]">4 to 6 Weeks</div>
+                </div>
+              </div>
+              <div className="hidden sm:block w-px h-10 bg-[#0f172a]/10" />
+              <div className="flex items-center gap-3 px-6 py-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white font-bold">
+                  %
+                </div>
+                <div className="text-left">
+                  <div className="text-[0.65rem] tracking-[0.2em] uppercase text-[#0f172a]/50 font-bold">Transparent</div>
+                  <div className="text-sm font-semibold text-[#0f172a]">Fixed Pricing</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Cards — softened palette */}
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
-            {SOLUTIONS.map((s, i) => {
-              const spanMap = ["md:col-span-3", "md:col-span-3", "md:col-span-2", "md:col-span-2", "md:col-span-2"];
-              return (
-                <article
-                  key={s.n}
-                  className={`group relative overflow-hidden rounded-2xl border border-[#0f172a]/8 bg-[#ececeb]/80 backdrop-blur-sm p-7 md:p-9 transition-all duration-300 hover:border-[#2563eb] hover:bg-[#f5f5f4] hover:shadow-[0_20px_40px_rgba(37,99,235,0.08)] hover:-translate-y-1 ${spanMap[i]}`}
-                >
-                  <div className="flex items-start justify-between gap-4 mb-7">
-                    <div>
-                      <div className="text-[0.7rem] tracking-[0.22em] uppercase text-[#0f172a]/40 font-semibold mb-3">
-                        {s.n}
-                      </div>
-                      <h3 className="font-semibold tracking-[-0.02em] text-[1.5rem] md:text-[1.85rem] leading-[1.1] text-[#0f172a]">
-                        {s.title}
-                      </h3>
-                    </div>
-                    <div className="text-[3rem] md:text-[3.5rem] leading-none font-semibold text-[#0f172a]/[0.05] tracking-tighter transition-colors duration-500 group-hover:text-[#7c3aed]/15">
+          {/* Solution Cards — Offset Layout */}
+          <div className="space-y-8 md:space-y-12">
+            {SOLUTIONS.map((s, i) => (
+              <article
+                key={s.n}
+                className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center ${i % 2 === 1 ? 'lg:direction-rtl' : ''}`}
+              >
+                {/* Text Content */}
+                <div className={`space-y-6 ${i % 2 === 1 ? 'lg:order-2 lg:direction-ltr' : ''}`}>
+                  <div className="flex items-center gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white font-bold text-xl">
                       {s.n}
-                    </div>
+                    </span>
+                    <h3 className="font-semibold tracking-[-0.02em] text-[1.75rem] md:text-[2.25rem] leading-[1.1] text-[#0f172a]">
+                      {s.title}
+                    </h3>
                   </div>
 
-                  <div className="space-y-4 pt-6 border-t border-[#0f172a]/10">
+                  <div className="space-y-5 pl-2">
                     {/* Bottleneck */}
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-[#0f172a]/10 bg-[#e5e5e4] text-[#0f172a]/55">
-                        <IconBottleneck />
+                    <div className="flex items-start gap-4">
+                      <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#ef4444]/30 bg-[#ef4444]/10">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#ef4444]" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[0.62rem] tracking-[0.22em] uppercase text-[#0f172a]/45 font-bold mb-0.5">
-                          Bottleneck
-                        </div>
-                        <div className="text-[0.92rem] text-[#1e293b] font-medium leading-snug">
-                          {s.bottleneck}
-                        </div>
+                      <div>
+                        <div className="text-[0.65rem] tracking-[0.2em] uppercase text-[#ef4444]/70 font-bold mb-1">The Problem</div>
+                        <p className="text-[0.95rem] text-[#475569] leading-relaxed">{s.bottleneck}</p>
                       </div>
                     </div>
 
-                    {/* Built */}
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-[#0f172a]/10 bg-[#e5e5e4] text-[#0f172a]/55">
-                        <IconBuild />
+                    {/* What We Build */}
+                    <div className="flex items-start gap-4">
+                      <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 border-[#2563eb]/30 bg-[#2563eb]/10">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#2563eb]" />
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[0.62rem] tracking-[0.22em] uppercase text-[#0f172a]/45 font-bold mb-0.5">
-                          Built
-                        </div>
-                        <div className="text-[0.92rem] text-[#1e293b] font-medium leading-snug">
-                          {s.build}
-                        </div>
+                      <div>
+                        <div className="text-[0.65rem] tracking-[0.2em] uppercase text-[#2563eb]/70 font-bold mb-1">The Solution</div>
+                        <p className="text-[0.95rem] text-[#1e293b] font-medium leading-relaxed">{s.build}</p>
                       </div>
                     </div>
 
                     {/* Outcome */}
-                    <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-[#7c3aed] to-[#2563eb] text-white">
-                        <IconOutcome />
+                    <div className="flex items-start gap-4">
+                      <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#7c3aed] to-[#2563eb]">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-3 w-3 text-white">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[0.62rem] tracking-[0.22em] uppercase font-bold mb-0.5 bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent">
-                          Outcome
-                        </div>
-                        <div className="text-[0.92rem] text-[#0f172a] font-semibold leading-snug">
-                          {s.outcome}
-                        </div>
+                      <div>
+                        <div className="text-[0.65rem] tracking-[0.2em] uppercase bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent font-bold mb-1">The Result</div>
+                        <p className="text-[0.95rem] text-[#0f172a] font-semibold leading-relaxed">{s.outcome}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-[#7c3aed] to-[#2563eb] transition-all duration-700 ease-out group-hover:w-full" />
-                </article>
-              );
-            })}
+                  {/* Timeline Badge */}
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#0f172a]/5 border border-[#0f172a]/10 px-4 py-2">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4 text-[#2563eb]">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span className="text-sm font-medium text-[#0f172a]">{s.timeline}</span>
+                  </div>
+                </div>
+
+                {/* Preview Card */}
+                <div className={`relative ${i % 2 === 1 ? 'lg:order-1 lg:direction-ltr' : ''}`}>
+                  <div className="relative rounded-3xl overflow-hidden bg-white shadow-[0_20px_60px_-15px_rgba(15,23,42,0.15)] border border-[#0f172a]/5">
+                    {/* Mockup Header */}
+                    <div className="flex items-center gap-2 px-5 py-4 border-b border-[#0f172a]/5 bg-gradient-to-r from-[#f8fafc] to-white">
+                      <div className="flex gap-1.5">
+                        <span className="h-3 w-3 rounded-full bg-[#ef4444]/20" />
+                        <span className="h-3 w-3 rounded-full bg-[#f59e0b]/20" />
+                        <span className="h-3 w-3 rounded-full bg-[#22c55e]/20" />
+                      </div>
+                      <span className="ml-3 text-xs font-medium text-[#0f172a]/40">quishub.healthcare</span>
+                    </div>
+
+                    {/* Mockup Content */}
+                    <div className="p-6 space-y-4">
+                      {/* Status Indicators */}
+                      <div className="flex flex-wrap gap-2">
+                        {i === 0 && (
+                          <>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#22c55e]/10 px-3 py-1.5 text-xs font-medium text-[#22c55e]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-pulse" />
+                              eligibility-checks
+                            </span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563eb]/10 px-3 py-1.5 text-xs font-medium text-[#2563eb]">
+                              247 audits completed
+                            </span>
+                          </>
+                        )}
+                        {i === 1 && (
+                          <>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#7c3aed]/10 px-3 py-1.5 text-xs font-medium text-[#7c3aed]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#7c3aed] animate-pulse" />
+                              reminders-sent
+                            </span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#22c55e]/10 px-3 py-1.5 text-xs font-medium text-[#22c55e]">
+                              89% confirmed
+                            </span>
+                          </>
+                        )}
+                        {i === 2 && (
+                          <>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f59e0b]/10 px-3 py-1.5 text-xs font-medium text-[#f59e0b]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#f59e0b] animate-pulse" />
+                              prior-auth-dashboard
+                            </span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563eb]/10 px-3 py-1.5 text-xs font-medium text-[#2563eb]">
+                              12 pending approvals
+                            </span>
+                          </>
+                        )}
+                        {i === 3 && (
+                          <>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563eb]/10 px-3 py-1.5 text-xs font-medium text-[#2563eb]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#2563eb] animate-pulse" />
+                              patient-summary-ready
+                            </span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#7c3aed]/10 px-3 py-1.5 text-xs font-medium text-[#7c3aed]">
+                              3 mins saved/visit
+                            </span>
+                          </>
+                        )}
+                        {i === 4 && (
+                          <>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#22c55e]/10 px-3 py-1.5 text-xs font-medium text-[#22c55e]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#22c55e] animate-pulse" />
+                              cross-location-sync
+                            </span>
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#2563eb]/10 px-3 py-1.5 text-xs font-medium text-[#2563eb]">
+                              4 sites connected
+                            </span>
+                          </>
+                        )}
+                      </div>
+
+                      {/* Visual Element */}
+                      <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-br from-[#f8fafc] to-[#e2e8f0]">
+                        {/* Background Image for Insurance Verification */}
+                        {i === 0 && (
+                          <img
+                            src="/images/healthcare/clinical-desk.jpg"
+                            alt="Clinical desk"
+                            className="absolute inset-0 object-cover w-full h-full rounded-xl opacity-40 contrast-125 mix-blend-multiply"
+                          />
+                        )}
+                        <div className="absolute inset-0 flex items-center justify-center z-10">
+                          <div className="text-center">
+                            <div className="inline-flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-[#7c3aed]/20 to-[#2563eb]/20 mb-3 backdrop-blur-sm">
+                              <span className="text-4xl font-bold bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent">
+                                {s.n}
+                              </span>
+                            </div>
+                            <p className="text-sm text-[#0f172a] font-semibold drop-shadow-sm">{s.title}</p>
+                          </div>
+                        </div>
+                        {/* Decorative Grid */}
+                        <div className="absolute inset-0 opacity-[0.03] z-20 pointer-events-none" style={{
+                          backgroundImage: `radial-gradient(circle at 2px 2px, #0f172a 1px, transparent 0)`,
+                          backgroundSize: '24px 24px'
+                        }} />
+                      </div>
+
+                      {/* Footer Stats */}
+                      <div className="flex items-center justify-between pt-2">
+                        <span className="text-xs text-[#64748b]">{s.bestFor}</span>
+                        <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#0f172a]">
+                          Live Preview
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Decorative Shadow */}
+                  <div className="absolute -inset-4 -z-10 bg-gradient-to-r from-[#7c3aed]/10 to-[#2563eb]/10 rounded-[2rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-500" />
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -635,7 +837,7 @@ export default function HealthcarePage() {
             {PROCESS.map((p) => (
               <div
                 key={p.n}
-                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/8 bg-[#ececeb]/80 backdrop-blur-sm p-8 md:p-10 transition-all duration-300 hover:border-[#7c3aed] hover:bg-[#f5f5f4] hover:shadow-[0_20px_40px_rgba(124,58,237,0.08)] hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/8 bg-[#EBF3FC]/80 backdrop-blur-sm p-8 md:p-10 transition-all duration-300 hover:border-[#7c3aed] hover:bg-[#EBF3FC] hover:shadow-[0_20px_40px_rgba(124,58,237,0.08)] hover:-translate-y-1"
               >
                 <div
                   aria-hidden
@@ -645,7 +847,7 @@ export default function HealthcarePage() {
                 </div>
 
                 <div className="relative">
-                  <div className="inline-flex items-center gap-1.5 rounded-full border border-[#0f172a]/15 bg-[#e5e5e4] px-3 py-1 mb-8">
+                  <div className="inline-flex items-center gap-1.5 rounded-full border border-[#0f172a]/15 bg-[#EBF3FC] px-3 py-1 mb-8">
                     <span className="h-1 w-1 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#2563eb]" />
                     <span className="text-[0.68rem] font-bold tracking-[0.16em] uppercase text-[#0f172a]/70">
                       {p.time}
@@ -701,7 +903,7 @@ export default function HealthcarePage() {
             </p>
           </div>
 
-          <DiagnosticBookingForm />
+          <HealthcareBookingSystem />
         </div>
       </section>
 
@@ -775,12 +977,12 @@ export default function HealthcarePage() {
                 </div>
               </div>
 
-              <a href="mailto:mujtaba@quishub.com" className="group block">
+              <a href="mailto:hello@quishub.com" className="group block">
                 <div className="text-[0.68rem] tracking-[0.22em] uppercase text-white/45 font-bold mb-3">
                   Email
                 </div>
                 <div className="text-sm font-semibold text-white group-hover:bg-gradient-to-r group-hover:from-[#a78bfa] group-hover:to-[#60a5fa] group-hover:bg-clip-text group-hover:text-transparent transition-all">
-                  mujtaba@quishub.com
+                  hello@quishub.com
                 </div>
               </a>
 
@@ -796,7 +998,14 @@ export default function HealthcarePage() {
           </div>
 
           <div className="mt-16 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-3 text-[0.72rem] tracking-[0.18em] uppercase text-white/40 font-semibold">
-            <div>© {new Date().getFullYear()} Quishub</div>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+              <div>© {new Date().getFullYear()} Quishub</div>
+              <div className="flex items-center gap-4 text-xs text-slate-400 font-medium normal-case tracking-normal">
+                <Link href="/privacy" className="hover:text-[#2152c4] hover:underline transition-colors">Privacy Policy</Link>
+                <span className="text-slate-300">|</span>
+                <Link href="/terms" className="hover:text-[#2152c4] hover:underline transition-colors">Terms & Conditions</Link>
+              </div>
+            </div>
             <div
               className="normal-case tracking-normal text-white/55 text-sm"
               style={{ fontFamily: "var(--font-accent), sans-serif" }}
