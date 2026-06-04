@@ -100,9 +100,19 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col justify-between gap-3 pt-6 text-[13px] text-mute-2 sm:flex-row">
-          <p>
-            &copy; {currentYear} Quishub. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+            <p>
+              &copy; {currentYear} Quishub. All rights reserved.
+            </p>
+            <div className="flex flex-row items-center gap-4 text-xs text-slate-400 font-medium">
+              <Link href="/privacy" className="hover:text-[#2152c4] transition-colors hover:underline">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="hover:text-[#2152c4] transition-colors hover:underline">
+                Terms & Conditions
+              </Link>
+            </div>
+          </div>
           <p className="font-mono">
             Built with precision. Deployed with purpose.
           </p>
