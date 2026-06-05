@@ -22,10 +22,10 @@ const expectations = [
 ];
 
 const projectTypes = [
-  "AI Integration",
-  "SaaS MVP",
-  "Backend System",
-  "Automation",
+  "Tailor-Made Business Platforms",
+  "Smart Operations & Automation",
+  "Seamless Systems Integration",
+  "Strategic Technology Advisory",
   "Other",
 ];
 
@@ -46,10 +46,12 @@ export default function ContactPage() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [activeTab, setActiveTab] = useState<"calendar" | "form">("calendar");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const newErrors: Record<string, boolean> = {};
     if (!formState.name.trim()) newErrors.name = true;
@@ -63,7 +65,41 @@ export default function ContactPage() {
     }
 
     setErrors({});
-    setSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          company: formState.company,
+          projectType: formState.projectType,
+          budget: formState.budget,
+          message: formState.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormState({
+          name: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          message: "",
+        });
+      } else {
+        setSubmitError("Failed to send message. Please try again or email us directly.");
+      }
+    } catch (error) {
+      setSubmitError("Network error. Please try again or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const inputClasses =
@@ -426,8 +462,18 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full">
-                      Send Message
+                    {submitError && (
+                      <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-600">
+                        {submitError}
+                      </div>
+                    )}
+
+                    <Button 
+                      type="submit" 
+                      className="w-full"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
                 )}

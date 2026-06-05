@@ -701,11 +701,12 @@ export default function NewHome() {
           </div>
           <div className="foot__col">
             <div className="foot__h">Services</div>
-            <Link href="/services#ai-llm-integration">AI &amp; LLM Integration</Link>
-            <Link href="/services#saas-mvp-development">SaaS MVPs</Link>
-            <Link href="/services#scalable-backend-systems">Backend Systems</Link>
-            <Link href="/services#ai-automation-platforms">AI Automation</Link>
-            <Link href="/services#architecture-consulting">Architecture Consulting</Link>
+            <Link href="/services#intelligent-automation">Intelligent Automation</Link>
+            <Link href="/services#digital-product-launch">Digital Product Launch</Link>
+            <Link href="/services#enterprise-infrastructure">Enterprise Infrastructure</Link>
+            <Link href="/services#smart-workflow-solutions">Smart Workflow Solutions</Link>
+            <Link href="/services#business-intelligence">Business Intelligence</Link>
+            <Link href="/services#strategic-technology-advisory">Strategic Technology Advisory</Link>
           </div>
           <div className="foot__col">
             <div className="foot__h">Company</div>

@@ -24,100 +24,100 @@ const fadeUp = {
 
 const services = [
   {
-    id: "ai-llm-integration",
+    id: "intelligent-automation",
     icon: Brain,
-    title: "AI & LLM Integration",
+    title: "Intelligent Automation",
     description:
-      "Most teams treat LLM integration as a feature. We treat it as a system. That means proper context management, retrieval pipelines that pull the right information, evaluation layers that measure output quality, and monitoring that tells you when something drifts. We handle model selection, prompt engineering, fine-tuning strategy, and the production infrastructure that makes it all reliable. Token cost optimization is built in from day one - not an afterthought.",
+      "Transform repetitive manual work into streamlined digital processes. We build smart systems that understand your business context, handle complex decisions automatically, and escalate to your team only when human judgment is needed. Every solution includes clear monitoring so you always know what's working and what needs attention.",
     deliverables: [
-      "Custom RAG pipeline architecture",
-      "LLM evaluation & monitoring framework",
-      "Prompt engineering & optimization",
-      "Token cost reduction strategies",
-      "Production deployment with fallbacks",
+      "Custom workflow automation",
+      "Quality assurance framework",
+      "Smart document processing",
+      "Cost reduction strategies",
+      "Production-ready deployment",
     ],
     useCase:
-      "PakLawAssist needed contract drafting and review grounded in Pakistan's legal framework - not generic LLM output. We built a RAG-first pipeline that retrieves local legal context before generating anything. The system now handles contract drafting, risk spotting, and compliance guidance. It's live with two Pakistan government departments: SMEDA and PSIC.",
+      "PakLawAssist needed contract drafting and review grounded in Pakistan's legal framework. We built a smart system that retrieves local legal context and generates accurate, compliant documents. The platform now handles contract drafting, risk spotting, and compliance guidance for two Pakistan government departments.",
   },
   {
-    id: "saas-mvp-development",
+    id: "digital-product-launch",
     icon: Layers,
-    title: "SaaS MVP Development",
+    title: "Digital Product Launch",
     description:
-      "We've seen what happens when teams rush to MVP without thinking about architecture. Six months later they're rewriting the database schema, the auth layer, the API contracts - everything. We build MVPs the right way from the start. Database design that won't become a bottleneck. APIs that your frontend and mobile teams can build against confidently. Auth that actually works at scale. A codebase your next engineer can onboard into without a week of archaeology.",
+      "Go from concept to paying customers without the technical headaches. We build complete digital platforms the right way from day one—solid foundations that grow with your business, not against it. User management, secure access, billing systems, and reporting—all integrated and ready to scale.",
     deliverables: [
-      "Full-stack SaaS application",
-      "Database schema & migration strategy",
-      "API design & documentation",
-      "Authentication & role-based access",
-      "CI/CD pipeline & deployment",
+      "Complete digital platform",
+      "Secure user management system",
+      "Integrated billing & subscriptions",
+      "Business analytics dashboard",
+      "Zero-downtime deployment process",
     ],
     useCase:
-      "Senteez needed a full feedback intelligence platform - not just a dashboard. We built the entire pipeline: multi-source review ingestion, NLP analysis with fine-tuned models, topic modeling, entity extraction, and structured insight reports. It processes thousands of reviews at a time and the outputs are used for real business decisions.",
+      "Senteez needed a full customer feedback platform to transform thousands of reviews into actionable business insights. We built an end-to-end solution that aggregates feedback from multiple sources, analyzes patterns automatically, and delivers structured reports that drive real business decisions.",
   },
   {
-    id: "scalable-backend-systems",
+    id: "enterprise-infrastructure",
     icon: Server,
-    title: "Scalable Backend Systems",
+    title: "Enterprise Infrastructure",
     description:
-      "High-performance infrastructure built for the traffic you'll have - not just the traffic you have now. We design queue systems, microservices, and cloud-native architectures that scale with demand and recover gracefully when things go wrong. The boring-but-critical stuff - logging, monitoring, alerting, failover - is built in from day one, not bolted on after the first outage.",
+      "High-performance systems built for the growth you're planning—not just where you are today. We design resilient digital infrastructure that scales automatically with demand and keeps running smoothly even when traffic spikes. Critical safeguards like monitoring, alerts, and automatic recovery are built in from day one.",
     deliverables: [
-      "Microservice architecture design",
-      "Queue & event-driven systems",
-      "Cloud infrastructure (AWS/GCP)",
-      "Monitoring, logging & alerting",
-      "Performance optimization & load testing",
+      "Resilient system architecture",
+      "Automated scaling solutions",
+      "Secure cloud infrastructure",
+      "24/7 monitoring & alerts",
+      "Performance optimization",
     ],
     useCase:
-      "A logistics company's monolithic backend was crashing under peak load. We redesigned it as an event-driven microservice architecture that handles 10x the original traffic with 99.9% uptime.",
+      "A logistics company's system was crashing during peak hours, costing them customers and revenue. We redesigned their infrastructure to handle 10x the original traffic with 99.9% uptime—turning their biggest weakness into a competitive advantage.",
   },
   {
-    id: "ai-automation-platforms",
+    id: "smart-workflow-solutions",
     icon: Zap,
-    title: "AI Automation Platforms",
+    title: "Smart Workflow Solutions",
     description:
-      "The difference between an automation and an AI automation is what happens when something unexpected comes in. Rule-based systems break. Ours don't - because we build agents that understand context, handle edge cases, and escalate to a human when confidence is low. Every automation includes a monitoring dashboard so you always know what's running, what's failing, and why.",
+      "Most automation breaks when something unexpected happens. Our systems adapt—understanding context, handling edge cases, and knowing when to ask for human input. The result: workflows that keep running smoothly even when real-world complexity throws curveballs. Every solution includes a clear dashboard so you always know what's working.",
     deliverables: [
-      "Custom AI agent workflows",
-      "Document processing pipelines",
-      "Business rule engines",
-      "Human-in-the-loop escalation",
-      "Monitoring & performance dashboards",
+      "Adaptive workflow automation",
+      "Smart document processing",
+      "Business decision engines",
+      "Human escalation protocols",
+      "Performance monitoring dashboards",
     ],
     useCase:
-      "Doctors at partner clinics were spending a significant portion of every consultation on documentation - typing notes, typing summaries, typing when they should be treating. We built NurMed's AI documentation system to handle that. In the first week after deployment at Avenue Broadwalk General Practice, average consultation time dropped from 44 to 29 minutes.",
+      "Doctors at partner clinics were spending a third of every consultation on paperwork—typing notes and summaries when they should be treating patients. We built a smart documentation system that handles the busywork automatically. In the first week, average consultation time dropped from 44 to 29 minutes.",
   },
   {
-    id: "data-driven-systems",
+    id: "business-intelligence",
     icon: Database,
-    title: "Data-Driven Systems",
+    title: "Business Intelligence",
     description:
-      "Data only creates value when it's somewhere useful, in a form someone can act on. We build pipelines that collect, transform, and deliver data reliably. Warehouses optimized for the queries your team actually runs. Analytics layers that surface insights without requiring a data science degree. And dashboards that tell you what's happening right now - not what happened last Tuesday.",
+      "Raw data is worthless until it becomes actionable insight. We build systems that collect information from all your sources, transform it into clear answers, and deliver it where decisions get made. Smart dashboards show what's happening now—not last week. Reports that actually tell you what to do next.",
     deliverables: [
-      "ETL/ELT pipeline architecture",
-      "Data warehouse design & optimization",
-      "Real-time analytics dashboards",
-      "Data quality & validation framework",
-      "Automated reporting systems",
+      "Unified data collection system",
+      "Optimized analytics warehouse",
+      "Real-time business dashboards",
+      "Data quality assurance",
+      "Automated insight reports",
     ],
     useCase:
-      "Senteez aggregates reviews from Google Business, Facebook, TripAdvisor, BestBuy, and more - normalizing them into a single structured format for NLP analysis. The pipeline processes thousands of reviews per report, runs topic modeling and entity extraction, and outputs structured intelligence.",
+      "Senteez pulls customer feedback from Google, Facebook, TripAdvisor, and more—transforming thousands of scattered reviews into unified business intelligence. The system identifies patterns automatically and delivers clear reports that guide product decisions and marketing strategy.",
   },
   {
-    id: "architecture-consulting",
+    id: "strategic-advisory",
     icon: Shield,
-    title: "Architecture Consulting",
+    title: "Strategic Technology Advisory",
     description:
-      "Already have a system? We audit, redesign, and roadmap scalable architectures. We identify bottlenecks before they become outages, technical debt that's quietly slowing your team down, and architectural decisions that will hurt you at scale. Our consulting engagements deliver actionable recommendations with a clear implementation order. Not a 100-page document. Not a presentation. A roadmap your team can actually execute.",
+      "Already have a system that needs help? We audit your current setup, identify what's slowing you down, and create a clear roadmap to fix it. No overwhelming technical documents—just practical recommendations your team can execute, prioritized by business impact.",
     deliverables: [
-      "System architecture audit report",
-      "Bottleneck identification & prioritization",
-      "Scalability roadmap with milestones",
-      "Technology stack recommendations",
-      "Implementation guidance & team workshops",
+      "Complete system audit & report",
+      "Priority issue identification",
+      "Clear implementation roadmap",
+      "Technology investment guidance",
+      "Team training & knowledge transfer",
     ],
     useCase:
-      "A Series A startup's system was experiencing increasing latency and developer frustration. Our audit identified 5 critical bottlenecks. After implementing the top 3 recommendations, response times dropped 80% and deployment frequency doubled.",
+      "A growing company's platform was getting slower and frustrating their developers. Our audit found 5 critical issues holding them back. After fixing just the top 3, system speed improved 80% and they could release updates twice as fast.",
   },
 ];
 
@@ -125,23 +125,23 @@ const processSteps = [
   {
     num: "01",
     icon: Search,
-    title: "Discovery Workshop",
+    title: "Strategy & Discovery",
     description:
-      "We get into your systems, your constraints, and your actual goals before a single line of code is written. We define what success looks like so we're building the right thing.",
+      "We learn your business, your challenges, and what success looks like for you. Together we define clear goals and a practical roadmap before any work begins.",
   },
   {
     num: "02",
     icon: PenTool,
-    title: "Architecture & Design",
+    title: "Design & Planning",
     description:
-      "We design the system, pick the right stack, and map every data flow. You see the full blueprint before we build. No surprises mid-project.",
+      "We blueprint your complete solution and show you exactly what you'll get. You review and approve every detail before we start building—no surprises.",
   },
   {
     num: "03",
     icon: Rocket,
-    title: "Build, Deploy & Measure",
+    title: "Build, Launch & Optimize",
     description:
-      "We ship to production, monitor real-world performance, and iterate. You get a system that works - not a handoff document and good luck.",
+      "We build your system, put it live, and keep improving based on real results. You get a working solution—not just a project handoff.",
   },
 ];
 
@@ -164,7 +164,7 @@ export default function ServicesPage() {
               className="font-display text-quishub-black font-semibold tracking-[-0.05em] leading-[1.05]"
               style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
             >
-              We build AI systems<br />that work in the real world.
+              Intelligent digital infrastructure<br />built for operational scale.
             </motion.h1>
             <motion.p
               variants={fadeUp}

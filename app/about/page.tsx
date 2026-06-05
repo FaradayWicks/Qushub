@@ -54,7 +54,7 @@ const teamMembers = [
   role: "Founder & CEO",
   initials: "MR",
   image: "/images/Mujtaba%20Rehman.png",
-  bio: "Leads product strategy, client relationships, and overall vision. Has overseen the delivery of production AI systems across healthcare, legal, logistics, and creative tech — including two government-deployed platforms.",
+  bio: "Leads product strategy, client relationships, and overall vision. Has overseen the delivery of production software systems across healthcare, legal, logistics, and creative industries — including two government-deployed platforms.",
   linkedin: "https://www.linkedin.com/in/muhammad-mujtaba-rehman/",
 },
   {
@@ -62,7 +62,7 @@ const teamMembers = [
     role: "Co-Founder & CTO",
     initials: "UP",
     image: "/images/Uzair%20Hussan%20Pasha.png",
-    bio: "Drives engineering architecture and technical execution. Specializes in scalable AI pipelines, agentic systems, and distributed backend infrastructure. Ensures every system we ship is production-grade from day one.",
+    bio: "Drives engineering architecture and technical execution. Specializes in scalable automation systems, intelligent workflows, and resilient digital infrastructure. Ensures every system we ship is production-ready from day one.",
     linkedin: "https://www.linkedin.com/in/uzair-hussan-pasha-4481481a2/",
   },
 ];
@@ -72,7 +72,7 @@ const devicon = (name: string, variant = "original") =>
 
 const techCategories = [
   {
-    category: "AI & Agentic",
+    category: "Intelligent Automation",
     items: [
       { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/1C3C3C" },
       { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991" },
@@ -83,7 +83,7 @@ const techCategories = [
     ] as TechItem[],
   },
   {
-    category: "Vector & RAG",
+    category: "Smart Data Systems",
     items: [
       { name: "Pinecone", logo: "https://cdn.simpleicons.org/pinecone/000000" },
       { name: "Weaviate", logo: "https://cdn.simpleicons.org/weaviate/00B7FF" },
@@ -206,9 +206,9 @@ export default function AboutPage() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="mt-5 text-lg text-quishub-muted leading-body"
             >
-              A small, senior team of engineers and AI specialists. The people
-              you talk to are the people who build. We don&apos;t staff projects
-              with juniors and we don&apos;t outsource the hard parts.
+              A lean team of senior digital architects and operational strategists.
+              The people you talk to are the people who build. We don&apos;t staff projects
+              with juniors and we don&apos;t outsource the critical work.
             </motion.p>
           </motion.div>
         </div>
@@ -236,7 +236,7 @@ export default function AboutPage() {
                 className="font-semibold tracking-heading text-quishub-black transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed] group-hover:drop-shadow-[0_0_12px_rgba(124,58,237,0.6)]"
                 style={{ fontSize: "clamp(28px, 4vw, 44px)" }}
               >
-                Engineering over aesthetics.
+                Reliability over everything.
               </h2>
             </motion.div>
             <motion.div
@@ -245,22 +245,19 @@ export default function AboutPage() {
               className="space-y-5"
             >
               <p className="text-quishub-muted leading-body">
-                The best products are built on solid architecture, not pretty
-                wireframes. Every decision we make is grounded in how the system
-                performs under real conditions - not how it looks in a Figma
-                file.
+                The best business systems are built on solid foundations, not surface-level polish.
+                Every decision we make is grounded in how your operations perform under real-world
+                conditions—not how they look in a presentation.
               </p>
               <p className="text-quishub-muted leading-body">
-                We think deterministically about non-deterministic systems. AI is
-                powerful. It also needs guardrails, evaluation layers, and
-                fallback mechanisms. That&apos;s the engineering work most teams
-                skip. It&apos;s where we thrive.
+                We build with precision and accountability. Smart automation is powerful, but it
+                needs quality safeguards, clear evaluation standards, and fallback protocols.
+                That&apos;s the disciplined work most teams skip. It&apos;s where we excel.
               </p>
               <p className="text-quishub-muted leading-body">
-                We&apos;ve built and operated our own products - legal platforms,
-                healthcare tools, and feedback intelligence systems. So when we
-                build for you, we&apos;re not guessing what production looks like.
-                We&apos;ve lived it.
+                We&apos;ve built and operated our own platforms across legal, healthcare,
+                and customer feedback industries. So when we build for you, we&apos;re not
+                guessing what production demands—we&apos;ve lived it.
               </p>
             </motion.div>
           </motion.div>

@@ -166,7 +166,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
         </OctacsTheme>
-        <ThemeToggle />
+        {!isHealthcareSubdomain && <ThemeToggle />}
         <ChatbotWidget />
 
       </body>

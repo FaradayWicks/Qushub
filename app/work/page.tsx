@@ -17,34 +17,34 @@ const caseStudies = [
   {
     slug: "paklawassist",
     tag: "Legal Tech - Pakistan",
-    title: "AI legal readiness for Pakistan's startup and SME ecosystem.",
+    title: "Smart legal software for Pakistani enterprise growth.",
     image: "/images/paklawassist.jpg",
     problem:
-      "Startups and businesses in Pakistan had no reliable way to get legally grounded guidance. Generic LLMs gave generic answers with US/UK-style assumptions that didn't apply locally. Legal consultants were expensive and slow.",
+      "Startups and businesses in Pakistan struggled to get reliable legal guidance. Generic online tools provided US/UK-focused answers that didn't apply locally. Traditional legal consultants were expensive and slow, leaving businesses exposed to compliance risks.",
     built:
-      "PakLawAssist - a RAG-first legal platform grounded to Pakistan's actual legal and regulatory framework. Before generating anything, the system retrieves relevant local legal context. Contract drafting, contract review, compliance guidance, and petition drafting are grounded to Pakistan-specific law, not generic templates.",
+      "PakLawAssist — a smart legal platform built specifically for Pakistan's regulatory framework. The system retrieves local legal context before generating guidance, ensuring every contract, compliance answer, and legal document is grounded in Pakistan-specific law—not generic templates.",
     live: [
-      "Full application at agent.paklawassist.com",
-      "Knowledge chatbot deployed with SMEDA",
-      "Knowledge chatbot deployed with PSIC",
-      "International version live at nuworo.com",
+      "Full platform serving businesses at agent.paklawassist.com",
+      "Knowledge system deployed with SMEDA (Government of Pakistan)",
+      "Knowledge system deployed with PSIC (Government of Pakistan)",
+      "International version serving global markets at nuworo.com",
     ],
     technical:
-      "Multi-step RAG orchestration: retrieve, reason, generate, validate, and format. Role-based access control for institutional deployments. Usage quotas and admin governance. Clean document outputs - not chat text.",
+      "Multi-step quality process: research, reason, generate, validate, and format. Role-based access for institutional deployments. Usage governance and clean document outputs.",
   },
   {
     slug: "nurmed",
     tag: "Healthcare - US/UAE",
-    title: "AI clinical documentation that gave doctors their time back.",
+    title: "Clinical software cutting consultation times by 34%.",
     image: "/images/nurmed-ai.jpg",
     problem:
-      "Doctors were spending a disproportionate amount of every consultation on documentation - typing while patients waited. It wasn't just an efficiency problem. It was a fatigue problem. And a patient experience problem.",
+      "Doctors were spending a third of every consultation on documentation—typing notes while patients waited. This created fatigue, reduced patient face-time, and slowed clinic throughput. It was an efficiency problem, a burnout risk, and a patient experience issue all at once.",
     built:
-      "NurMed - an AI clinical documentation platform that handles the typing so doctors don't have to. Structured note generation, clinical summaries, and consistent output format. Built to work in a live clinical environment, not a controlled demo.",
+      "NurMed — a smart clinical documentation platform that automates note-taking so doctors can focus on patients. Structured reports, consistent formatting, and seamless workflow integration. Built for real clinical environments, not demonstrations.",
     metrics: [
-      { value: "44 min", label: "TAT before NurMed" },
-      { value: "29 min", label: "TAT after NurMed" },
-      { value: "34%", label: "Reduction in consultation time" },
+      { value: "44 min", label: "Consultation time before" },
+      { value: "29 min", label: "Consultation time after" },
+      { value: "34%", label: "Reduction in visit duration" },
       { value: "Week 1", label: "Time to measurable impact" },
     ],
     quote:
@@ -54,41 +54,33 @@ const caseStudies = [
   {
     slug: "senteez",
     tag: "Hospitality & Retail Intelligence - Dubai / US",
-    title: "Turning 23,000 customer reviews into decisions teams can act on.",
+    title: "Turning 23,000+ reviews into actionable business intelligence.",
     image: "/images/senteez.jpg",
     problem:
-      "Star ratings are blunt. A 4.2 doesn't tell you what guests loved, what's breaking the experience, or what changed last month. Hotel and restaurant operators were making decisions based on averages - and missing everything specific and actionable underneath them.",
+      "Star ratings are blunt. A 4.2 doesn't reveal what customers loved, what's breaking the experience, or what changed last month. Hotel and retail operators were making decisions based on averages—missing the specific, actionable insights hidden in thousands of written reviews.",
     built:
-      "Senteez - a feedback intelligence platform that ingests reviews from Google Business, TripAdvisor, Facebook, BestBuy, and more, runs NLP analysis with fine-tuned models, and extracts structured insights. Sentiment, intent detection, topic modeling, and named entity recognition turn reviews into a decision engine.",
+      "Senteez — a feedback intelligence platform that collects reviews from Google, TripAdvisor, Facebook, and more, then automatically extracts patterns and insights. Sentiment analysis, topic detection, and trend tracking turn scattered feedback into a clear decision-making system.",
     live: [
-      "11,127 reviews across 8 Dubai Marina hotels",
-      "6,007 reviews across 9 Dubai Marina restaurants",
-      "6,067 reviews across 5 US coffee brands",
-      "Live at senteez.com",
+      "11,127 reviews analyzed across 8 Dubai Marina hotels",
+      "6,007 reviews analyzed across 9 Dubai Marina restaurants",
+      "6,067 reviews analyzed across 5 US coffee brands",
+      "Live platform at senteez.com",
     ],
   },
   {
     slug: "fictionpub",
     tag: "Creative Tech - United States",
-    title: "Full-length AI novels. 20,000 users. 20-30 minutes.",
+    title: "Helping 20,000+ writers generate full length novels in minutes.",
     image: "/images/fictionpub-ai.jpg",
     problem:
-      "Writers - from students to professional authors - were spending weeks or months getting to a first draft. The blank page problem is real. Most AI writing tools give you a paragraph, maybe a scene. Nobody had solved the full manuscript.",
+      "Writers—from students to professional authors—were spending weeks or months getting to a first draft. The blank page problem is real. Most writing tools give you a paragraph, maybe a scene. Nobody had solved the full manuscript workflow.",
     built:
-      "FictionPub.ai - an enterprise-grade manuscript generation platform that takes a writer from concept to complete novel. The pipeline covers market research, story concept, character development, chapter-by-chapter plot structure, full draft generation, and quality evaluation. Every section is assessed by an LLM-as-Judge system before delivery - creativity, coherence, engagement, and pacing. Below 70%, it regenerates automatically.",
-    technicalList: [
-      "Multi-provider AI strategy - Anthropic + OpenAI, model selected per task type",
-      "Celery + Redis distributed task queue - handles 20-30 minute generation jobs at scale",
-      "WebSocket real-time streaming - writers see content generated paragraph by paragraph",
-      "LLM-as-Judge quality gates - automated evaluation and regeneration before delivery",
-      "Opik prompt management - 500+ genre-specific prompts with versioning and A/B testing",
-      "Auto-recovery - stuck task detection, resume from any stage, zero lost work",
-    ],
+      "FictionPub.ai — an enterprise-grade manuscript generation platform that takes writers from concept to complete novel. The workflow covers market research, story development, character building, plot structure, full draft creation, and quality assessment. Every section is evaluated for creativity, coherence, and engagement before delivery.",
     metrics: [
-      { value: "20K+", label: "Active users in the US" },
+      { value: "20K+", label: "Active writers in the US" },
       { value: "100K", label: "Words per manuscript" },
       { value: "30 min", label: "Full novel generation time" },
-      { value: "70%+", label: "AI quality score gate" },
+      { value: "70%+", label: "Quality score threshold" },
     ],
     live: ["Live at app.fictionpub.ai"],
   },

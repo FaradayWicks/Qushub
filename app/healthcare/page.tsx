@@ -146,6 +146,16 @@ const WORK_GALLERY = [
     caption: "Pre-visit summary tool, live deployment",
     location: "Specialty surgery group",
   },
+  {
+    src: "/images/healthcare/Real Systems.jpg",
+    caption: "Real systems in action",
+    location: "Healthcare deployment",
+  },
+  {
+    src: "/images/healthcare/Real Practices.jpg",
+    caption: "Real practices",
+    location: "Healthcare deployment",
+  },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -512,49 +522,29 @@ export default function HealthcarePage() {
             </p>
           </div>
 
-          {/* Asymmetric gallery — large hero + 3 stacked */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
-            {/* Hero image */}
-            <figure className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#EBF3FC] md:col-span-7 md:row-span-2 aspect-[4/3] md:aspect-auto md:min-h-[480px]">
-              <Image
-                src={WORK_GALLERY[0].src}
-                alt={WORK_GALLERY[0].caption}
-                fill
-                sizes="(max-width: 768px) 100vw, 58vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/85 via-[#0f172a]/20 to-transparent" />
-              <figcaption className="absolute bottom-0 left-0 right-0 p-7 md:p-8">
-                <div className="text-[0.62rem] tracking-[0.22em] uppercase text-white/65 font-bold mb-2">
-                  Feature deployment
-                </div>
-                <div className="font-semibold tracking-[-0.015em] text-lg md:text-xl text-white">
-                  {WORK_GALLERY[0].caption}
-                </div>
-                <div className="text-sm text-white/65 mt-1">{WORK_GALLERY[0].location}</div>
-              </figcaption>
-            </figure>
-
-            {/* Smaller tiles */}
-            {WORK_GALLERY.slice(1).map((img) => (
+          {/* Gallery — equal sized boxes */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {WORK_GALLERY.map((img) => (
               <figure
                 key={img.src}
-                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#EBF3FC] md:col-span-5 aspect-[16/10]"
+                className="group relative overflow-hidden rounded-2xl border border-[#0f172a]/10 bg-[#EBF3FC] aspect-[4/3]"
               >
                 <Image
                   src={img.src}
                   alt={img.caption}
                   fill
-                  sizes="(max-width: 768px) 100vw, 42vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/75 via-[#0f172a]/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/85 via-[#0f172a]/20 to-transparent" />
                 <figcaption className="absolute bottom-0 left-0 right-0 p-5">
-                  <div className="font-semibold tracking-[-0.015em] text-sm text-white">
+                  <div className="text-[0.62rem] tracking-[0.22em] uppercase text-white/65 font-bold mb-1">
+                    Feature deployment
+                  </div>
+                  <div className="font-semibold tracking-[-0.015em] text-sm md:text-base text-white">
                     {img.caption}
                   </div>
-                  <div className="text-xs text-white/60 mt-0.5">{img.location}</div>
+                  <div className="text-xs text-white/65 mt-0.5">{img.location}</div>
                 </figcaption>
               </figure>
             ))}
@@ -762,26 +752,71 @@ export default function HealthcarePage() {
                         )}
                       </div>
 
+                      {/* Card Number & Title - Top of Card */}
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <div className="inline-flex items-center justify-center h-12 w-12 rounded-xl bg-gradient-to-br from-[#7c3aed]/20 to-[#2563eb]/20">
+                            <span className="text-2xl font-bold bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent">
+                              {s.n}
+                            </span>
+                          </div>
+                          <p className="text-sm font-semibold text-[#0f172a]">{s.title}</p>
+                        </div>
+                      </div>
+
                       {/* Visual Element */}
                       <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-gradient-to-br from-[#f8fafc] to-[#e2e8f0]">
-                        {/* Background Image for Insurance Verification */}
+                        {/* Background Images */}
                         {i === 0 && (
-                          <img
-                            src="/images/healthcare/clinical-desk.jpg"
-                            alt="Clinical desk"
-                            className="absolute inset-0 object-cover w-full h-full rounded-xl opacity-40 contrast-125 mix-blend-multiply"
-                          />
+                          <>
+                            <img
+                              src="/images/healthcare/clinical-desk.jpg"
+                              alt="Clinical desk"
+                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                            />
+                            <div className="absolute inset-0 bg-white/10 rounded-xl" />
+                          </>
                         )}
-                        <div className="absolute inset-0 flex items-center justify-center z-10">
-                          <div className="text-center">
-                            <div className="inline-flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-[#7c3aed]/20 to-[#2563eb]/20 mb-3 backdrop-blur-sm">
-                              <span className="text-4xl font-bold bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent">
-                                {s.n}
-                              </span>
-                            </div>
-                            <p className="text-sm text-[#0f172a] font-semibold drop-shadow-sm">{s.title}</p>
-                          </div>
-                        </div>
+                        {i === 1 && (
+                          <>
+                            <img
+                              src="/images/healthcare/Smart Multilingual Patient Reminders.png"
+                              alt="Smart Multilingual Patient Reminders"
+                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                            />
+                            <div className="absolute inset-0 bg-white/10 rounded-xl" />
+                          </>
+                        )}
+                        {i === 2 && (
+                          <>
+                            <img
+                              src="/images/healthcare/Prior Authorization Tracking System.jpg"
+                              alt="Prior Authorization Tracking System"
+                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                            />
+                            <div className="absolute inset-0 bg-white/10 rounded-xl" />
+                          </>
+                        )}
+                        {i === 3 && (
+                          <>
+                            <img
+                              src="/images/healthcare/Pre-Visit Patient Summary.jpg"
+                              alt="Pre-Visit Patient Summary"
+                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                            />
+                            <div className="absolute inset-0 bg-white/10 rounded-xl" />
+                          </>
+                        )}
+                        {i === 4 && (
+                          <>
+                            <img
+                              src="/images/healthcare/Cross-Location Sync.jpg"
+                              alt="Cross-Location Sync"
+                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                            />
+                            <div className="absolute inset-0 bg-white/10 rounded-xl" />
+                          </>
+                        )}
                         {/* Decorative Grid */}
                         <div className="absolute inset-0 opacity-[0.03] z-20 pointer-events-none" style={{
                           backgroundImage: `radial-gradient(circle at 2px 2px, #0f172a 1px, transparent 0)`,

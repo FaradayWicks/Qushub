@@ -3,8 +3,8 @@ import nodemailer from "nodemailer";
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -13,33 +13,77 @@ const transporter = nodemailer.createTransport({
 
 const PKT_OFFSET = "+05:00";
 
+/**
+ * OAuth Token Refresh - Google Calendar Integration
+ * 
+ * ENVIRONMENT SETUP REQUIRED:
+ * - GOOGLE_CLIENT_ID: From Google Cloud Console > Credentials
+ * - GOOGLE_CLIENT_SECRET: From Google Cloud Console > Credentials  
+ * - GOOGLE_REFRESH_TOKEN: Generated via OAuth2 flow (see re-auth guide below)
+ * - GOOGLE_CALENDAR_ID: Calendar ID to create events in (or "primary")
+ * 
+ * RE-AUTHENTICATION GUIDE (if token revoked):
+ * 1. Visit Google Cloud Console: https://console.cloud.google.com/apis/credentials
+ * 2. Ensure OAuth consent screen is configured (External or Internal)
+ * 3. Verify Google Calendar API is enabled: APIs & Services > Enabled APIs
+ * 4. Check OAuth credentials exist and are not deleted/recreated
+ * 5. Generate new refresh token via OAuth2 playground or manual flow
+ * 6. Update .env.local with new GOOGLE_REFRESH_TOKEN value
+ * 7. Restart Next.js dev server to load new environment variables
+ */
 async function getGoogleAccessToken() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
   const refreshToken = process.env.GOOGLE_REFRESH_TOKEN;
 
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error("Missing Google OAuth environment variables");
+  // Validate environment variables with specific missing key identification
+  const missingVars: string[] = [];
+  if (!clientId) missingVars.push("GOOGLE_CLIENT_ID");
+  if (!clientSecret) missingVars.push("GOOGLE_CLIENT_SECRET");
+  if (!refreshToken) missingVars.push("GOOGLE_REFRESH_TOKEN");
+
+  if (missingVars.length > 0) {
+    console.error("[Calendar Auth] Missing environment variables:", missingVars.join(", "));
+    throw new Error(`Missing Google OAuth environment variables: ${missingVars.join(", ")}`);
   }
 
-  const response = await fetch("https://oauth2.googleapis.com/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      client_id: clientId,
-      client_secret: clientSecret,
-      refresh_token: refreshToken,
-      grant_type: "refresh_token",
-    }),
-  });
+  try {
+    const response = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        client_id: clientId!, // Non-null assertion validated above
+        client_secret: clientSecret!, // Non-null assertion validated above
+        refresh_token: refreshToken!, // Non-null assertion validated above
+        grant_type: "refresh_token",
+      }),
+    });
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (!response.ok || !data.access_token) {
-    throw new Error(data.error_description || "Failed to get Google access token");
+    if (!response.ok || !data.access_token) {
+      // Enhanced error logging for OAuth failures
+      console.error("[Calendar Auth] OAuth2 Token Refresh Failed", {
+        status: response.status,
+        error: data.error,
+        errorDescription: data.error_description,
+        hint: data.error === "invalid_grant" 
+          ? "Refresh token revoked or expired. See RE-AUTHENTICATION GUIDE in source."
+          : "Check Google Cloud Console credentials and API enablement.",
+      });
+      
+      throw new Error(
+        data.error_description || 
+        data.error || 
+        "Failed to refresh Google access token"
+      );
+    }
+
+    return data.access_token as string;
+  } catch (error) {
+    console.error("[Calendar Auth] Token refresh exception:", error);
+    throw error;
   }
-
-  return data.access_token as string;
 }
 
 function to24HourTime(time: string) {
@@ -202,10 +246,39 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
+    // Enhanced error logging to capture authentication failures
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const isAuthError = errorMessage.toLowerCase().includes("token") || 
+                        errorMessage.toLowerCase().includes("auth") ||
+                        errorMessage.toLowerCase().includes("refresh") ||
+                        errorMessage.toLowerCase().includes("revoked") ||
+                        errorMessage.toLowerCase().includes("invalid_grant");
+    
+    console.error("[Booking API] Error Details:", {
+      timestamp: new Date().toISOString(),
+      isAuthenticationError: isAuthError,
+      errorMessage: errorMessage,
+      environmentCheck: {
+        hasClientId: !!process.env.GOOGLE_CLIENT_ID,
+        hasClientSecret: !!process.env.GOOGLE_CLIENT_SECRET,
+        hasRefreshToken: !!process.env.GOOGLE_REFRESH_TOKEN,
+        hasCalendarId: !!process.env.GOOGLE_CALENDAR_ID,
+      },
+      hint: isAuthError 
+        ? "Token revoked or expired. Run re-authentication flow to generate new GOOGLE_REFRESH_TOKEN."
+        : "Check server logs for full error details.",
+    });
+    
     console.error("Booking API error:", error);
-    const message = error instanceof Error ? error.message : "Failed to process booking. Please try again.";
+    
+    // Return user-friendly message with specific auth guidance
+    let userMessage = errorMessage;
+    if (isAuthError) {
+      userMessage = "Calendar authentication error. Please contact support or try booking via email at hello@quishub.com";
+    }
+    
     return NextResponse.json(
-      { error: message },
+      { error: userMessage },
       { status: 500 }
     );
   }

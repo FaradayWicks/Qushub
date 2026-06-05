@@ -10,11 +10,12 @@ function QuishubLogoSmall() {
 }
 
 const serviceLinks = [
-  { href: "/services#ai-llm-integration", label: "AI & LLM Integration" },
-  { href: "/services#saas-mvp-development", label: "SaaS MVPs" },
-  { href: "/services#scalable-backend-systems", label: "Backend Systems" },
-  { href: "/services#ai-automation-platforms", label: "AI Automation" },
-  { href: "/services#architecture-consulting", label: "Architecture Consulting" },
+  { href: "/services#intelligent-automation", label: "Intelligent Automation" },
+  { href: "/services#digital-product-launch", label: "Digital Product Launch" },
+  { href: "/services#enterprise-infrastructure", label: "Enterprise Infrastructure" },
+  { href: "/services#smart-workflow-solutions", label: "Smart Workflow Solutions" },
+  { href: "/services#business-intelligence", label: "Business Intelligence" },
+  { href: "/services#strategic-technology-advisory", label: "Strategic Technology Advisory" },
 ];
 
 const companyLinks = [
