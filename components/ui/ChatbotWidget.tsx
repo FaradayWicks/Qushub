@@ -100,6 +100,24 @@ const playPop = () => {
   } catch {}
 };
 
+const renderMessageText = (text: string) => {
+  if (!text) return "";
+  let processed = text.replace(/(^|\n)\*\s+/g, "$1• ");
+  processed = processed.replace(/(^|\n)-\s+/g, "$1• ");
+  const parts = processed.split("**");
+  if (parts.length === 1) return processed;
+  return parts.map((part, index) => {
+    if (index % 2 !== 0) {
+      return (
+        <strong key={index} style={{ fontWeight: 700, color: "inherit" }}>
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 interface Message {
   from: "bot" | "user";
   text: string;
@@ -422,6 +440,7 @@ export default function ChatbotWidget() {
       fontSize: 13.5,
       lineHeight: 1.55,
       wordBreak: "break-word",
+      whiteSpace: "pre-wrap",
     }),
     time: {
       fontSize: 10,
@@ -577,7 +596,7 @@ export default function ChatbotWidget() {
                         <img src="/favicon.png" alt="Quishub Logo" width="16" height="16" />
                       </div>
                     )}
-                    <div style={css.bubble(m.from === "user")}>{m.text}</div>
+                    <div style={css.bubble(m.from === "user")}>{renderMessageText(m.text)}</div>
                   </div>
                   <div
                     style={{
