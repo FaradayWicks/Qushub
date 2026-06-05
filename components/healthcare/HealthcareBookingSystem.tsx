@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Clock, MessageSquare, CheckCircle, Phone, CalendarDays } from "lucide-react";
+import Link from "next/link";
 
 const IconArrow = ({ className = "h-4 w-4" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -417,7 +418,7 @@ export default function HealthcareBookingSystem() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch max-w-[960px] mx-auto">
           <div>
             <h2 className="font-semibold tracking-[-0.02em] text-[#0f172a]" style={{ fontSize: "clamp(22px, 3vw, 32px)" }}>Tell us about your <span className="bg-gradient-to-r from-[#7c3aed] to-[#2563eb] bg-clip-text text-transparent">operational challenge</span>.</h2>
-            <p className="mt-3 text-sm text-[#64748b] leading-relaxed">Prefer to write it out first? Describe where your practice is losing hours and we&apos;ll get back to you within 48 hours.</p>
+            <p className="mt-3 text-sm text-[#64748b] leading-relaxed">Prefer to write it out first? Fill in the details and we&apos;ll get back to you within 24 hours. By submitting this form you agree to our <Link href="/privacy" className="underline hover:text-[#2152c4] transition-colors">Privacy Policy</Link> and <Link href="/terms" className="underline hover:text-[#2152c4] transition-colors">Terms & Conditions</Link>.</p>
             <div className="mt-8 space-y-4">
               <a href="mailto:hello@quishub.com" className="flex items-center gap-3 rounded-xl border border-[#0f172a]/10 bg-[#f8fafc] px-5 py-3 transition-all duration-300 hover:shadow-sm hover:border-[#7c3aed]/30 group">
                 <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#f8fafc] border border-[#0f172a]/10 text-[#7c3aed] transition-colors duration-300 group-hover:bg-gradient-to-br group-hover:from-[#7c3aed] group-hover:to-[#2563eb] group-hover:text-white"><Mail size={18} /></div>
@@ -437,9 +438,13 @@ export default function HealthcareBookingSystem() {
             <form onSubmit={handleMessageSubmit} className="space-y-5">
               <div><label className={labelCls}>Full Name <span className="text-[#0f172a]">*</span></label><input type="text" required placeholder="Dr. Jane Doe" className={`${inputCls} ${errors.name ? "border-red-500" : ""}`} value={messageForm.name} onChange={(e) => setMessageForm({ ...messageForm, name: e.target.value })} /></div>
               <div><label className={labelCls}>Email <span className="text-[#0f172a]">*</span></label><input type="email" required placeholder="jane@acmemed.com" className={`${inputCls} ${errors.email ? "border-red-500" : ""}`} value={messageForm.email} onChange={(e) => setMessageForm({ ...messageForm, email: e.target.value })} /></div>
+              <div><label className={labelCls}>Phone number</label><p className="text-[11px] text-[#64748b] mb-1">(optional, for SMS follow-up)</p><input type="tel" name="phone" placeholder="Business Phone Number" className={inputCls} value={messageForm.phone} onChange={(e) => setMessageForm({ ...messageForm, phone: e.target.value })} /></div>
               <div><label className={labelCls}>PRACTICE / HOSPITAL</label><input type="text" placeholder="e.g., Acme Family Medicine" className={inputCls} value={messageForm.practiceName} onChange={(e) => setMessageForm({ ...messageForm, practiceName: e.target.value })} /></div>
               <div><label className={labelCls}>OPERATIONAL BOTTLENECK <span className="text-[#0f172a]">*</span></label><textarea rows={5} required placeholder="Where is your practice losing the most hours?" className={`${inputCls} resize-none ${errors.message ? "border-red-500" : ""}`} value={messageForm.message} onChange={(e) => setMessageForm({ ...messageForm, message: e.target.value })} /></div>
               {submitError && (<div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-sm text-red-600">{submitError}</div>)}
+              <p className="text-[12px] md:text-[13px] text-slate-400 font-normal leading-normal mb-4 block text-left">
+                By providing your phone number and clicking Send Message, you agree to receive SMS messages from Quishub regarding scheduling consultations, follow-ups, sharing relevant materials, and responding to inquiries about Quishub workflow software. Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes. See our Privacy Policy at <Link href="/privacy" className="underline hover:text-[#2152c4] transition-colors">https://quishub.com/privacy</Link>.
+              </p>
               <button type="submit" disabled={isSubmitting} className="w-full group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-[#0f172a] px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_18px_36px_-10px_rgba(37,99,235,0.45)] disabled:opacity-70 disabled:cursor-not-allowed">
                 <span className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#2563eb] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-out" />
                 {isSubmitting ? (<><svg viewBox="0 0 24 24" className="relative h-4 w-4 animate-spin" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" /><path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg><span className="relative">Sending...</span></>) : (<span className="relative">Send Message →</span>)}

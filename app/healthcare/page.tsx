@@ -550,10 +550,6 @@ export default function HealthcarePage() {
             ))}
           </div>
 
-          {/* Tiny placeholder note — easy to delete later */}
-          <p className="mt-6 text-xs text-[#94a3b8] italic text-center">
-            Placeholder imagery — to be replaced with deployment screenshots.
-          </p>
         </div>
       </section>
 
