@@ -290,8 +290,8 @@ export default function ChatbotWidget() {
   const css: Record<string, any> = {
     wrapper: {
       position: "fixed",
-      bottom: 24,
-      right: 24,
+      bottom: "var(--chat-wrapper-bottom, 24px)",
+      right: "var(--chat-wrapper-right, 24px)",
       zIndex: 99999,
       fontFamily: "'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif",
     },
@@ -317,12 +317,12 @@ export default function ChatbotWidget() {
     },
     panel: {
       position: "absolute",
-      bottom: 76,
+      bottom: "var(--chat-panel-bottom, 76px)",
       right: 0,
-      width: 380,
-      maxWidth: "calc(100vw - 32px)",
-      height: 560,
-      maxHeight: "calc(100vh - 120px)",
+      width: "var(--chat-panel-width, 380px)",
+      maxWidth: "var(--chat-panel-max-width, calc(100vw - 32px))",
+      height: "var(--chat-panel-height, 560px)",
+      maxHeight: "var(--chat-panel-max-height, calc(100vh - 120px))",
       background: t.panel,
       backdropFilter: t.backdrop,
       WebkitBackdropFilter: t.backdrop,
@@ -385,6 +385,7 @@ export default function ChatbotWidget() {
     body: {
       flex: 1,
       overflowY: "auto",
+      WebkitOverflowScrolling: "touch",
       padding: "16px 16px 8px",
       display: "flex",
       flexDirection: "column",
@@ -487,7 +488,7 @@ export default function ChatbotWidget() {
       border: `1px solid ${t.inputBorder}`,
       borderRadius: 12,
       padding: "10px 14px",
-      fontSize: 13.5,
+      fontSize: "var(--chat-input-font-size, 13.5px)",
       color: t.inputText,
       outline: "none",
       transition: "border-color 0.2s",
@@ -515,6 +516,18 @@ export default function ChatbotWidget() {
     @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
     @keyframes msgIn { from{opacity:0;transform:translateY(8px) scale(0.96)} to{opacity:1;transform:translateY(0) scale(1)} }
     @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,0.4)} 50%{box-shadow:0 0 0 12px rgba(139,92,246,0)} }
+    
+    @media (max-width: 640px) {
+      .chatbot-widget {
+        --chat-wrapper-bottom: 16px;
+        --chat-wrapper-right: 16px;
+        --chat-panel-bottom: 72px;
+        --chat-panel-width: calc(100vw - 32px);
+        --chat-panel-max-width: 380px;
+        --chat-panel-max-height: calc(100vh - 100px);
+        --chat-input-font-size: 16px;
+      }
+    }
   `;
 
   return (
