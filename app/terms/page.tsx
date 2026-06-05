@@ -1,13 +1,13 @@
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-[#EBF3FC]">
-      <div className="max-w-4xl mx-auto py-16 px-6 md:px-12">
+      <div className="max-w-4xl mx-auto py-24 px-6 md:px-12">
         <h1 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-8 tracking-tight">
           TERMS AND CONDITIONS
         </h1>
 
         <p className="text-sm md:text-base text-[#475569] mb-8">
-          Effective Date: June 4, 2026
+          Effective Date: June 5, 2026
         </p>
 
         <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
@@ -32,15 +32,16 @@ export default function TermsPage() {
           3. SMS Messaging Terms
         </h2>
         <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-4">
-          By providing your business phone number or by being contacted by Quishub on a business contact number listed publicly by your organization, you may receive SMS messages from us, subject to the following terms:
+          By providing your phone number to Quishub through our contact form, by providing your phone number verbally during a phone call with Quishub, or by replying to Quishub messages, you agree to receive SMS messages from us, subject to the following terms:
         </p>
         <ul className="pl-5 list-disc space-y-2 text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
           <li><span className="font-semibold">Purpose:</span> SMS messages are used to follow up on outreach, schedule and confirm consultation calls, share relevant links, and respond to inbound replies.</li>
-          <li><span className="font-semibold">Frequency:</span> Message frequency varies. We limit outreach to a maximum of three messages per recipient if there is no engagement.</li>
+          <li><span className="font-semibold">Frequency:</span> Message frequency may vary. We limit outreach to a maximum of three messages per recipient if there is no engagement.</li>
           <li><span className="font-semibold">Cost:</span> Message and data rates may apply. Quishub does not charge for SMS messages, but your mobile carrier may.</li>
           <li><span className="font-semibold">Opt-Out:</span> You may opt out at any time by replying STOP, END, QUIT, UNSUBSCRIBE, or CANCEL. After opting out, you will receive a confirmation message and no further texts.</li>
-          <li><span className="font-semibold">Help:</span> Reply HELP at any time for assistance, or contact us at mujtaba@quishub.com.</li>
+          <li><span className="font-semibold">Help:</span> Reply HELP at any time for assistance, or contact us at hello@quishub.com.</li>
           <li><span className="font-semibold">Privacy:</span> Your mobile information will not be sold or shared with third parties for promotional or marketing purposes. Please review our Privacy Policy at https://quishub.com/privacy.</li>
+          <li><span className="font-semibold">Consent:</span> Consent to receive SMS messages is not a condition of purchase.</li>
         </ul>
 
         <h2 className="text-xl md:text-2xl font-bold text-[#0f172a] mt-10 mb-4">
@@ -98,7 +99,7 @@ export default function TermsPage() {
         </p>
         <div className="text-sm md:text-base text-[#0f172a] leading-relaxed space-y-1">
           <p className="font-semibold">Quishub</p>
-          <p>Email: mujtaba@quishub.com</p>
+          <p>Email: hello@quishub.com</p>
           <p>Phone: +1 (516) 266-7724</p>
           <p>Website: https://quishub.com</p>
         </div>

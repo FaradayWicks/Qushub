@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Mail, Clock, MessageSquare, CheckCircle, Phone, CalendarDays } from "lucide-react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CalendarBooking from "@/components/ui/CalendarBooking";
@@ -40,6 +41,7 @@ export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
     projectType: "",
     budget: "",
@@ -75,6 +77,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formState.name,
           email: formState.email,
+          phone: formState.phone,
           company: formState.company,
           projectType: formState.projectType,
           budget: formState.budget,
@@ -87,6 +90,7 @@ export default function ContactPage() {
         setFormState({
           name: "",
           email: "",
+          phone: "",
           company: "",
           projectType: "",
           budget: "",
@@ -304,7 +308,7 @@ export default function ContactPage() {
                 </h2>
                 <p className="mt-3 text-sm text-quishub-muted leading-body">
                   Prefer to write it out first? Fill in the details and we&apos;ll
-                  get back to you within 24 hours with an honest assessment.
+                  get back to you within 24 hours. By submitting this form you agree to our <Link href="/privacy" className="underline hover:text-[#2152c4] transition-colors">Privacy Policy</Link> and <Link href="/terms" className="underline hover:text-[#2152c4] transition-colors">Terms & Conditions</Link>.
                 </p>
 
                 <div className="mt-8 space-y-4">
@@ -391,6 +395,24 @@ export default function ContactPage() {
                     </div>
 
                     <div>
+                      <label htmlFor="phone" className="block text-sm text-quishub-muted mb-1.5">
+                        Phone number
+                      </label>
+                      <p className="text-xs text-quishub-faint mb-1.5">(optional, for SMS follow-up)</p>
+                      <input
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        placeholder="Business Phone Number"
+                        className={inputClasses}
+                        value={formState.phone}
+                        onChange={(e) =>
+                          setFormState({ ...formState, phone: e.target.value })
+                        }
+                      />
+                    </div>
+
+                    <div>
                       <label htmlFor="company" className="block text-sm text-quishub-muted mb-1.5">
                         Company <span className="text-quishub-faint">(optional)</span>
                       </label>
@@ -467,6 +489,10 @@ export default function ContactPage() {
                         {submitError}
                       </div>
                     )}
+
+                    <p className="text-[12px] md:text-[13px] text-slate-400 font-normal leading-normal mb-4 block text-left">
+                      By providing your phone number and clicking Send Message, you agree to receive SMS messages from Quishub regarding scheduling consultations, follow-ups, sharing relevant materials, and responding to inquiries about Quishub workflow software. Message frequency may vary. Standard message and data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. Your mobile information will not be sold or shared with third parties for promotional or marketing purposes. See our Privacy Policy at <Link href="/privacy" className="underline hover:text-[#2152c4] transition-colors">https://quishub.com/privacy</Link>.
+                    </p>
 
                     <Button 
                       type="submit" 

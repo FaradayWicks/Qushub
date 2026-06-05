@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, company, projectType, budget, message } = body;
+    const { name, email, phone, company, projectType, budget, message } = body;
 
     // Validation
     if (!name || !email || !message) {
@@ -37,6 +37,7 @@ export async function POST(request: NextRequest) {
           <table style="width: 100%; border-collapse: collapse;">
             <tr><td style="padding: 8px 0; color: #94a3b8;">Name</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${name}</td></tr>
             <tr><td style="padding: 8px 0; color: #94a3b8;">Email</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${email}</td></tr>
+            ${phone ? `<tr><td style="padding: 8px 0; color: #94a3b8;">Phone</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${phone}</td></tr>` : ""}
             ${company ? `<tr><td style="padding: 8px 0; color: #94a3b8;">Company</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${company}</td></tr>` : ""}
             ${projectType ? `<tr><td style="padding: 8px 0; color: #94a3b8;">Project Type</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${projectType}</td></tr>` : ""}
             ${budget ? `<tr><td style="padding: 8px 0; color: #94a3b8;">Budget</td><td style="padding: 8px 0; color: #f1f5f9; font-weight: 600;">${budget}</td></tr>` : ""}
@@ -88,6 +89,7 @@ export async function POST(request: NextRequest) {
 |---|---|
 | **Name** | ${name} |
 | **Email** | ${email} |
+| **Phone** | ${phone || "—"} |
 | **Company** | ${company || "—"} |
 | **Project Type** | ${projectType || "—"} |
 | **Budget** | ${budget || "—"} |

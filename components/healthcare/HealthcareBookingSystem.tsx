@@ -206,6 +206,7 @@ export default function HealthcareBookingSystem() {
     name: "",
     practice: "",
     email: "",
+    phone: "",
     schedule: "",
   });
   const [bookingState, setBookingState] = useState<{status: string; meetingLink?: string; message?: string}>({ status: "idle" });
@@ -214,6 +215,7 @@ export default function HealthcareBookingSystem() {
   const [messageForm, setMessageForm] = useState({
     name: "",
     email: "",
+    phone: "",
     practiceName: "",
     message: "",
   });
@@ -243,6 +245,7 @@ export default function HealthcareBookingSystem() {
           name: bookingForm.name,
           practice: bookingForm.practice,
           email: bookingForm.email,
+          phone: bookingForm.phone,
           schedule: bookingForm.schedule,
           bottleneck: "Scheduled via calendar booking",
         }),
@@ -253,7 +256,7 @@ export default function HealthcareBookingSystem() {
         return;
       }
       setBookingState({ status: "success", meetingLink: data.meetingLink });
-      setBookingForm({ name: "", practice: "", email: "", schedule: "" });
+      setBookingForm({ name: "", practice: "", email: "", phone: "", schedule: "" });
     } catch {
       setBookingState({ status: "error", message: "Network error. Please try again." });
     }
@@ -283,6 +286,7 @@ export default function HealthcareBookingSystem() {
         body: JSON.stringify({
           name: messageForm.name,
           email: messageForm.email,
+          phone: messageForm.phone,
           company: messageForm.practiceName,
           projectType: "Healthcare Diagnostic",
           budget: "",
@@ -292,7 +296,7 @@ export default function HealthcareBookingSystem() {
 
       if (response.ok) {
         setMessageSubmitted(true);
-        setMessageForm({ name: "", email: "", practiceName: "", message: "" });
+        setMessageForm({ name: "", email: "", phone: "", practiceName: "", message: "" });
       } else {
         setSubmitError("Failed to send message. Please try again or email us directly.");
       }
@@ -381,6 +385,9 @@ export default function HealthcareBookingSystem() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div><label className={labelCls}>Professional Email <span className="text-[#0f172a]">*</span></label><input type="email" required value={bookingForm.email} onChange={updateBooking("email")} placeholder="jane@acmemed.com" className={inputCls} /></div>
+                <div><label className={labelCls}>Phone Number</label><input type="tel" name="phone" value={bookingForm.phone} onChange={updateBooking("phone")} placeholder="Business Phone Number" className={inputCls} /></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="relative">
                   <label className={labelCls}>Preferred Date &amp; Time <span className="text-[#0f172a]">*</span></label>
                   <button type="button" onClick={() => setShowCalendar(!showCalendar)} className={`${inputCls} text-left flex items-center justify-between ${!bookingForm.schedule ? "text-[#94a3b8]" : "text-[#0f172a]"}`}>
@@ -398,6 +405,9 @@ export default function HealthcareBookingSystem() {
                   {bookingState.status === "loading" ? (<><svg viewBox="0 0 24 24" className="relative h-4 w-4 animate-spin" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" strokeOpacity="0.25" strokeWidth="3" /><path d="M22 12a10 10 0 0 0-10-10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /></svg><span className="relative">Booking...</span></>) : (<span className="relative">Book diagnostic call →</span>)}
                 </button>
               </div>
+              <p className="text-[11px] md:text-xs text-slate-500 leading-normal mt-3 block text-left">
+                By providing your phone number and clicking Submit, you agree to receive SMS messages from Quishub under our Terms and Conditions and Privacy Policy. Message and data rates may apply. Message frequency varies. You can opt out at any time by replying STOP, END, QUIT, UNSUBSCRIBE, or CANCEL.
+              </p>
             </form>
           </div>
         </motion.div>

@@ -1,13 +1,13 @@
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#EBF3FC]">
-      <div className="max-w-4xl mx-auto py-16 px-6 md:px-12">
+      <div className="max-w-4xl mx-auto py-24 px-6 md:px-12">
         <h1 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-8 tracking-tight">
           PRIVACY POLICY
         </h1>
 
         <p className="text-sm md:text-base text-[#475569] mb-8">
-          Effective Date: June 4, 2026
+          Effective Date: June 5, 2026
         </p>
 
         <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         </p>
         <ul className="pl-5 list-disc space-y-2 text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
           <li>Business contact information you provide to us, including name, role, business email address, business phone number, and the name of your organization.</li>
-          <li>Business contact information obtained from public sources such as business websites, professional directories, public job postings, and the National Provider Identifier (NPI) registry.</li>
+          <li>Business contact information obtained from public sources such as business websites, professional directories, and public job postings.</li>
           <li>Information you provide in response to our outreach, including replies to emails, texts, or calls.</li>
           <li>Technical information such as IP address and browser type when you visit our website.</li>
         </ul>
@@ -48,18 +48,23 @@ export default function PrivacyPage() {
         </p>
         <ul className="pl-5 list-disc space-y-2 text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
           <li>Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.</li>
-          <li>Messages are limited to a maximum of three messages per recipient if there is no engagement.</li>
-          <li>You can opt out of receiving SMS messages at any time by replying STOP, END, QUIT, UNSUBSCRIBE, or CANCEL.</li>
+          <li>Message frequency may vary.</li>
           <li>Message and data rates may apply.</li>
-          <li>Message frequency varies.</li>
-          <li>For help, reply HELP, or contact us at mujtaba@quishub.com.</li>
+          <li>You can opt out of receiving SMS messages at any time by replying STOP, END, QUIT, UNSUBSCRIBE, or CANCEL.</li>
+          <li>For help, reply HELP, or contact us at hello@quishub.com.</li>
         </ul>
 
         <h2 className="text-xl md:text-2xl font-bold text-[#0f172a] mt-10 mb-4">
           4. Information Sharing
         </h2>
         <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-4">
-          We do not sell, rent, or share your personal or mobile information with third parties for promotional or marketing purposes. We may share information only:
+          Your mobile information will not be sold or shared with third parties for promotional or marketing purposes.
+        </p>
+        <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-4">
+          All categories of information collected exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties. We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.
+        </p>
+        <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-4">
+          We may otherwise share information only:
         </p>
         <ul className="pl-5 list-disc space-y-2 text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
           <li>With service providers who help us operate our business (for example, email and SMS providers), under confidentiality obligations.</li>
@@ -85,7 +90,7 @@ export default function PrivacyPage() {
           <li>Opt out of further communication from us.</li>
         </ul>
         <p className="text-sm md:text-base text-[#0f172a] leading-relaxed mb-6">
-          To exercise these rights, contact us at mujtaba@quishub.com.
+          To exercise these rights, contact us at hello@quishub.com.
         </p>
 
         <h2 className="text-xl md:text-2xl font-bold text-[#0f172a] mt-10 mb-4">
@@ -103,7 +108,7 @@ export default function PrivacyPage() {
         </p>
         <div className="text-sm md:text-base text-[#0f172a] leading-relaxed space-y-1">
           <p className="font-semibold">Quishub</p>
-          <p>Email: mujtaba@quishub.com</p>
+          <p>Email: hello@quishub.com</p>
           <p>Phone: +1 (516) 266-7724</p>
           <p>Website: https://quishub.com</p>
         </div>
