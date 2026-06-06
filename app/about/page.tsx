@@ -1,6 +1,7 @@
 "use client";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useRef, useEffect } from "react";
+import Image from "next/image";
 import SectionLabel from "@/components/ui/SectionLabel";
 import CTA from "@/components/sections/CTA";
 import SideGradients from "@/components/ui/SideGradients";
@@ -378,9 +379,11 @@ export default function AboutPage() {
                   <div className="flex items-center gap-5">
                     {/* Avatar placeholder — replace with next/image once photos are ready */}
                                       {member.image ? (
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
+                        width={96}
+                        height={96}
                         className="w-[96px] h-[96px] rounded-full flex-shrink-0 object-cover border border-[#1e293b]"
                       />
                     ) : (

@@ -765,50 +765,60 @@ export default function HealthcarePage() {
                         {/* Background Images */}
                         {i === 0 && (
                           <>
-                            <img
+                            <Image
                               src="/images/healthcare/clinical-desk.jpg"
                               alt="Clinical desk"
-                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover rounded-xl"
                             />
                             <div className="absolute inset-0 bg-white/10 rounded-xl" />
                           </>
                         )}
                         {i === 1 && (
                           <>
-                            <img
+                            <Image
                               src="/images/healthcare/Smart Multilingual Patient Reminders.png"
                               alt="Smart Multilingual Patient Reminders"
-                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover rounded-xl"
                             />
                             <div className="absolute inset-0 bg-white/10 rounded-xl" />
                           </>
                         )}
                         {i === 2 && (
                           <>
-                            <img
+                            <Image
                               src="/images/healthcare/Prior Authorization Tracking System.jpg"
                               alt="Prior Authorization Tracking System"
-                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover rounded-xl"
                             />
                             <div className="absolute inset-0 bg-white/10 rounded-xl" />
                           </>
                         )}
                         {i === 3 && (
                           <>
-                            <img
+                            <Image
                               src="/images/healthcare/Pre-Visit Patient Summary.jpg"
                               alt="Pre-Visit Patient Summary"
-                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover rounded-xl"
                             />
                             <div className="absolute inset-0 bg-white/10 rounded-xl" />
                           </>
                         )}
                         {i === 4 && (
                           <>
-                            <img
+                            <Image
                               src="/images/healthcare/Cross-Location Sync.jpg"
                               alt="Cross-Location Sync"
-                              className="absolute inset-0 object-cover w-full h-full rounded-xl"
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover rounded-xl"
                             />
                             <div className="absolute inset-0 bg-white/10 rounded-xl" />
                           </>
