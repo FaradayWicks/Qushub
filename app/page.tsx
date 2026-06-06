@@ -126,28 +126,28 @@ export default function NewHome() {
                 Get real results.
               </span>
             </h1>
-            <p className="hero__sub reveal" style={{ "--d": ".6s" } as React.CSSProperties}>
+            <p className="hero__sub reveal" style={{ "--d": ".2s" } as React.CSSProperties}>
              We turn business goals into reliable digital platforms that cut manual work and boost profit from Day One.
             </p>
-            <div className="hero__ctas reveal" style={{ "--d": ".75s" } as React.CSSProperties}>
-              <Link className="btn btn--primary btn--lg" href="/contact"><span className="relative z-10 flex items-center gap-2" style={{ color: "white" }}>Book a discovery call <span className="btn__arrow text-white">→</span></span></Link>
-              <Link className="btn btn--ghost btn--lg" href="/work">See our work</Link>
+            <div className="hero__ctas reveal" style={{ "--d": ".3s" } as React.CSSProperties}>
+               <Link className="btn btn--primary btn--lg" href="/contact"><span className="relative z-10 flex items-center gap-2" style={{ color: "white" }}>Book a discovery call <span className="btn__arrow text-white">→</span></span></Link>
+               <Link className="btn btn--ghost btn--lg" href="/work">See our work</Link>
             </div>
-            <div className="hero__proof reveal" style={{ "--d": ".9s" } as React.CSSProperties}>
-              <div className="stars" aria-label="5.0 on Upwork">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-              </div>
-              <span><strong>5.0</strong> on Upwork</span>
-              <span className="sep">·</span>
-              <span><strong>20,000+</strong> users shipped</span>
-            </div>
-          </div>
-
-          <div className="hero__visual reveal" style={{ "--d": ".4s" } as React.CSSProperties}>
+            <div className="hero__proof reveal" style={{ "--d": ".4s" } as React.CSSProperties}>
+               <div className="stars" aria-label="5.0 on Upwork">
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+               </div>
+               <span><strong>5.0</strong> on Upwork</span>
+               <span className="sep">·</span>
+               <span><strong>20,000+</strong> users shipped</span>
+             </div>
+           </div>
+ 
+           <div className="hero__visual reveal" style={{ "--d": ".1s" } as React.CSSProperties}>
             <div className="panel panel--term">
               <div className="panel__chrome">
                 <span className="dot dot--r"></span><span className="dot dot--y"></span><span className="dot dot--g"></span>
