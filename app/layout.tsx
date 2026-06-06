@@ -4,11 +4,13 @@ import { Sora } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { headers } from "next/headers";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import ThemeToggle from "@/components/theme/ThemeToggle";
-import MouseTracker from "@/components/ui/MouseTracker";
 import OctacsTheme from "@/components/OctacsTheme";
-import ChatbotWidget from "@/components/ui/ChatbotWidget";
+
+const MouseTracker = dynamic(() => import("@/components/ui/MouseTracker"), { ssr: false });
+const ChatbotWidget = dynamic(() => import("@/components/ui/ChatbotWidget"), { ssr: false });
 
 
 const texar = localFont({
@@ -48,6 +50,7 @@ const ttLakesNeue = localFont({
   ],
   variable: "--font-tt-lakes",
   display: "swap",
+  preload: false,
 });
 
 const sora = Sora({
