@@ -117,10 +117,6 @@ html {
   --toggle-icon-muted: rgba(10, 10, 10, 0.56);
   --octacs-bg: #e5e5e5;
   --octacs-grid-opacity: 0.08;
-  --contact-bg: url('/contact-bg-light.png');
-  --about-bg: url('/about-bg-light.png');
-  --services-bg: url('/services-bg-light.png');
-  --work-bg: url('/work-bg-light.png');
 }
 
 [data-theme="dark"] {
@@ -184,10 +180,6 @@ html {
   --toggle-icon-muted: rgba(229, 229, 228, 0.62);
   --octacs-bg: #000000;
   --octacs-grid-opacity: 0.08;
-  --contact-bg: url('/contact-bg-dark.png');
-  --about-bg: url('/about-bg-dark.png');
-  --services-bg: url('/services-bg-dark.png');
-  --work-bg: url('/work-bg-dark.png');
 }
 
 @layer base {

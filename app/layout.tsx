@@ -10,7 +10,7 @@ import ThemeToggle from "@/components/theme/ThemeToggle";
 import OctacsTheme from "@/components/OctacsTheme";
 
 const MouseTracker = dynamic(() => import("@/components/ui/MouseTracker"), { ssr: false });
-const ChatbotWidget = dynamic(() => import("@/components/ui/ChatbotWidget"), { ssr: false });
+import DelayedChatbot from "@/components/ui/DelayedChatbot";
 
 
 const texar = localFont({
@@ -50,7 +50,6 @@ const ttLakesNeue = localFont({
   ],
   variable: "--font-tt-lakes",
   display: "swap",
-  preload: false,
 });
 
 const sora = Sora({
@@ -170,7 +169,7 @@ export default function RootLayout({
           <main>{children}</main>
         </OctacsTheme>
         {!isHealthcareSubdomain && <ThemeToggle />}
-        <ChatbotWidget />
+        <DelayedChatbot />
 
       </body>
     </html>

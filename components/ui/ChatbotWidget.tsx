@@ -311,7 +311,7 @@ export default function ChatbotWidget() {
       bottom: "var(--chat-wrapper-bottom, 24px)",
       right: "var(--chat-wrapper-right, 24px)",
       zIndex: 99999,
-      fontFamily: "'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif",
+      fontFamily: "var(--font-sora), system-ui, -apple-system, sans-serif",
     },
     fab: {
       width: 60,
@@ -531,7 +531,6 @@ export default function ChatbotWidget() {
   };
 
   const keyframes = `
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&display=swap');
     @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
     @keyframes msgIn { from{opacity:0;transform:translateY(8px) scale(0.96)} to{opacity:1;transform:translateY(0) scale(1)} }
     @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,0.4)} 50%{box-shadow:0 0 0 12px rgba(139,92,246,0)} }

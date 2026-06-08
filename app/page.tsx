@@ -1,97 +1,11 @@
-"use client";
 import "./new-home.css";
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Logo from "@/components/brand/Logo";
 import SideGradients from "@/components/ui/SideGradients";
+import HomeEffects from "@/components/sections/HomeEffects";
 
 export default function NewHome() {
-  const [theme, setTheme] = useState("dark");
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    // Sync with existing global theme
-    const currentTheme = document.documentElement.dataset.theme || "dark";
-    setTheme(currentTheme);
-    // Ensure density and accent are set correctly for the new design
-    document.documentElement.setAttribute("data-accent", "warm");
-    document.documentElement.setAttribute("data-density", "compact");
-    document.querySelector(".hero")?.setAttribute("data-hero", "A");
-
-    const onScroll = () => setIsScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    // reveal on scroll
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (en.isIntersecting) {
-          en.target.classList.add("is-in");
-          io.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
-    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-
-    // count-up numbers
-    const countIO = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (!en.isIntersecting) return;
-        const el = en.target as HTMLElement;
-        const target = parseFloat(el.getAttribute("data-count") || "0");
-        const dur = 1400;
-        const t0 = performance.now();
-        const tick = (now: number) => {
-          const p = Math.min(1, (now - t0) / dur);
-          const eased = 1 - Math.pow(1 - p, 3);
-          const cur = target * eased;
-          el.textContent = (target >= 10 ? Math.round(cur).toString() : cur.toFixed(0));
-          if (p < 1) requestAnimationFrame(tick);
-          else el.textContent = target.toString();
-        };
-        requestAnimationFrame(tick);
-        countIO.unobserve(el);
-      });
-    }, { threshold: 0.4 });
-    document.querySelectorAll("[data-count]").forEach(el => countIO.observe(el));
-
-    // card hover glow (mouse-follow)
-    document.querySelectorAll(".card, .pcard, .tcard, .step").forEach(card => {
-      const c = card as HTMLElement;
-      c.addEventListener("mousemove", (e: MouseEvent) => {
-        const r = c.getBoundingClientRect();
-        c.style.setProperty("--mx", (e.clientX - r.left) + "px");
-        c.style.setProperty("--my", (e.clientY - r.top) + "px");
-      });
-    });
-
-    // subtle parallax on hero blobs
-    const mesh = document.querySelector(".hero__mesh");
-    if (mesh) {
-      const b1 = mesh.querySelector(".blob--1") as HTMLElement;
-      const b2 = mesh.querySelector(".blob--2") as HTMLElement;
-      window.addEventListener("scroll", () => {
-        const y = window.scrollY;
-        if (y > 800) return;
-        if (b1) b1.style.transform = `translate3d(0, ${y * .1}px, 0)`;
-        if (b2) b2.style.transform = `translate3d(0, ${y * .06}px, 0)`;
-      }, { passive: true });
-    }
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      io.disconnect();
-      countIO.disconnect();
-    };
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    document.documentElement.dataset.theme = newTheme;
-    localStorage.setItem("quishub-theme", newTheme);
-  };
-
   return (
     <div className="new-home-wrapper">
       {/* The original Navbar is now used globally */}
@@ -395,7 +309,7 @@ export default function NewHome() {
                   </div>
                   <div className="app">
                     <aside className="app__side">
-                      <div className="app__brand flex items-center gap-2"><img src="/images/nurmed.png" alt="NurMed" className="w-6 h-6 object-contain" /> NurMed</div>
+                      <div className="app__brand flex items-center gap-2"><Image src="/images/nurmed.png" alt="NurMed" width={24} height={24} className="object-contain" /> NurMed</div>
                       <nav className="app__nav">
                         <a className="app__item app__item--active">◐ Consultations</a>
                         <a className="app__item">◇ Patients</a>
@@ -452,7 +366,7 @@ export default function NewHome() {
                   behaved like an internal team, not a vendor.
                 </blockquote>
                 <div className="case__by">
-                  <img src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" />
+                  <Image src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" width={48} height={48} className="rounded-full object-cover border border-[#1e293b]" />
                   <div>
                     <div className="case__name">Head of Product</div>
                     <div className="case__org">Avenue Broadwalk · NurMed</div>
@@ -481,7 +395,7 @@ export default function NewHome() {
               <p className="pcard__p">AI-assisted novel writing with chapter-level memory, style locks and token-efficient RAG. 20,000+ writers onboarded, 2.4M chapters generated.</p>
               <div className="pcard__metric"><strong>20,000+</strong> writers</div>
               <div className="pcard__img" data-label="Product shot · FictionPub editor">
-                <img src="/images/fictionpub-ai.jpg" alt="FictionPub.ai editor" className="w-full h-full object-cover" loading="lazy" />
+                <Image src="/images/fictionpub-ai.jpg" alt="FictionPub.ai editor" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </a>
 
@@ -491,7 +405,7 @@ export default function NewHome() {
               <p className="pcard__p">Grounded legal research for Pakistan&apos;s case law corpus.</p>
               <div className="pcard__metric"><strong>1.2M</strong> judgments indexed</div>
               <div className="pcard__img" data-label="Platform preview">
-                <img src="/images/paklawassist.jpg" alt="PakLawAssist" className="w-full h-full object-cover" loading="lazy" />
+                <Image src="/images/paklawassist.jpg" alt="PakLawAssist" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </a>
 
@@ -501,7 +415,7 @@ export default function NewHome() {
               <p className="pcard__p">Turns qualitative user feedback into shippable decisions.</p>
               <div className="pcard__metric"><strong>92%</strong> theme accuracy</div>
               <div className="pcard__img" data-label="Analytics dashboard">
-                <img src="/images/senteez.jpg" alt="Senteez" className="w-full h-full object-cover" loading="lazy" />
+                <Image src="/images/senteez.jpg" alt="Senteez" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </a>
 
@@ -511,7 +425,7 @@ export default function NewHome() {
               <p className="pcard__p">Clinical documentation that cuts consult time by a third.</p>
               <div className="pcard__metric"><strong>34%</strong> faster consults</div>
               <div className="pcard__img" data-label="Clinical interface">
-                <img src="/images/nurmed-ai.jpg" alt="NurMed" className="w-full h-full object-cover" loading="lazy" />
+                <Image src="/images/nurmed-ai.jpg" alt="NurMed" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </a>
 
@@ -521,7 +435,7 @@ export default function NewHome() {
               <p className="pcard__p">Cross-jurisdiction contract analysis for in-house counsel.</p>
               <div className="pcard__metric"><strong>14</strong> jurisdictions</div>
               <div className="pcard__img" data-label="Global contract audit">
-                <img src="/images/Nuworo.jpg" alt="Nuworo" className="w-full h-full object-cover" loading="lazy" />
+                <Image src="/images/Nuworo.jpg" alt="Nuworo" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </a>
           </div>
@@ -597,7 +511,7 @@ export default function NewHome() {
             <figure className="tcard reveal">
               <blockquote>Shipped a HIPAA-aware clinical assistant in under a month. Our consult times dropped 34% in week one.</blockquote>
               <figcaption className="tcard__by">
-                <img src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" loading="lazy" />
+                <Image src="/images/Head%20Of%20Product.jpg" alt="Head of Product - Avenue Broadwalk" width={48} height={48} className="rounded-full object-cover border border-[#1e293b]" />
                 <div>
                   <div className="tcard__name">Head of Product</div>
                   <div className="tcard__org">Avenue Broadwalk · <em>NurMed</em></div>
@@ -607,7 +521,7 @@ export default function NewHome() {
             <figure className="tcard reveal" style={{ "--d": ".1s" } as React.CSSProperties}>
               <blockquote>They rebuilt our PWA in two sprints and found $14k/mo of cloud we didn&apos;t know we were burning.</blockquote>
               <figcaption className="tcard__by">
-                <img src="/images/Founder.jpg" alt="Founder" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" loading="lazy" />
+                <Image src="/images/Founder.jpg" alt="Founder" width={48} height={48} className="rounded-full object-cover border border-[#1e293b]" />
                 <div>
                   <div className="tcard__name">Founder</div>
                   <div className="tcard__org">Upwork · Full-stack PWA</div>
@@ -617,7 +531,7 @@ export default function NewHome() {
             <figure className="tcard reveal" style={{ "--d": ".2s" } as React.CSSProperties}>
               <blockquote>Senior engineers who actually read the whitepaper. Delivered the on-chain workflow we&apos;d been stuck on for months.</blockquote>
               <figcaption className="tcard__by">
-                <img src="/images/CTO.jpg" alt="CTO - Upwork Blockchain" className="h-12 w-12 rounded-full object-cover border border-[#1e293b]" loading="lazy" />
+                <Image src="/images/CTO.jpg" alt="CTO - Upwork Blockchain" width={48} height={48} className="rounded-full object-cover border border-[#1e293b]" />
                 <div>
                   <div className="tcard__name">CTO</div>
                   <div className="tcard__org">Upwork · Blockchain</div>
@@ -736,6 +650,7 @@ export default function NewHome() {
           <span className="foot__tag">Transforming ideas into enterprise success stories.</span>
         </div>
       </footer>
+      <HomeEffects />
     </div>
   );
 }
