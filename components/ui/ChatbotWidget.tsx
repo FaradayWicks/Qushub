@@ -683,11 +683,7 @@ export default function ChatbotWidget() {
           onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")}
           onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
-          {open ? (
-            Icons.close
-          ) : (
-            <img src="/favicon.png" alt="Chat with Quishub" width="44" height="44" style={{ borderRadius: '50%' }} />
-          )}
+          {open ? Icons.close : Icons.chat}
         </button>
       </div>
     </>
