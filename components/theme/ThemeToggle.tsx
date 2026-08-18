@@ -40,11 +40,11 @@ export default function ThemeToggle() {
     >
       <Sun
         size={14}
-        className={`theme-toggle-icon absolute top-2.5 transition-colors duration-300 ${!isDark ? "text-quishub-white" : ""}`}
+        className={`theme-toggle-icon absolute top-2.5 transition-colors duration-300 ${!isDark ? "text-quishub-white" : "text-white/30"}`}
       />
       <Moon
         size={14}
-        className={`theme-toggle-icon absolute bottom-2.5 transition-colors duration-300 ${isDark ? "text-quishub-white" : ""}`}
+        className={`theme-toggle-icon absolute bottom-2.5 transition-colors duration-300 ${isDark ? "text-quishub-white" : "text-white/30"}`}
       />
       <span
         className={`theme-toggle-thumb absolute left-1 h-8 w-8 rounded-full transition-transform duration-300 ${isDark ? "translate-y-[18px]" : "-translate-y-[18px]"}`}

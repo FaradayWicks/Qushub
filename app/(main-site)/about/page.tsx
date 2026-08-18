@@ -70,7 +70,7 @@ const teamMembers = [
     name: "Mobashir Hussain",
     role: "Senior Software Engineer",
     initials: "MH",
-    image: "/mobi.jpg",
+    image: "/Mobshir Hussain.jpg",
     bio: "Architects scalable full-stack applications and high-performance backend systems. Specializes in building resilient software structures, API integrations, and maintaining production-level code quality.",
   },
   {
@@ -78,6 +78,7 @@ const teamMembers = [
     role: "Technical Team Lead",
     initials: "SL",
     image: "/14819A12-A4A6-46CE-92DE-39CD0DC65ED8.jpg",
+    imageClassName: "scale-125 object-[center_35%]",
     bio: "Drives technical execution, team coordination, and engineering best practices. Oversees project delivery pipelines, sprint management, and ensures complex software architectures meet enterprise performance standards.",
   },
   {
@@ -421,7 +422,7 @@ export default function AboutPage() {
                   key={member.name}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group relative overflow-hidden bg-[#160e20]/70 backdrop-blur-xl border border-[var(--surface-card-border)] p-6 md:p-8 rounded-2xl shadow-[0_22px_60px_rgba(0,0,0,0.28)] ring-1 ring-[var(--surface-card-border)] flex flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_28px_72px_rgba(0,0,0,0.36)]"
+                  className="group relative overflow-hidden bg-white/90 dark:bg-[#160e20]/60 backdrop-blur-md border border-slate-200/80 dark:border-white/5 p-6 md:p-8 rounded-2xl shadow-md dark:shadow-[0_22px_60px_rgba(0,0,0,0.28)] flex flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:hover:border-white/20 dark:hover:shadow-[0_28px_72px_rgba(0,0,0,0.36)]"
                 >
                   <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${teamAccents[index]} opacity-90`} />
                   <div className={`absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br ${teamAccents[index]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
@@ -429,35 +430,35 @@ export default function AboutPage() {
                   <div className="relative flex items-center gap-5">
                     {/* Avatar placeholder — replace with next/image once photos are ready */}
                                       {member.image ? (
-                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border-2 border-white/15 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.035),0_16px_34px_rgba(0,0,0,0.28)]">
+                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border border-slate-200 dark:border-white/10 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.035),0_16px_34px_rgba(0,0,0,0.28)]">
                         <Image
                           src={member.image}
                           alt={member.name}
                           fill
                           sizes="96px"
-                          className="object-cover object-center"
+                          className="object-cover object-top"
                         />
                       </div>
                     ) : (
                       <div
-                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border-2 border-white/10"
+                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border border-slate-200 dark:border-white/10"
                         style={{ background: "var(--button-primary-bg)" }}
                       >
                         {member.initials}
                       </div>
                     )}
                     <div>
-                      <h3 className="font-[var(--font-texar)] font-bold text-white text-xl leading-tight">
+                      <h3 className="font-[var(--font-texar)] font-bold text-slate-900 dark:text-white text-xl leading-tight">
                         {member.name}
                       </h3>
-                      <p className="mt-0.5 font-[var(--font-sora)] text-[#e5e5e4]/70 text-sm font-medium">
+                      <p className="mt-0.5 font-[var(--font-sora)] text-slate-600 dark:text-[#7c3aed] text-sm font-medium">
                         {member.role}
                       </p>
                     </div>
                   </div>
 
                   {/* Bio */}
-                  <p className="relative font-[var(--font-sora)] text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
+                  <p className="relative font-[var(--font-sora)] text-slate-600 dark:text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
                     {member.bio}
                   </p>
 
@@ -466,7 +467,7 @@ export default function AboutPage() {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative inline-flex items-center gap-2 text-xs text-[#e5e5e4]/70 hover:text-white transition-colors duration-200"
+                    className="relative inline-flex items-center gap-2 text-xs text-slate-500 hover:text-slate-900 dark:text-white/60 dark:hover:text-white transition-colors duration-200"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -483,7 +484,7 @@ export default function AboutPage() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="mb-6 text-center"
             >
-              <span className="font-[var(--font-sora)] text-xs font-semibold uppercase tracking-[0.24em] text-quishub-muted">
+              <span className="font-[var(--font-sora)] text-xs font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-white/60">
                 Engineering Leadership
               </span>
             </motion.div>
@@ -494,40 +495,40 @@ export default function AboutPage() {
                   key={member.name}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="group relative overflow-hidden bg-[#160e20]/70 backdrop-blur-xl border border-[var(--surface-card-border)] p-6 rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,0.24)] flex min-h-[392px] flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.34)]"
+                  className="group relative overflow-hidden bg-white/90 dark:bg-[#160e20]/60 backdrop-blur-md border border-slate-200/80 dark:border-white/5 p-6 rounded-2xl shadow-md dark:shadow-[0_18px_50px_rgba(0,0,0,0.24)] flex min-h-[392px] flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 dark:hover:border-white/20 dark:hover:shadow-[0_24px_64px_rgba(0,0,0,0.34)]"
                 >
                   <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${teamAccents[index + 2]} opacity-85`} />
                   <div className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br ${teamAccents[index + 2]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
                   <div className="relative flex items-center gap-5 xl:gap-6">
                     {member.image ? (
-                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border-2 border-white/15 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.03),0_14px_30px_rgba(0,0,0,0.24)]">
+                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border border-slate-200 dark:border-white/10 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.03),0_14px_30px_rgba(0,0,0,0.24)]">
                         <Image
                           src={member.image}
                           alt={member.name}
                           fill
                           sizes="96px"
-                          className="object-cover object-center"
+                          className={`object-cover object-top ${member.imageClassName ?? ""}`}
                         />
                       </div>
                     ) : (
                       <div
-                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border-2 border-white/10"
+                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border border-slate-200 dark:border-white/10"
                         style={{ background: "var(--button-primary-bg)" }}
                       >
                         {member.initials}
                       </div>
                     )}
                     <div>
-                      <h3 className="font-[var(--font-texar)] font-bold text-white text-xl leading-tight">
+                      <h3 className="font-[var(--font-texar)] font-bold text-slate-900 dark:text-white text-xl leading-tight">
                         {member.name}
                       </h3>
-                      <p className="mt-0.5 font-[var(--font-sora)] text-[#e5e5e4]/70 text-sm font-medium">
+                      <p className="mt-0.5 font-[var(--font-sora)] text-slate-600 dark:text-[#7c3aed] text-sm font-medium">
                         {member.role}
                       </p>
                     </div>
                   </div>
 
-                  <p className="relative font-[var(--font-sora)] text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
+                  <p className="relative font-[var(--font-sora)] text-slate-600 dark:text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
                     {member.bio}
                   </p>
                 </motion.div>
@@ -567,19 +568,19 @@ export default function AboutPage() {
               {techCategories.map((cat, index) => (
                 <div
                   key={cat.category}
-                  className={`group relative overflow-hidden rounded-2xl border border-[var(--surface-card-border)] bg-[#160e20]/70 shadow-[0_18px_44px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.32)] ${index < 2 ? "min-h-[232px] p-6 xl:col-span-6" : index < 5 ? "min-h-[190px] p-5 xl:col-span-4" : "min-h-[190px] p-5 xl:col-span-6"}`}
+                  className={`group relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/5 bg-white/80 dark:bg-[#160e20]/60 shadow-sm dark:shadow-[0_18px_44px_rgba(0,0,0,0.22)] backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-slate-300 dark:hover:border-white/20 dark:hover:shadow-[0_24px_60px_rgba(0,0,0,0.32)] ${index < 2 ? "min-h-[232px] p-6 xl:col-span-6" : index < 5 ? "min-h-[190px] p-5 xl:col-span-4" : "min-h-[190px] p-5 xl:col-span-6"}`}
                 >
                   <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${stackAccents[index]} opacity-80`} />
                   <div className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br ${stackAccents[index]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
 
                   <div className="relative mb-4 flex items-start justify-between gap-4">
                     <div>
-                      <h4 className={`text-xs font-semibold uppercase tracking-label-wide text-[#e5e5e4]/75 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${stackAccents[index]}`}>
+                      <h4 className={`font-[var(--font-texar)] text-xs font-semibold uppercase tracking-label-wide text-slate-900 dark:text-white transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${stackAccents[index]}`}>
                         {cat.category}
                       </h4>
                       <div className={`mt-2 h-1 w-10 rounded-full bg-gradient-to-r ${stackAccents[index]} opacity-80`} />
                     </div>
-                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-[var(--font-sora)] text-[10px] font-semibold text-[#e5e5e4]/60">
+                    <span className="rounded-full border border-slate-200 bg-slate-100 dark:border-white/10 dark:bg-white/5 px-2.5 py-1 font-[var(--font-sora)] text-[10px] font-semibold text-slate-600 dark:text-[#e5e5e4]/70">
                       {cat.items.length} tools
                     </span>
                   </div>
@@ -588,7 +589,7 @@ export default function AboutPage() {
                     {cat.items.map((item) => (
                       <span
                         key={item.name}
-                        className="inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 font-[var(--font-sora)] text-xs font-semibold text-[#f7f2ea] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.1] sm:justify-start"
+                        className="inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-slate-50 text-slate-800 hover:bg-slate-100 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/[0.1] px-3 py-1.5 font-[var(--font-sora)] text-xs font-semibold shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 sm:justify-start"
                       >
                         {item.logo ? (
                           <Image
