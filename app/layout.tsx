@@ -92,7 +92,6 @@ export const metadata: Metadata = {
     description:
       "Quishub builds production-ready AI systems for founders and product teams across healthcare, legal, logistics, and hospitality.",
     type: "website",
-    images: ["/og-image.png"],
   },
   twitter: {
     card: "summary_large_image",

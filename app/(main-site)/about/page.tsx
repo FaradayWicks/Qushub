@@ -54,22 +54,69 @@ const teamMembers = [
   name: "Mujtaba Rehman",
   role: "Founder & CEO",
   initials: "MR",
-  image: "/images/Mujtaba%20Rehman.png",
+  image: "/Mujtaba.jpg",
   bio: "Leads product strategy, client relationships, and overall vision. Has overseen the delivery of production software systems across healthcare, legal, logistics, and creative industries — including two government-deployed platforms.",
   linkedin: "https://www.linkedin.com/in/muhammad-mujtaba-rehman/",
 },
   {
-    name: "Uzair Hussan Pasha",
+    name: "Uzair Hassan Pasha",
     role: "Co-Founder & CTO",
     initials: "UP",
-    image: "/images/Uzair%20Hussan%20Pasha.png",
+    image: "/pasha.JPG",
     bio: "Drives engineering architecture and technical execution. Specializes in scalable automation systems, intelligent workflows, and resilient digital infrastructure. Ensures every system we ship is production-ready from day one.",
     linkedin: "https://www.linkedin.com/in/uzair-hussan-pasha-4481481a2/",
+  },
+  {
+    name: "Mobashir Hussain",
+    role: "Senior Software Engineer",
+    initials: "MH",
+    image: "/mobi.jpg",
+    bio: "Architects scalable full-stack applications and high-performance backend systems. Specializes in building resilient software structures, API integrations, and maintaining production-level code quality.",
+  },
+  {
+    name: "Sherdil Lodhi",
+    role: "Technical Team Lead",
+    initials: "SL",
+    image: "/14819A12-A4A6-46CE-92DE-39CD0DC65ED8.jpg",
+    bio: "Drives technical execution, team coordination, and engineering best practices. Oversees project delivery pipelines, sprint management, and ensures complex software architectures meet enterprise performance standards.",
+  },
+  {
+    name: "Ahmad Riaz",
+    role: "Associate Software Engineer / Designer",
+    initials: "AR",
+    image: "/Ahmad Riaz.png",
+    bio: "Crafts intuitive UI/UX design systems and builds responsive, modern frontend interfaces. Combines design aesthetics with clean engineering code to deliver seamless user experiences.",
+  },
+  {
+    name: "Muhammad Adil",
+    role: "Associate Software Engineer",
+    initials: "MA",
+    image: "/Muhammad Adil.jpg",
+    bio: "Specializes in modern web applications, frontend optimizations, and reliable backend integration flows. Focuses on shipping clean, efficient, and well-tested features.",
   },
 ];
 
 const devicon = (name: string, variant = "original") =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`;
+
+const stackAccents = [
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+];
+
+const teamAccents = [
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+  "from-[#7c3aed] to-[#2563eb]",
+];
 
 const techCategories = [
   {
@@ -337,6 +384,7 @@ export default function AboutPage() {
                 </motion.article>
               ))}
             </div>
+
           </motion.div>
         </div>
       </section>
@@ -367,45 +415,49 @@ export default function AboutPage() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[860px] mx-auto">
-              {teamMembers.map((member) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+              {teamMembers.slice(0, 2).map((member, index) => (
                 <motion.div
                   key={member.name}
                   variants={fadeUp}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="surface-card rounded-feature p-8 flex flex-col gap-6"
+                  className="group relative overflow-hidden bg-[#160e20]/70 backdrop-blur-xl border border-[var(--surface-card-border)] p-6 md:p-8 rounded-2xl shadow-[0_22px_60px_rgba(0,0,0,0.28)] ring-1 ring-[var(--surface-card-border)] flex flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_28px_72px_rgba(0,0,0,0.36)]"
                 >
+                  <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${teamAccents[index]} opacity-90`} />
+                  <div className={`absolute -right-20 -top-20 h-44 w-44 rounded-full bg-gradient-to-br ${teamAccents[index]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
                   {/* Avatar + name row */}
-                  <div className="flex items-center gap-5">
+                  <div className="relative flex items-center gap-5">
                     {/* Avatar placeholder — replace with next/image once photos are ready */}
                                       {member.image ? (
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={96}
-                        height={96}
-                        className="w-[96px] h-[96px] rounded-full flex-shrink-0 object-cover border border-[#1e293b]"
-                      />
+                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border-2 border-white/15 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.035),0_16px_34px_rgba(0,0,0,0.28)]">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          sizes="96px"
+                          className="object-cover object-center"
+                        />
+                      </div>
                     ) : (
                       <div
-                        className="w-[96px] h-[96px] rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none"
+                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border-2 border-white/10"
                         style={{ background: "var(--button-primary-bg)" }}
                       >
                         {member.initials}
                       </div>
                     )}
                     <div>
-                      <h3 className="text-lg font-semibold text-quishub-black leading-tight">
+                      <h3 className="font-[var(--font-texar)] font-bold text-white text-xl leading-tight">
                         {member.name}
                       </h3>
-                      <p className="mt-0.5 text-sm text-quishub-muted font-medium">
+                      <p className="mt-0.5 font-[var(--font-sora)] text-[#e5e5e4]/70 text-sm font-medium">
                         {member.role}
                       </p>
                     </div>
                   </div>
 
                   {/* Bio */}
-                  <p className="text-sm text-quishub-muted leading-body flex-1">
+                  <p className="relative font-[var(--font-sora)] text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
                     {member.bio}
                   </p>
 
@@ -414,7 +466,7 @@ export default function AboutPage() {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-xs text-quishub-muted hover:text-quishub-black transition-colors duration-200"
+                    className="relative inline-flex items-center gap-2 text-xs text-[#e5e5e4]/70 hover:text-white transition-colors duration-200"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
@@ -422,6 +474,62 @@ export default function AboutPage() {
                     </svg>
                     View on LinkedIn
                   </a>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              variants={fadeUp}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="mb-6 text-center"
+            >
+              <span className="font-[var(--font-sora)] text-xs font-semibold uppercase tracking-[0.24em] text-quishub-muted">
+                Engineering Leadership
+              </span>
+            </motion.div>
+
+            <div className="relative left-1/2 grid w-[calc(100vw-2rem)] max-w-[1360px] -translate-x-1/2 grid-cols-1 gap-6 md:w-[calc(100vw-4rem)] md:grid-cols-2 lg:grid-cols-4">
+              {teamMembers.slice(2).map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  variants={fadeUp}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="group relative overflow-hidden bg-[#160e20]/70 backdrop-blur-xl border border-[var(--surface-card-border)] p-6 rounded-2xl shadow-[0_18px_50px_rgba(0,0,0,0.24)] flex min-h-[392px] flex-col justify-between gap-6 transition-all duration-300 hover:-translate-y-1 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_24px_64px_rgba(0,0,0,0.34)]"
+                >
+                  <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${teamAccents[index + 2]} opacity-85`} />
+                  <div className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br ${teamAccents[index + 2]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
+                  <div className="relative flex items-center gap-5 xl:gap-6">
+                    {member.image ? (
+                      <div className="w-24 h-24 rounded-full overflow-hidden relative mb-4 border-2 border-white/15 flex-shrink-0 shadow-[0_0_0_6px_rgba(255,255,255,0.03),0_14px_30px_rgba(0,0,0,0.24)]">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          sizes="96px"
+                          className="object-cover object-center"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="w-24 h-24 rounded-full flex-shrink-0 flex items-center justify-center text-quishub-light font-semibold text-xl select-none mb-4 border-2 border-white/10"
+                        style={{ background: "var(--button-primary-bg)" }}
+                      >
+                        {member.initials}
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="font-[var(--font-texar)] font-bold text-white text-xl leading-tight">
+                        {member.name}
+                      </h3>
+                      <p className="mt-0.5 font-[var(--font-sora)] text-[#e5e5e4]/70 text-sm font-medium">
+                        {member.role}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="relative font-[var(--font-sora)] text-[#e5e5e4]/80 text-sm mt-3 leading-relaxed flex-1">
+                    {member.bio}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -454,33 +562,42 @@ export default function AboutPage() {
             <motion.div
               variants={fadeUp}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 text-left"
+              className="grid grid-cols-1 gap-6 text-left sm:grid-cols-2 xl:grid-cols-12"
             >
-              {techCategories.map((cat) => (
+              {techCategories.map((cat, index) => (
                 <div
                   key={cat.category}
-                  className="group rounded-card p-5 transition-all duration-300 cursor-pointer hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(124,58,237,0.3),0_0_40px_rgba(37,99,235,0.15)] hover:border-[rgba(124,58,237,0.25)]"
-                  style={{
-                    background: "var(--surface-card-bg)",
-                    border: "1px solid var(--surface-card-border)",
-                    boxShadow: "0 6px 16px rgba(0,0,0,0.15), 0 2px 4px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.08)",
-                  }}
+                  className={`group relative overflow-hidden rounded-2xl border border-[var(--surface-card-border)] bg-[#160e20]/70 shadow-[0_18px_44px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:border-[rgb(var(--quishub-light-rgb)/0.2)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.32)] ${index < 2 ? "min-h-[232px] p-6 xl:col-span-6" : index < 5 ? "min-h-[190px] p-5 xl:col-span-4" : "min-h-[190px] p-5 xl:col-span-6"}`}
                 >
-                  <h4 className="text-xs font-semibold uppercase tracking-label-wide text-quishub-muted mb-3 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#7c3aed]">
-                    {cat.category}
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
+                  <div className={`absolute inset-x-0 top-0 h-px bg-gradient-to-r ${stackAccents[index]} opacity-80`} />
+                  <div className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br ${stackAccents[index]} opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20`} />
+
+                  <div className="relative mb-4 flex items-start justify-between gap-4">
+                    <div>
+                      <h4 className={`text-xs font-semibold uppercase tracking-label-wide text-[#e5e5e4]/75 transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r ${stackAccents[index]}`}>
+                        {cat.category}
+                      </h4>
+                      <div className={`mt-2 h-1 w-10 rounded-full bg-gradient-to-r ${stackAccents[index]} opacity-80`} />
+                    </div>
+                    <span className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-[var(--font-sora)] text-[10px] font-semibold text-[#e5e5e4]/60">
+                      {cat.items.length} tools
+                    </span>
+                  </div>
+
+                  <div className={`relative grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 ${index < 2 ? "md:grid-cols-3" : "sm:flex sm:flex-wrap"}`}>
                     {cat.items.map((item) => (
                       <span
                         key={item.name}
-                        className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-quishub-black border border-transparent bg-gradient-to-r from-[rgba(124,58,237,0.08)] to-[rgba(37,99,235,0.08)] dark:from-[rgba(124,58,237,0.2)] dark:to-[rgba(37,99,235,0.2)] dark:text-white/90 transition-all duration-300 group-hover:from-[rgba(124,58,237,0.15)] group-hover:to-[rgba(37,99,235,0.15)] dark:group-hover:from-[rgba(124,58,237,0.35)] dark:group-hover:to-[rgba(37,99,235,0.35)] group-hover:shadow-[0_0_8px_rgba(124,58,237,0.2)]"
+                        className="inline-flex min-w-0 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 font-[var(--font-sora)] text-xs font-semibold text-[#f7f2ea] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-white/20 hover:bg-white/[0.1] sm:justify-start"
                       >
                         {item.logo ? (
-                          <img
+                          <Image
                             src={item.logo}
                             alt={item.name}
+                            width={14}
+                            height={14}
+                            unoptimized
                             className="h-3.5 w-3.5 object-contain"
-                            loading="lazy"
                             onError={(event) => {
                               event.currentTarget.style.display = "none";
                             }}
